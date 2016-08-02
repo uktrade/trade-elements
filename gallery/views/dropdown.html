@@ -1,0 +1,11 @@
+<form>
+  {{ forms.dropdown('advisor',
+    label="Advisor",
+    emptyLabel="Please select the advisor",
+    value=advisor,
+    options=advisors,
+    error=errors.advisor
+  ) }}
+
+  {{ forms.save(backUrl="#") }}
+</form>

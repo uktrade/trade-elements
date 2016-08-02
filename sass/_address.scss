@@ -1,0 +1,46 @@
+.fieldset--address {
+
+  .autosuggest__suggestions {
+    width: 100%;
+
+    @include media(tablet) {
+      width: 66%;
+    }
+  }
+
+  .address__lookup-wrapper {
+
+    .form-group .form-control {
+      width: 100%;
+      @include media(tablet) {
+        width: 25%;
+      }
+    }
+
+    .form-group select.form-control {
+      width: 100%;
+
+      @include media(tablet) {
+        width: 66%;
+      }
+    }
+
+    .button {
+      @include core-16;
+      background-color: $grey-2;
+      color: $black;
+      margin: 10px 0 0;
+      width: 100%;
+
+      @include media(tablet) {
+        margin: 0 0 0 5px;
+        width: 25%;
+      }
+    }
+  }
+
+  .reveal-manual-entry {
+    display: block;
+    margin-bottom: 20px;
+  }
+}

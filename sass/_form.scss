@@ -1,0 +1,53 @@
+.form-group.form-group--compact {
+  margin-bottom: 10px;
+}
+
+.form-section.form-section--compact {
+
+  margin-bottom: $gutter / 3;
+
+  @include media(tablet) {
+    margin-bottom: $gutter / 2;
+  }
+}
+
+.form-control {
+
+  + p {
+    margin-top: em(5);
+  }
+
+  @include media(tablet) {
+    width: 66%;
+  }
+}
+
+.fieldset-group {
+  margin: 0 0 40px;
+  float: left;
+  width: 100%;
+
+  .form-group {
+    .form-label {
+      display: none;
+    }
+
+    &:first-child {
+      .form-label {
+        display: block;
+      }
+    }
+  }
+}
+
+.form-group__checkbox-group {
+  .form-label {
+    margin-bottom: 3px;
+  }
+}
+
+.form-group__radiohide.inline .block-label {
+  @include media(tablet) {
+    margin-bottom: 10px;
+  }
+}

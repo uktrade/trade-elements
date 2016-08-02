@@ -1,0 +1,7 @@
+/dist
+/.sass-cache
+/.cache
+*.log
+.DS_Store
+/.tmp
+node_modules/

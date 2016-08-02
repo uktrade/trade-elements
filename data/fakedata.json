@@ -1,0 +1,37 @@
+{
+  "subject": "test subject",
+  "asset_path": "/",
+  "name": "Fred Smith",
+  "job": "Developer",
+  "jobDescription": "Description",
+  "countryOfInterest": ["Country 1", "Country 2"],
+  "countryOptions": ["Country 1", "Country 2", "United Kingdom", "Spain", "France"],
+  "address": {
+    "address1": "Address1",
+    "address2": "Address2",
+    "city": "City",
+    "county": "Berkshire",
+    "postcode": "postcode",
+    "country": "United Kingdom"
+  },
+  "primaryContact": true,
+  "hasManager": false,
+  "accountManager": "George Clooney",
+  "advisor": "Paul",
+  "advisors": ["George", "Paul", "John", "Ringo"],
+  "sectors": ["Automotive"],
+  "SECTOR_OPTIONS": ["Automotive", "Investment"],
+  "errors": {
+    "name": "You must enter a name",
+    "dateError": "You entered an invalid date"
+  },
+  "myDate": "2/12/2016",
+  "badDate": "34/de/",
+  "helper": "John",
+  "interactionContactId": "A13",
+  "contacts": {
+    "A13": "Fred Smith",
+    "B43": "Jane Doe",
+    "C51": "Dan Richardson"
+  }
+}

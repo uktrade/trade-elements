@@ -1,0 +1,33 @@
+.button-bar {
+  float: none;
+  clear: both;
+  margin: 30px 0;
+
+  &.confirm-bar {
+
+    background: $grey-3;
+    max-width: 425px;
+    padding: 10px 13px 15px 10px;
+    margin: 0 10px 10px 0;
+
+    .button-warning {
+      margin-left: 0;
+    }
+
+  }
+}
+
+.button-link {
+  line-height: 2.5;
+  margin-left: 15px;
+  top: 1px;
+  position: relative;
+}
+
+.button-secondary {
+  &:link,
+  &:visited {
+    background-color: $grey-2;
+    color: $black;
+  }
+}

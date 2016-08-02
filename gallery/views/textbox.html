@@ -1,0 +1,8 @@
+<form>
+
+  {{ forms.textbox('name', label="Name", value=name, error=errors.name) }}
+  {{ forms.textbox('job', label="Job tile", value=job, error=errors.job) }}
+  {{ forms.textarea('jobDescription', label="Job description", value=jobDescription) }}
+
+  {{ forms.save(backUrl="#") }}
+</form>

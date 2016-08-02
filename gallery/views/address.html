@@ -1,0 +1,39 @@
+<form>
+  <div class="form-section">
+    {{
+      forms.address('address',
+      label="Address",
+      value=address,
+      error=errors.address)
+    }}
+  </div>
+  <div class="form-section">
+    {{
+    forms.address('billingAddress',
+    label="Billing address",
+    optionalNonUk='yes',
+    optional='no',
+    error=errors.tradingAddress)
+    }}
+  </div>
+  <div class="form-section">
+    {{
+    forms.address('deliveryAddress',
+    label="Delivery address",
+    optionalNonUk='no',
+    optional='no',
+    error=errors.tradingAddress)
+    }}
+  </div>
+  <div class="form-section">
+    {{
+      forms.address('operatingAddress',
+      label="Trading address",
+      optionalNonUk='yes',
+      optional='yes',
+      error=errors.tradingAddress)
+    }}
+  </div>
+
+  {{ forms.save(backUrl="#") }}
+</form>

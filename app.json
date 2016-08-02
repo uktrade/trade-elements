@@ -1,0 +1,10 @@
+{
+  "name":"govstrap",
+  "scripts":{},
+  "env":{
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git",
+    "NPM_CONFIG_PRODUCTION": "false",
+    "NODE_MODULES_CACHE": "false"
+  },
+  "addons":[]
+}

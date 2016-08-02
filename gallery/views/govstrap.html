@@ -1,0 +1,44 @@
+{% extends "layouts/govuk_template.html" %}
+{% import "macros/search.html" as search %}
+{% import "macros/utils.html" as utils %}
+
+{% block header_class %}with-proposition{% endblock %}
+{% set global_header_text="Govstrap" %}
+{% set homepage_url = "/" %}
+{% set logo_link_title = "Go to Govstrap homepage" %}
+
+
+{% block proposition_header %}
+  {% set searchbarType = "header" %}
+  <div class="header-proposition">
+    {{ search.searchbar('query', label="Search companies and contacts", value="", type="header") }}
+  </div>
+{% endblock %}
+
+{% block head %}
+  {{ utils.govstrap_styles() }}{% endblock %}
+{% block content %}
+
+  <main id="content" role="main">
+    <div class="phase-banner-alpha">
+      <p>
+        <strong class="phase-tag">Alpha</strong>
+        <a href="https://github.com/UKTradeInvestment/govstrap">Github project</a>
+        | <a href="https://www.npmjs.com/package/govstrap">NPM Module</a>
+      </p>
+    </div>
+
+    <div class="container">
+      {% block main %}{% endblock %}
+    </div>
+  </main>
+{% endblock %}
+
+{% block body_end %}
+  {{ utils.govstrap_scripts() }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log(UKTI);
+    }, false);
+  </script>
+{% endblock %}

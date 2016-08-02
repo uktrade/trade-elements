@@ -1,0 +1,36 @@
+
+.status-badge {
+  @include core-19;
+  display: inline-block;
+  font-weight: normal;
+  border: 2px solid $black;
+  padding: 2px 10px 0;
+  position: absolute;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.status-badge--prospect {
+  color: $turquoise;
+  border-color: $turquoise;
+}
+
+.status-badge--primary-contact {
+  color: $fuschia;
+  border-color: $fuschia;
+}
+
+.status-badge--small {
+  @include core-16
+}
+
+.badged-heading {
+  @include bold-19;
+  padding: 4px 0 2px;
+  position: relative;
+  margin: 0 0 10px;
+
+  .status-badge {
+    top: 0;
+  }
+}
