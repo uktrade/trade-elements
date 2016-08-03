@@ -1,5 +1,5 @@
 {
-  "name":"govstrap",
+  "name":"trade-elements",
   "scripts":{},
   "env":{
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git",

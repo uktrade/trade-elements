@@ -16,7 +16,7 @@ const SASS_PATHS = [
 
 function buildDevelopmentStyles() {
   const sourcemaps = require('gulp-sourcemaps');
-  gulp.src(`${paths.sourceStyles}/govstrap.scss`)
+  gulp.src(`${paths.sourceStyles}/trade.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: SASS_PATHS
@@ -37,7 +37,7 @@ function buildProductionStyles() {
     .pipe(autoprefixer({
       browsers: ['> 1%', 'last 2 versions', 'IE 9']
     }))
-    .pipe(rename('govstrap.min.css'))
+    .pipe(rename('trade.min.css'))
     .pipe(gulp.dest(paths.outputStyles));
 }
 

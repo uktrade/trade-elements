@@ -1,7 +1,7 @@
-{% macro govstrap_scripts(scriptroot = '/javascripts') %}
-  <script src="{{ ( scriptroot + '/govstrap.js') | versionAssetUrl | safe }}"></script>
+{% macro trade_scripts(scriptroot = '/javascripts') %}
+  <script src="{{ ( scriptroot + '/trade.js') | versionAssetUrl | safe }}"></script>
 {% endmacro %}
 
-{% macro govstrap_styles(stylesheetroot = '/stylesheets') %}
-  <link href="{{ ( stylesheetroot + '/govstrap.css') | versionAssetUrl | safe }}" rel="stylesheet" type="text/css">
+{% macro trade_styles(stylesheetroot = '/stylesheets') %}
+  <link href="{{ ( stylesheetroot + '/trade.css') | versionAssetUrl | safe }}" rel="stylesheet" type="text/css">
 {% endmacro %}

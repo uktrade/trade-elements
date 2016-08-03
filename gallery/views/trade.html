@@ -3,9 +3,9 @@
 {% import "macros/utils.html" as utils %}
 
 {% block header_class %}with-proposition{% endblock %}
-{% set global_header_text="Govstrap" %}
+{% set global_header_text="Trade Elements" %}
 {% set homepage_url = "/" %}
-{% set logo_link_title = "Go to Govstrap homepage" %}
+{% set logo_link_title = "Go to Trade Elements homepage" %}
 
 
 {% block proposition_header %}
@@ -16,15 +16,15 @@
 {% endblock %}
 
 {% block head %}
-  {{ utils.govstrap_styles() }}{% endblock %}
+  {{ utils.trade_styles() }}{% endblock %}
 {% block content %}
 
   <main id="content" role="main">
     <div class="phase-banner-alpha">
       <p>
         <strong class="phase-tag">Alpha</strong>
-        <a href="https://github.com/UKTradeInvestment/govstrap">Github project</a>
-        | <a href="https://www.npmjs.com/package/govstrap">NPM Module</a>
+        <a href="https://github.com/UKTradeInvestment/trade-elements">Github project</a>
+        | <a href="https://www.npmjs.com/package/trade-elements">NPM Module</a>
       </p>
     </div>
 
@@ -35,7 +35,7 @@
 {% endblock %}
 
 {% block body_end %}
-  {{ utils.govstrap_scripts() }}
+  {{ utils.trade_scripts() }}
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       console.log(UKTI);

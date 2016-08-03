@@ -92,7 +92,7 @@ filter.attributeArray = function attributeArray(list) {
 
   let result = '[';
 
-  for (var iPos = 0; iPos < list.length -1; iPos += 1) {
+  for (var iPos = 0; iPos < list.length - 1; iPos += 1) {
     result += '&#34;' + list[iPos] + '&#34;,';
   }
 
@@ -136,7 +136,7 @@ filter.attributeObject = function(myObject) {
     result += `&#34;${key}&#34;:&#34;${myObject[key]}&#34;,`;
   }
 
-  result = result.substr(0, result.length -1) + '}';
+  result = result.substr(0, result.length - 1) + '}';
   return result;
 };
 

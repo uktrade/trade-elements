@@ -5,11 +5,11 @@ module.exports = [
   {
     devtool: 'cheap-module-source-map',
     entry: {
-      app: `${paths.sourceJS}/govstrap.js`
+      app: `${paths.sourceJS}/trade.js`
     },
     output: {
       path: paths.outputJS,
-      filename: 'govstrap.js',
+      filename: 'trade.js',
       libraryTarget: 'var',
       library: 'UKTI'
     },
@@ -33,11 +33,11 @@ module.exports = [
   },
   {
     entry: {
-      app: `${paths.sourceJS}/govstrap.js`
+      app: `${paths.sourceJS}/trade.js`
     },
     output: {
       path: paths.outputJS,
-      filename: 'govstrap.min.js'
+      filename: 'trade.min.js'
     },
     module: {
       loaders: [{
