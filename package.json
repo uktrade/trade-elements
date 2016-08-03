@@ -62,8 +62,8 @@
     "build": "gulp build",
     "develop": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "gulp build",
-    "heroku-postbuild": "gulp build"
+    "prepublish": "npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Zac Tolley <zac@thetolleys.com>",
   "license": "MIT",
