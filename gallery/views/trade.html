@@ -1,37 +1,37 @@
-{% extends "layouts/govuk_template.html" %}
+{% extends "layouts/ukti_template.html" %}
 {% import "macros/search.html" as search %}
 {% import "macros/utils.html" as utils %}
 
-{% block header_class %}with-proposition{% endblock %}
-{% set global_header_text="Trade Elements" %}
+{% set proposition_title="Trade Elements" %}
+{% set proposition_url="/" %}
+
 {% set homepage_url = "/" %}
 {% set logo_link_title = "Go to Trade Elements homepage" %}
 
 
-{% block proposition_header %}
+{% block after_proposition %}
   {% set searchbarType = "header" %}
-  <div class="header-proposition">
-    {{ search.searchbar('query', label="Search companies and contacts", value="", type="header") }}
-  </div>
+  {{ search.searchbar('query', label="Search companies and contacts", value="", type="header") }}
 {% endblock %}
 
 {% block head %}
-  {{ utils.trade_styles() }}{% endblock %}
+  {{ utils.trade_styles() }}
+{% endblock %}
+
+{% block phasebanner %}
+  <div class="phase-banner-alpha">
+    <p>
+      <strong class="phase-tag">Alpha</strong>
+      <a href="https://github.com/UKTradeInvestment/trade-elements">Github project</a>
+      | <a href="https://www.npmjs.com/package/trade-elements">NPM Module</a>
+    </p>
+  </div>
+{% endblock %}
+
 {% block content %}
-
-  <main id="content" role="main">
-    <div class="phase-banner-alpha">
-      <p>
-        <strong class="phase-tag">Alpha</strong>
-        <a href="https://github.com/UKTradeInvestment/trade-elements">Github project</a>
-        | <a href="https://www.npmjs.com/package/trade-elements">NPM Module</a>
-      </p>
-    </div>
-
     <div class="container">
       {% block main %}{% endblock %}
     </div>
-  </main>
 {% endblock %}
 
 {% block body_end %}

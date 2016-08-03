@@ -1,15 +1,15 @@
-$roboto: 'Roboto', sans-serif;
-$toolkit-font-stack: $roboto;
-$toolkit-font-stack-tabular: $roboto;
 $gt-big-phone: '>414px';
+$asset-path: '/' !default;
 
+// Elements
 @import 'govuk-elements';
 
-// application specific
+// Trade Elements
 @import 'address';
 @import 'autocomplete';
 @import 'button-bar';
 @import 'error';
+@import 'font_stack';
 @import 'lined-list';
 @import 'form';
 @import 'horizontal-tabs';

@@ -20,7 +20,6 @@ app.use(compression());
 app.set('view engine', 'html');
 app.set('views', [
   path.resolve('./gallery/views'),
-  path.resolve('./node_modules/govuk_template_jinja/views'),
   path.resolve('./templates/nunjucks')
 ]);
 
@@ -34,7 +33,6 @@ nunjucks.ready(function(nj) {
 });
 
 app.use(express.static(path.resolve('./dist')));
-app.use(express.static(path.resolve('./node_modules/govuk_template_jinja/assets')));
 
 app.use('/gallery', require('./gallery/'));
 app.get('/', (req, res) => {
