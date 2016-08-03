@@ -3,65 +3,26 @@
 {% import "macros/search.html" as search %}
 
 {% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
 
-  <h1 class="heading-xlarge">Trade Elements gallery</h1>
+      <h1 class="heading-xlarge">
+        Trade elements
+      </h1>
 
-  {{ search.searchbar('query', label="Search companies and contacts", value="") }}
+      <p class="lede">
+        This guide shows how to make your service look consistent 'Great' and 'GOV.UK' style websites
+        at the Department of International Trade. The 'Trade Elements' toolkit builds upon and extends
+        <a href="http://govuk-elements.herokuapp.com/">GOV.UK Elements</a>. This guide only documents
+        elements added by D
+      </p>
 
-  <div class="tabs tabs--inline js-tabs">
-    <div id="tab-error-textfields" class="tabs-errors">
-      {{ forms.errorPanel(errors) }}
     </div>
-    <nav class="tabs-nav">
-      <ul class="tabs-list">
-        <li>
-          <a class="is-selected" id="tab-textfields" href="#tab-content-textfields">Text fields</a>
-        </li>
-        <li>
-          <a id="tab-addanother" href="#tab-content-addanother">Add Another</a>
-        </li>
-        <li>
-          <a id="tab-dropdown" href="#tab-content-dropdown">Dropdowns</a>
-        </li>
-        <li>
-          <a id="tab-radio" href="#tab-content-radio">Radio</a>
-        </li>
-        <li>
-          <a id="tab-autocomplete" href="#tab-content-autocomplete">Autocomplete</a>
-        </li>
-        <li>
-          <a id="tab-address" href="#tab-content-address">Address</a>
-        </li>
-        <li>
-          <a id="tab-other" href="#tab-content-other">Other</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="tabs-content">
-      <div id="tab-content-textfields" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "textbox.html" %}</div>
-      </div>
-      <div id="tab-content-addanother" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "addanother.html" %}</div>
-      </div>
-      <div id="tab-content-dropdown" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "dropdown.html" %}</div>
-      </div>
-      <div id="tab-content-radio" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "radio.html" %}</div>
-      </div>
-      <div id="tab-content-autocomplete" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "autocomplete.html" %}</div>
-      </div>
-      <div id="tab-content-address" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "address.html" %}</div>
-      </div>
-      <div id="tab-content-other" class="tabs-panel">
-        <div class="tabs-panel-inner">{% include "other.html" %}</div>
-      </div>
-    </div>
-
   </div>
-
-
+  <div class="grid-row">
+    <div class="column-one-third">
+      <h2 class="heading-medium"><a href="/gallery/forms">Form elements</a></h2>
+      <p>Form fields, labels, focus states, radio buttons, checkboxes.</p>
+    </div>
+  </div>
 {% endblock %}

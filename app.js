@@ -33,9 +33,12 @@ nunjucks.ready(function(nj) {
   });
 });
 
+app.use(express.static(path.resolve('./dist')));
 app.use(express.static(path.resolve('./node_modules/govuk_template_jinja/assets')));
 
-app.use('/', require('./gallery/'));
-
+app.use('/gallery', require('./gallery/'));
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 app.listen(config.port);

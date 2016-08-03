@@ -6,9 +6,10 @@ const fakeData = require('../data/fakedata.json');
 const fakePostcodeLookup = require('../data/fakepostcodelookup.json');
 const path = require('path');
 
+router.use(require('./middleware/locals'));
 
-router.get('/', function(req, res) {
-  res.render('index', fakeData);
+router.get('/:page', (req, res) => {
+  res.render(req.params.page, { fakeData });
 });
 
 router.get('/lookup', function(req, res) {
@@ -35,8 +36,6 @@ router.get('/lookup', function(req, res) {
 router.get('/postcodelookup/:postcode', (req, res) => {
   res.json(fakePostcodeLookup);
 });
-
-router.use(express.static(path.resolve('./dist')));
 
 
 module.exports = router;
