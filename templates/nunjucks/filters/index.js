@@ -107,7 +107,7 @@ filter.versionAssetUrl = function(asset) {
   if (env == 'production') {
     let pos = asset.lastIndexOf('.');
     if (pos !== -1) {
-      asset = asset.substr(0, pos) + '.min' + asset.substr(pos);
+      asset = asset.substr(0, pos) + asset.substr(pos);
     }
   }
 

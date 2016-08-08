@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const fakeData = require('../data/fakedata.json');
 const fakePostcodeLookup = require('../data/fakepostcodelookup.json');
-const path = require('path');
+
 
 router.use(require('./middleware/locals'));
 
