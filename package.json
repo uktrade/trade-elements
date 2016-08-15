@@ -1,6 +1,6 @@
 {
   "name": "trade_elements",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "** Not Ready Yet ** Pattern library with styles, templates and js to create UKTI Trade and internal sites and services",
   "main": "app.js",
   "repository": {
