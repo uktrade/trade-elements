@@ -1,9 +1,6 @@
-'use strict';
-
-import $ from 'jquery';
+const $ = require('jquery');
 
 class Edit {
-
   constructor(element) {
     this.cacheEls(element);
     this.bindEvents();
@@ -43,4 +40,4 @@ class Edit {
 
 }
 
-export default Edit;
+module.exports = Edit;

@@ -1,6 +1,4 @@
-
-'use strict';
-import $ from 'jquery';
+const $ = require('jquery');
 
 class SearchBar {
 
@@ -34,4 +32,4 @@ class SearchBar {
 
 }
 
-export default SearchBar;
+module.exports = SearchBar;

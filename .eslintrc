@@ -80,5 +80,8 @@
     "no-nested-ternary": 1,
     "space-before-function-paren": [1, "never"],
     "spaced-comment": [1, "always"]
+  },
+  "globals": {
+    "require": true
   }
 }

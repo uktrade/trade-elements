@@ -1,8 +1,6 @@
-'use strict';
-
-var nunjucks = require('nunjucks');
-var filters = require('../nunjucks/filters/index');
-var source = require('../nunjucks/macros/forms.html');
+const nunjucks = require('nunjucks');
+const filters = require('../nunjucks/filters/index');
+const source = require('../nunjucks/macros/forms.html');
 
 nunjucks.configure({ autoescape: true });
 

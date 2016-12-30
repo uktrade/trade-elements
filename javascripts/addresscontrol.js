@@ -1,10 +1,8 @@
-'use strict';
+const $ = require('jquery')
+const Autocomplete = require('./autocomplete')
+const countries = require('./countries.js')
 
-import $ from 'jquery';
-import Autocomplete from './autocomplete';
-const countries = require('./countries.js');
-
-export default class AddressControl {
+class AddressControl {
 
   constructor(element, postcodeUrl = '/postcodelookup/') {
     this.postcodeUrl = postcodeUrl;
@@ -270,3 +268,5 @@ export default class AddressControl {
   }
 
 }
+
+module.exports = AddressControl

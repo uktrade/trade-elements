@@ -1,8 +1,5 @@
-'use strict';
-
-import $ from 'jquery';
+const $ = require('jquery')
 const ACTIVECLASS = 'autosuggest__suggestion--active';
-
 
 class Autocomplete {
 
@@ -335,4 +332,4 @@ class Autocomplete {
 
 }
 
-export default Autocomplete;
+module.exports = Autocomplete;

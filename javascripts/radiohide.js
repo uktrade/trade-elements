@@ -1,6 +1,4 @@
-'use strict';
-
-import $ from 'jquery';
+const $ = require('jquery');
 
 class RadioHideComponent {
 
@@ -30,4 +28,4 @@ class RadioHideComponent {
 
 }
 
-export default RadioHideComponent;
+module.exports = RadioHideComponent;

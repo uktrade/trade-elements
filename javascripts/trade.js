@@ -1,14 +1,12 @@
-'use strict';
-
-import $ from 'jquery';
-import AddAnother from './addanother';
-import RadioHide from './radiohide';
-import Edit from './edit';
-import SearchBar from './searchbar';
-import SelectionButton from './selectionbutton';
-import Tabs from './tabs';
-import Autocomplete from './autocomplete';
-import AddressControl from './addresscontrol';
+const $ = require('jquery');
+const AddAnother = require('./addanother');
+const RadioHide = require('./radiohide');
+const Edit = require('./edit');
+const SearchBar = require('./searchbar');
+const SelectionButton = require('./selectionbutton');
+const Tabs = require('./tabs');
+const Autocomplete = require('./autocomplete');
+const AddressControl = require('./addresscontrol');
 
 $('.js-add-another').each((index, element) => {
   new AddAnother(element);

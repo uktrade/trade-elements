@@ -1,72 +1,52 @@
 const webpack = require('webpack');
 const paths = require('./gulp/paths');
+const prod = process.env.NODE_ENV === 'production';
 
 module.exports = [
   {
-    devtool: 'cheap-module-source-map',
+    devtool: prod ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
     entry: {
-      app: `${paths.sourceJS}/trade.js`
+      trade: `${paths.sourceJS}/trade.js`
     },
     output: {
       path: paths.outputJS,
-      filename: 'trade.js',
-      libraryTarget: 'var',
-      library: 'UKTI'
+      filename: '[name].bundle.js'
     },
     module: {
-      loaders: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader']
-      }]
-    },
-    resolve: {
-      extensions: ['', '.js'],
-      modules: [
-        paths.sourceJS,
-        paths.libJS,
-        'node_modules'
-      ]
-    },
-
-    plugins: [new webpack.optimize.DedupePlugin()]
-  },
-  {
-    entry: {
-      app: `${paths.sourceJS}/trade.js`
-    },
-    output: {
-      path: paths.outputJS,
-      filename: 'trade.min.js'
-    },
-    module: {
-      loaders: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader']
-      }]
-    },
-    resolve: {
-      extensions: ['', '.js'],
-      modules: [
-        paths.sourceJS,
-        paths.libJS,
-        'node_modules'
-      ]
-    },
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }}),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
+      loaders: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            cacheDirectory: './babel_cache',
+            babelrc: false,
+            presets: ['es2015'],
+            plugins: ['transform-class-properties'],
+          },
         },
-        output: {
-          comments: false
-        },
-        sourceMap: false }),
-      new webpack.optimize.DedupePlugin()
-    ]
+      ],
+    },
+    externals: {
+      "jquery": "jQuery"
+    },
+    plugins: prod ? [
+        new webpack.DefinePlugin({
+          'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+          }}),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false,
+          },
+          output: {
+            comments: false,
+          },
+          sourceMap: false,
+          dead_code: true,
+        }),
+        new webpack.optimize.DedupePlugin()
+      ] : [
+        new webpack.optimize.DedupePlugin()
+      ],
   }];

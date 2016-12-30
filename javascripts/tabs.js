@@ -1,9 +1,6 @@
-'use strict';
-
-import $ from 'jquery';
+const $ = require('jquery');
 
 class Tabs {
-
   constructor(element) {
     this.cacheEls(element);
     this.bindEvents();
@@ -65,4 +62,4 @@ class Tabs {
   }
 }
 
-export default Tabs;
+module.exports = Tabs;

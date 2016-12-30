@@ -1,7 +1,5 @@
-'use strict';
-
-import $ from 'jquery';
-import Autocomplete from './autocomplete';
+const $ = require('jquery')
+const Autocomplete = require('./autocomplete')
 
 class AddAnother {
   constructor(element) {
@@ -45,4 +43,4 @@ class AddAnother {
   };
 }
 
-export default AddAnother;
+modules.exports = AddAnother;
