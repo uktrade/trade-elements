@@ -1,11 +1,10 @@
 {
   "name": "trade_elements",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "** Not Ready Yet ** Pattern library with styles, templates and js to create UKTI Trade and internal sites and services",
-  "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UKTradeInvestment/trade-elements"
+    "url": "https://github.com/uktrade/trade-elements"
   },
   "dependencies": {
     "babel-eslint": "^6.0.0",
@@ -53,6 +52,6 @@
   "author": "Zac Tolley <zac@thetolleys.com>",
   "license": "MIT",
   "engines": {
-    "node": "6.3.1"
+    "node": "6.9.1"
   }
 }
