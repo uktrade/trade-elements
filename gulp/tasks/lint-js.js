@@ -2,15 +2,14 @@
 
 const gulp = require('gulp');
 
-// Check javascript source to confirm it has no obvious errors and follows
-// UKTI rules for style and syntax
 gulp.task('' +
   'lint-js', () => {
-  const eslint = require('gulp-eslint');
+  const standard = require('gulp-standard')
 
   return gulp.src(['./javascripts/**/*.js'])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
+    }))
 });

@@ -1,13 +1,25 @@
 {
   "name": "trade_elements",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "** Not Ready Yet ** Pattern library with styles, templates and js to create UKTI Trade and internal sites and services",
   "repository": {
     "type": "git",
     "url": "https://github.com/uktrade/trade-elements"
   },
+  "author": "Zac Tolley <zac@thetolleys.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "build": "gulp build",
+    "develop": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build",
+    "heroku-postbuild": "npm run build"
+  },
   "dependencies": {
-    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-polyfill": "^6.20.0",
@@ -15,7 +27,6 @@
     "browser-sync": "^2.18.5",
     "compression": "^1.6.2",
     "del": "^2.2.2",
-    "eslint": "^3.12.2",
     "express": "^4.13.4",
     "express-nunjucks": "^2.1.2",
     "govuk-elements-sass": "^2.2.1",
@@ -23,7 +34,6 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.0.0",
@@ -37,17 +47,37 @@
     "require-dir": "^0.3.1",
     "webpack": "^1.14.0"
   },
-  "scripts": {
-    "start": "node app.js",
-    "build": "gulp build",
-    "develop": "gulp watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build",
-    "heroku-postbuild": "npm run build"
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gulp-standard": "^8.0.3",
+    "standard": "^8.6.0"
   },
-  "author": "Zac Tolley <zac@thetolleys.com>",
-  "license": "MIT",
-  "engines": {
-    "node": "6.9.1"
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "afterEach",
+      "assert",
+      "beforeEach",
+      "describe",
+      "es",
+      "expect",
+      "ga",
+      "GOVUK",
+      "Image",
+      "it",
+      "jasmine",
+      "spyOn",
+      "$",
+      "_gaq"
+    ],
+    "ignore": [
+      "src/assets/js/template/vendor/",
+      "src/assets/js/toolkit/vendor/*",
+      "src/assets/js/toolkit/vendor/**/*"
+    ]
   }
 }
