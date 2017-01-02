@@ -1,0 +1,12 @@
+{% macro addAnotherDropdown(name, label, hint, emptyLabel, addLabel='', values=[], options, error) %}
+  <fieldset class="fieldset-group js-add-another" id="{{ name }}-wrapper">
+    {% if values and values.length > 0 %}
+      {% for value in values %}
+        {{ dropdown(name=name, label=label, hint=hint, emptyLabel=emptyLabel, value=value, options=options, id=(name + '-' + loop.index), class="form-group--compact", error=error) }}
+      {% endfor %}
+    {% else %}
+      {{ dropdown(name=name, label=label, hint=hint, emptyLabel=emptyLabel, value=value, options=options, id=(name + '-1'), class="form-group--compact", error=error) }}
+    {% endif %}
+    <a class="add-another-button" href="#">Add another {{ addLabel }}</a>
+  </fieldset>
+{% endmacro %}

@@ -1,5 +1,5 @@
 const $ = require('jquery')
-const Autocomplete = require('./autocomplete')
+const Autocomplete = require('./../components/autocomplete/autocomplete')
 
 class AddAnother {
   constructor(element) {

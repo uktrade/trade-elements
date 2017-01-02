@@ -1,42 +1,32 @@
-'use strict';
+'use strict'
 
-const express = require('express');
-const app = express();
-const nunjucks = require('express-nunjucks');
-const filters = require('./templates/nunjucks/filters/index');
-const config = require('./config');
-const path = require('path');
-const compression = require('compression');
+const express = require('express')
+const app = express()
+const expressNunjucks = require('express-nunjucks');
+const filters = require('./dist/nunjucks/filters/index')
+const config = require('./config')
+const path = require('path')
+const compression = require('compression')
 
-let nunjucksConfig = {
-  autoescape: true
-};
+const isDev = app.get('env') === 'development'
 
-if (config.env !== 'production') {
-  nunjucksConfig.noCache = true;
-}
-
-app.use(compression());
-app.set('view engine', 'html');
+app.use(compression())
+app.set('view engine', 'html')
 app.set('views', [
   path.resolve('./gallery/views'),
-  path.resolve('./templates/nunjucks')
-]);
+  path.resolve('./dist/nunjucks')
+])
 
-nunjucks.setup(nunjucksConfig, app);
+expressNunjucks(app, {
+  watch: isDev,
+  noCache: isDev,
+  filters
+})
 
-// Add extra filters to nunjucks
-nunjucks.ready(function(nj) {
-  Object.keys(filters).forEach(function(filterName) {
-    nj.addFilter(filterName, filters[filterName]);
-  });
-});
+app.use('/images/', express.static(path.resolve('./dist/images')))
+app.use('/javascripts/', express.static(path.resolve('./dist/javascripts')))
+app.use('/styles/', express.static(path.resolve('./dist/styles')))
 
-app.use(express.static(path.resolve('./dist')));
+app.use('/gallery/', require('./gallery/'))
 
-app.use('/gallery', require('./gallery/'));
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
-app.listen(config.port);
+app.listen(config.port)

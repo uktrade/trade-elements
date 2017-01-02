@@ -1,6 +1,2 @@
 *
-app.js
-!javascripts/**
-!sass/**
 !dist/**
-!templates/**

@@ -1,0 +1,32 @@
+{% macro autocomplete(name, label, value, options, options_url, id, class, error) %}
+  {% if not id %}
+    {% set id = name.replace('.','-') %}
+  {% endif %}
+
+  <div class="form-group{% if error %} error{% endif %} {{ class }}" id="{{ name }}-wrapper">
+    <label class="form-label" for="{{ id }}">
+      {{ label }}
+      {% if error %}<span class="error-message">{{ error }}</span>{% endif %}
+    </label>
+
+    {% if options %}
+      <input
+        id="{{ id }}"
+        class="form-control autocomplete js-autocomplete"
+        name="{{ name }}"
+        value="{{ value }}"
+        autocomplete="{{ name }}"
+        data-options="{{ options | attributeArray | safe }}"
+      />
+    {% else %}
+      <input
+        id="{{ id }}"
+        class="form-control autocomplete js-autocomplete"
+        name="{{ name }}"
+        value="{{ value }}"
+        autocomplete="{{ name }}"
+        data-options-url="{{ options_url }}"
+      />
+    {% endif %}
+  </div>
+{% endmacro %}

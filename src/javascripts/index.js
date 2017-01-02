@@ -1,7 +1,7 @@
 const AddAnother = require('./addanother');
 const Edit = require('./edit');
 const RadioHide = require('./radiohide');
-const SearchBar = require('./searchbar');
+const SearchBar = require('./../components/searchbar/searchbar');
 const SelectionButton = require('./selectionbutton');
 const Tabs = require('./tabs');
 

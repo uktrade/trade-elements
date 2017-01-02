@@ -1,6 +1,6 @@
 const $ = require('jquery')
-const Autocomplete = require('./autocomplete')
-const countries = require('./countries.js')
+const Autocomplete = require('./../autocomplete/autocomplete')
+const countries = require('./../../javascripts/countries.js')
 
 class AddressControl {
 

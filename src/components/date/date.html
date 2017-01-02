@@ -1,0 +1,45 @@
+{% macro date(name, label, value, id, class, error) %}
+<div id="form-group-asset_valuationDate" class="form-group form-date{% if error %} error{% endif %} {{ class }}">
+  <fieldset>
+    <legend class="form-label">{{ label }}</legend>
+    <span class="error-message">{{ error }}</span>
+
+    <div class="form-group form-group-day">
+      <label for="asset_valuationDate_day"><span class="form-hint">DD</span></label>
+      <input type="text"
+             id="asset_valuationDate_day"
+             class="form-control"
+             name="{{ name }}_day"
+             value="{{ value | splitPart('/', 0) }}"
+             maxlength="2"
+             autocomplete="dd" />
+    </div>
+
+    <div class="form-group form-group-month">
+      <label for="asset_valuationDate_month">
+        <span class="form-hint">MM</span>
+      </label>
+      <input type="text"
+             id="asset_valuationDate_month"
+             class="form-control"
+             name="{{ name }}_month"
+             value="{{ value | splitPart('/', 1) }}"
+             maxlength="2"
+             autocomplete="mm"/>
+    </div>
+
+    <div class="form-group form-group-year">
+      <label for="asset_valuationDate_year">
+        <span class="form-hint">YYYY</span>
+      </label>
+      <input type="text"
+             id="asset_valuationDate_year"
+             class="form-control"
+             name="{{ name }}_year"
+             value="{{ value | splitPart('/', 2) }}"
+             maxlength="4"
+             autocomplete="yyyy"/>
+    </div>
+  </fieldset>
+</div>
+{% endmacro %}
