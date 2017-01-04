@@ -3,8 +3,6 @@ const projectDir = path.resolve(__dirname, '../')
 
 module.exports = {
   projectDir: projectDir,
-  sourceStyles: `${projectDir}/src/styles`,
-  outputStyles: `${projectDir}/dist/styles`,
   sourceJS: `${projectDir}/src/javascripts`,
   outputJS: `${projectDir}/dist/javascripts`,
   webpackConfig: `${projectDir}/webpack.config.js`,

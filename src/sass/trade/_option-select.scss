@@ -88,7 +88,7 @@
       border: 5px solid $grey-3;
     }
 
-    // styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse
+    // sass for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse
     &.js-collapsible {
       button {
         z-index: 100;

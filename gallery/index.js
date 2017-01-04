@@ -1,5 +1,6 @@
 'use strict'
 
+const path = require('path')
 const express = require('express')
 const router = express.Router()
 const fakeData = require('./data/fakedata.json')
@@ -11,6 +12,10 @@ router.get('/:page', (req, res) => {
   const page = req.params.page || 'index'
   res.render(page, { fakeData })
 })
+
+console.log(`styles: ${path.resolve('./gallery/styles')}`)
+
+router.use('/css', express.static(path.resolve('./gallery/styles')))
 
 router.get('/lookup', function(req, res) {
   let items = ['George', 'Paul', 'John', 'Ringo']

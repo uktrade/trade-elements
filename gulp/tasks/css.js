@@ -7,24 +7,27 @@ const config = require('../../config')
 
 
 gulp.task('css', (done) => {
-  del(paths.outputStyles)
+  const outputCss = `${paths.projectDir}/dist/css/`
+  const sassSrc = `${paths.projectDir}/dist/sass`
+
+  del(outputCss)
   const sassOptions = {}
 
-  if (config.env !== 'production') {
+  if (config.env === 'production') {
     sassOptions.outputStyle = 'compressed'
   }
 
-  gulp.src(`${paths.projectDir}/dist/trade-elements.scss`)
+  gulp.src(`${sassSrc}/trade-elements.scss`)
     .pipe(sass(sassOptions)
     .on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['> 1%', 'last 2 versions', 'IE 9']
     }))
-    .pipe(gulp.dest(paths.outputStyles))
+    .pipe(gulp.dest(outputCss))
 
   gulp.src(`${paths.projectDir}/gallery/styles/*.scss`)
     .pipe(sass({
-      includePaths: `${paths.projectDir}/dist/sass`
+      includePaths: sassSrc
     })
     .on('error', sass.logError))
     .pipe(autoprefixer({

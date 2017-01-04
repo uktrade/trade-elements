@@ -1,7 +1,9 @@
-@import '_shims';
-@import '_conditionals';
-@import '_measurements';
+@import 'shims';
+@import 'conditionals';
+@import 'measurements';
 @import 'colours/_palette';
+@import 'typography';
+@import 'trade/colours';
 
 #global-header.global-header--govuk {
   background-color: $black;

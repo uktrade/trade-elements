@@ -25,7 +25,7 @@ expressNunjucks(app, {
 
 app.use('/images/', express.static(path.resolve('./dist/images')))
 app.use('/javascripts/', express.static(path.resolve('./dist/javascripts')))
-app.use('/styles/', express.static(path.resolve('./dist/styles')))
+app.use('/sass/', express.static(path.resolve('./dist/sass')))
 
 app.use('/gallery/', require('./gallery/'))
 

@@ -5,10 +5,10 @@ gulp.task('sass', () => {
   const es = require('event-stream')
   const flatten = require('gulp-flatten')
 
-  // copy sass files from this projects common sass styles, components (flattened), elements and gov uk toolkit
+  // copy sass files from this projects common sass sass, components (flattened), elements and gov uk toolkit
   // into one folder and sub folders partially namespaced to avoid clashes with names like colour.scss
   return es.merge(
-    gulp.src(`${paths.projectDir}/src/styles/**/*.scss`)
+    gulp.src(`${paths.projectDir}/src/sass/**/*.scss`)
       .pipe(gulp.dest(`${paths.projectDir}/dist/sass/`)),
     gulp.src(`${paths.projectDir}/src/components/**/*.scss`)
       .pipe(flatten())
