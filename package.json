@@ -9,7 +9,7 @@
   "author": "Zac Tolley <zac@thetolleys.com>",
   "license": "MIT",
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.4"
   },
   "scripts": {
     "start": "node gallery/index.js",
