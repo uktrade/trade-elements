@@ -1,16 +1,17 @@
-const webpack = require('webpack');
-const paths = require('./gulp/paths');
-const prod = process.env.NODE_ENV === 'production';
+const webpack = require('webpack')
+const paths = require('./gulp/paths')
+const prod = process.env.NODE_ENV === 'production'
 
 module.exports = [
   {
     devtool: prod ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
     entry: {
-      trade: `${paths.sourceJS}/trade.js`
+      'javascripts/trade-elements-components': `${paths.sourceJS}/trade-elements-components.js`,
+      'index': `${paths.sourceJS}/lib/index`
     },
     output: {
-      path: paths.outputJS,
-      filename: '[name].bundle.js'
+      path: `${paths.projectDir}/dist`,
+      filename: '[name].js'
     },
     module: {
       loaders: [
@@ -22,13 +23,13 @@ module.exports = [
             cacheDirectory: './babel_cache',
             babelrc: false,
             presets: ['es2015'],
-            plugins: ['transform-class-properties'],
-          },
-        },
-      ],
+            plugins: ['transform-class-properties']
+          }
+        }
+      ]
     },
     externals: {
-      "jquery": "jQuery"
+      'jquery': 'jQuery'
     },
     plugins: prod ? [
         new webpack.DefinePlugin({

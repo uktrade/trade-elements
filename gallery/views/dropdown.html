@@ -1,5 +1,5 @@
 <form>
-  {{ forms.dropdown('advisor',
+  {{ trade.dropdown('advisor',
     label="Advisor",
     emptyLabel="Please select the advisor",
     value=advisor,
@@ -7,5 +7,5 @@
     error=errors.advisor
   ) }}
 
-  {{ forms.save(backUrl="#") }}
+  {{ trade.save(backUrl="#") }}
 </form>

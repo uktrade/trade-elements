@@ -1,8 +1,6 @@
-'use strict';
-
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
+const gulp = require('gulp')
+const gulpSequence = require('gulp-sequence')
 
 gulp.task('build', (done) => {
-  gulpSequence('css', 'webpack', 'images', done);
-});
+  gulpSequence('clean', 'nunjucks', 'sass', 'css', 'webpack', 'images', done)
+})

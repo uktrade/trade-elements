@@ -1,0 +1,23 @@
+{% macro yesNo(name, label, radioValue='no', error) %}
+<fieldset class="inline form-group form-group__checkbox-group" id="{{ name }}-wrapper">
+
+  <legend class="form-label">{{ label }}</legend>
+
+  <label class="block-label" for="{{ name }}-yes">
+    <input id="{{ name }}-yes"
+           type="radio"
+           name="{{ name }}"
+           value="Yes"
+           {% if radioValue == 'yes' or radioValue == true %}checked="checked"{% endif %} />
+    Yes
+  </label>
+  <label class="block-label" for="{{ name }}-no">
+    <input id="{{ name }}-no"
+           type="radio"
+           name="{{ name }}"
+           value="No"
+           {% if radioValue == 'no' or radioValue == false or not radioValue %}checked="checked"{% endif %} />
+    No
+  </label>
+</fieldset>
+{% endmacro %}

@@ -9,10 +9,10 @@
   "author": "Zac Tolley <zac@thetolleys.com>",
   "license": "MIT",
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.4"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node gallery/index.js",
     "build": "gulp build",
     "develop": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,6 +34,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.0.0",
@@ -53,6 +54,8 @@
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "event-stream": "^3.3.4",
+    "gulp-flatten": "^0.3.1",
     "gulp-standard": "^8.0.3",
     "standard": "^8.6.0"
   },
@@ -73,11 +76,6 @@
       "spyOn",
       "$",
       "_gaq"
-    ],
-    "ignore": [
-      "src/assets/js/template/vendor/",
-      "src/assets/js/toolkit/vendor/*",
-      "src/assets/js/toolkit/vendor/**/*"
     ]
   }
 }

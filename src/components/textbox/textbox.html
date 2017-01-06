@@ -1,0 +1,13 @@
+{% macro textbox(name, label, value='', hint, id, class, error) %}
+  {% if not id %}
+    {% set id = name.replace('.','-') %}
+  {% endif %}
+  <div class="form-group{% if error %} error{% endif %} {{ class }}" id="{{ name }}-wrapper">
+    <label class="form-label" for="{{ id }}">
+      {{ label }}
+      {% if hint %}<span class="form-hint">{{ hint }}</span>{% endif %}
+      {% if error %}<span class="error-message">{{ error }}</span>{% endif %}
+    </label>
+    <input id="{{ id }}" class="form-control" name="{{ name }}" value="{{ value }}" autocomplete="xxx.{{ name }}"/>
+  </div>
+{% endmacro %}

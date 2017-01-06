@@ -1,7 +1,7 @@
 <form>
-  {{ forms.date(name='mydate', label='Date of interaction', value=myDate, id="my_date", error=errors.myDate) }}
+  {{ trade.date(name='mydate', label='Date of interaction', value=myDate, id="my_date", error=errors.myDate) }}
 
-  {{ forms.date(name='badDate', label='Date of interaction', value=badDate, id="another_date", error=errors.dateError) }}
+  {{ trade.date(name='badDate', label='Date of interaction', value=badDate, id="another_date", error=errors.dateError) }}
 
-  {{ forms.save(backUrl="#") }}
+  {{ trade.save(backUrl="#") }}
 </form>

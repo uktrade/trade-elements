@@ -1,13 +1,12 @@
-const path = require('path');
-const projectDir = path.resolve(__dirname, '../');
+const path = require('path')
+const projectDir = path.resolve(__dirname, '../')
 
 module.exports = {
-  sourceStyles: `${projectDir}/sass`,
-  outputStyles: `${projectDir}/dist/stylesheets`,
-  sourceJS: `${projectDir}/javascripts`,
+  projectDir: projectDir,
+  sourceJS: `${projectDir}/src/javascripts`,
   outputJS: `${projectDir}/dist/javascripts`,
   webpackConfig: `${projectDir}/webpack.config.js`,
   node_modules: `${projectDir}/node_modules`,
-  imagesSrc: `${projectDir}/images`,
+  imagesSrc: `${projectDir}/src/images`,
   imagesDest: `${projectDir}/dist/images`
-};
+}
