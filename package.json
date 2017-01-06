@@ -12,7 +12,7 @@
     "node": "6.9.1"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node gallery/index.js",
     "build": "gulp build",
     "develop": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -76,11 +76,6 @@
       "spyOn",
       "$",
       "_gaq"
-    ],
-    "ignore": [
-      "src/assets/js/template/vendor/",
-      "src/assets/js/toolkit/vendor/*",
-      "src/assets/js/toolkit/vendor/**/*"
     ]
   }
 }
