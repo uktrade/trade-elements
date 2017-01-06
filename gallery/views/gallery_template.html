@@ -1,6 +1,10 @@
 {% extends "layouts/ukti_template.html" %}
-{% import "macros/search.html" as search %}
-{% import "macros/utils.html" as utils %}
+{% import "macros/trade.html" as trade %}
+
+{% block head_styles %}
+  <!-- This is a test -->
+  <link href="{{ asset_path | default('/') }}css/gallery.css" media="screen" rel="stylesheet" />
+{% endblock %}
 
 {% set proposition_title="Trade Elements" %}
 {% set proposition_url="/" %}
@@ -11,11 +15,7 @@
 
 {% block after_proposition %}
   {% set searchbarType = "header" %}
-  {{ search.searchbar('query', label="Search companies and contacts", value="", type="header") }}
-{% endblock %}
-
-{% block head %}
-  {{ utils.trade_styles() }}
+  {{ trade.searchbar('query', label="Search companies and contacts", value="", type="header") }}
 {% endblock %}
 
 {% block phasebanner %}
@@ -28,12 +28,8 @@
   </div>
 {% endblock %}
 
-{% block content %}
-    <div class="container">
-      {% block main %}{% endblock %}
-    </div>
-{% endblock %}
-
-{% block body_end %}
-  {{ utils.trade_scripts() }}
+{% block main %}
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
 {% endblock %}

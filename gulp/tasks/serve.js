@@ -1,19 +1,18 @@
-const gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
+const gulp = require('gulp')
+const nodemon = require('gulp-nodemon')
 
 gulp.task('serve', (cb) => {
-  var started = false;
+  let started = false
 
-	return nodemon({
+  return nodemon({
     exec: 'node --debug',
-		script: './app.js',
-    ignore: './javascripts',
-	}).on('start', function() {
-		// to avoid nodemon being started multiple times
-		if (!started) {
-			cb();
-			started = true;
-		}
-  });
-
-});
+    script: './gallery/index.js',
+    ignore: './src/javascripts'
+  }).on('start', () => {
+    // to avoid nodemon being started multiple times
+    if (!started) {
+      cb()
+      started = true
+    }
+  })
+})

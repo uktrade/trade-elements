@@ -14,11 +14,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="{{ asset_path | default('/') }}images/opengraph-image.png?0.17.3">
-    <script
-      src="https://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-      crossorigin="anonymous"></script>
+    <link href="{{ asset_path | default('/') }}css/ukti-template.css" media="screen" rel="stylesheet" />
+    <script src="{{ asset_path | default('/') }}javascripts/jquery.min.js"></script>
     {% block head %}{% endblock %}
+    {% block head_styles %}{% endblock %}
+    {% block head_script %}{% endblock %}
   </head>
 
   <body class="{% block body_classes %}{% endblock %}">
@@ -64,7 +64,8 @@
     <div id="global-header-bar"></div>
 
     <main id="content" role="main">
-      {% block content %}{% endblock %}
+      {% block phasebanner %}{% endblock %}
+      {% block main %}{% endblock %}
     </main>
 
     {% block footer %}
@@ -91,6 +92,8 @@
     {% endblock %}
 
     <script src="{{ asset_path | default('/') }}javascripts/cookie.js"></script>
+    <script src="{{ asset_path | default('/') }}javascripts/trade-elements-components.js"></script>
     {% block body_end %}{% endblock %}
+    {% block body_end_scripts %}{% endblock %}
   </body>
 </html>

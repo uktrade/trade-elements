@@ -1,4 +1,4 @@
-const $ = require('jquery');
+const $ = require('jquery')
 
 class SearchBar {
 
@@ -32,4 +32,7 @@ class SearchBar {
 
 }
 
-module.exports = SearchBar;
+$('.searchbar-js').each((index, element) => {
+  new SearchBar(element)
+})
+

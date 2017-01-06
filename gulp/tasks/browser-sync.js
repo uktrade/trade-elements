@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const paths = require('../paths');
-const config = require('../../config');
+const config = require('../../gallery/config');
 
 // This process starts a browser sync instance
 // It allows any changes made to trigger building and linting and

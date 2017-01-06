@@ -1,8 +1,8 @@
 <form>
 
-  {{ forms.textbox('name', label="Name", value=name, error=errors.name) }}
-  {{ forms.textbox('job', label="Job tile", value=job, error=errors.job) }}
-  {{ forms.textarea('jobDescription', label="Job description", value=jobDescription) }}
+  {{ trade.textbox('name', label="Name", value=name, error=errors.name) }}
+  {{ trade.textbox('job', label="Job tile", value=job, error=errors.job) }}
+  {{ trade.textarea('jobDescription', label="Job description", value=jobDescription) }}
 
-  {{ forms.save(backUrl="#") }}
+  {{ trade.save(backUrl="#") }}
 </form>

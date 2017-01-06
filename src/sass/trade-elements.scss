@@ -1,10 +1,6 @@
 $gt-big-phone: '>414px';
 $asset-path: '/' !default;
 
-// GOV UK
-@import 'trade/_govuk_header.scss';
-@import 'trade/_govuk_footer.scss';
-
 // Elements
 @import 'govuk-elements';
 
@@ -23,4 +19,3 @@ $asset-path: '/' !default;
 @import 'trade/status-badge';
 @import 'trade/field-value';
 @import 'trade/radio-hide';
-@import 'trade/components/address';

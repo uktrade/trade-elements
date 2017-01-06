@@ -1,23 +1,43 @@
 'use strict'
 
-const path = require('path')
 const express = require('express')
-const router = express.Router()
+const app = express()
+const expressNunjucks = require('express-nunjucks')
+const path = require('path')
+const compression = require('compression')
 const fakeData = require('./data/fakedata.json')
 const fakePostcodeLookup = require('./data/fakepostcodelookup.json')
+const filters = require('../dist/nunjucks/filters/index')
+const config = require('./config')
 
-router.use(require('./middleware/locals'))
+const isDev = app.get('env') === 'development'
 
-router.get('/:page', (req, res) => {
+app.use(compression())
+app.set('view engine', 'html')
+app.set('views', [
+  path.resolve(__dirname, './views'),
+  path.resolve(__dirname, '../dist/nunjucks')
+])
+
+expressNunjucks(app, {
+  watch: isDev,
+  noCache: isDev,
+  filters
+})
+
+app.use('/images/', express.static(path.resolve(__dirname, '../dist/images')))
+app.use('/javascripts/', express.static(path.resolve(__dirname, '../dist/javascripts')))
+app.use('/css', express.static(path.resolve(__dirname, '../dist/css')))
+app.use('/css', express.static(path.resolve(__dirname, './styles')))
+
+app.use(require('./middleware/locals'))
+
+app.get(['/:page', '/'], (req, res) => {
   const page = req.params.page || 'index'
   res.render(page, { fakeData })
 })
 
-console.log(`styles: ${path.resolve('./gallery/styles')}`)
-
-router.use('/css', express.static(path.resolve('./gallery/styles')))
-
-router.get('/lookup', function(req, res) {
+app.get('/lookup', (req, res) => {
   let items = ['George', 'Paul', 'John', 'Ringo']
   let term = req.query.query
 
@@ -38,8 +58,8 @@ router.get('/lookup', function(req, res) {
   }
 })
 
-router.get('/postcodelookup/:postcode', (req, res) => {
+app.get('/postcodelookup/:postcode', (req, res) => {
   res.json(fakePostcodeLookup)
 })
 
-module.exports = router
+app.listen(config.port)

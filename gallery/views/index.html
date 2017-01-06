@@ -1,11 +1,7 @@
-{% extends "layouts/ukti_template.html" %}
+{% extends "gallery_template.html" %}
 {% import "macros/trade.html" as trade %}
 
-{% block head %}
-  <link href="/gallery/css/gallery.css" media="screen" rel="stylesheet" />
-{% endblock %}
-
-{% block main %}
+{% block content %}
   <div class="grid-row">
     <div class="column-two-thirds">
 
@@ -24,7 +20,7 @@
   </div>
   <div class="grid-row">
     <div class="column-one-third">
-      <h2 class="heading-medium"><a href="/gallery/forms">Form elements</a></h2>
+      <h2 class="heading-medium"><a href="/forms">Form elements</a></h2>
       <p>Form fields, labels, focus states, radio buttons, checkboxes.</p>
     </div>
   </div>
