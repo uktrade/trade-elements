@@ -1,0 +1,8 @@
+{% macro button(text, id, class, variation, type='button') %}
+  {% if variation %}
+    {% set variation = 'button-' + variation %}
+  {% endif %}
+
+    <button class="button {{variation}} {{class}}" id="{{id}}" type="{{button}}">{{text}}</button>
+
+{% endmacro %}

@@ -29,12 +29,29 @@ app.use('/images/', express.static(path.resolve(__dirname, '../dist/images')))
 app.use('/javascripts/', express.static(path.resolve(__dirname, '../dist/javascripts')))
 app.use('/css', express.static(path.resolve(__dirname, '../dist/css')))
 app.use('/css', express.static(path.resolve(__dirname, './styles')))
+app.use('/favicon.ico', express.static(path.resolve(__dirname, '../dist/images')))
 
 app.use(require('./middleware/locals'))
 
 app.get(['/:page', '/'], (req, res) => {
   const page = req.params.page || 'index'
-  res.render(page, { fakeData })
+
+  const errors = {
+    'name': [
+      'This field may not be null.'
+    ],
+    'business_type': [
+      'This field may not be null.'
+    ],
+    'sector': [
+      'This field may not be null.'
+    ],
+    'registered_address': [
+      'Invalid address'
+    ]
+  }
+
+  res.render(page, { fakeData, errors })
 })
 
 app.get('/lookup', (req, res) => {

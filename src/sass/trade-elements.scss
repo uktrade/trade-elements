@@ -1,21 +1,16 @@
 $gt-big-phone: '>414px';
 $asset-path: '/' !default;
 
+@import 'trade/govuk/font_stack';
+
 // Elements
-@import 'govuk-elements';
+@import "govuk-elements";
 
 // Trade Elements
-@import 'trade/button-bar';
-@import 'trade/error';
-@import 'trade/font_stack';
-@import 'trade/lined-list';
-@import 'trade/form';
-@import 'trade/horizontal-tabs';
-@import 'trade/plain-list';
-@import 'trade/results-list';
-@import 'trade/table';
-@import 'trade/table-detail';
-@import 'trade/option-select';
-@import 'trade/status-badge';
-@import 'trade/field-value';
-@import 'trade/radio-hide';
+@import "trade/errors";
+@import "trade/tables";
+@import "trade/form";
+
+strong {
+  @include bold-19;
+}

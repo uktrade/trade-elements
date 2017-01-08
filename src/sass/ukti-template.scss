@@ -1,17 +1,17 @@
 $gt-big-phone: '>414px';
 $asset-path: '/' !default;
+@import 'trade/base';
+
 @import 'trade/govuk/colours';
+@import 'trade/govuk/font_stack';
 @import 'conditionals';
 @import 'css3';
 @import 'device-pixels';
 @import 'typography';
 @import 'grid_layout';
 
-// basic styles for HTML5 and other elements
-@import 'trade/base';
-@import 'trade/accessibility';
-@import 'trade/font_stack';
 
 // GOV UK
 @import 'trade/govuk/header';
 @import 'trade/govuk/footer';
+@import 'trade/accessibility';

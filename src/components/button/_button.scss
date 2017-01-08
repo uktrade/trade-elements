@@ -1,0 +1,37 @@
+.button-secondary {
+  background-color: $grey-2;
+  color: $black;
+
+  &:link,
+  &:visited {
+    background-color: $grey-2;
+    color: $black;
+  }
+}
+
+.button-warning {
+  background-color: $mellow-red-50;
+  color: $black;
+
+  &:focus, &:hover {
+    background-color: $mellow-red;
+    color: $black;
+  }
+}
+
+.button-disabled {
+  background-color: $grey-3;
+  color: $grey-1;
+
+  &:focus, &:hover {
+    background-color: $grey-3;
+    color: $grey-1;
+  }
+}
+
+.button-link {
+  line-height: 2.5;
+  margin-left: 15px;
+  top: 1px;
+  position: relative;
+}

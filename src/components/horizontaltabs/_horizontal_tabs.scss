@@ -70,22 +70,6 @@
     }
   }
 
-
-  // Tab content
-
-  .tabs-content {
-    clear: both;
-
-    .tabs-panel {
-      // initially hide a tab panel to avoid flashes waiting for JS to load and render.
-      display: none;
-    }
-
-    &[aria-hidden='true'] {
-      display: none;
-    }
-  }
-
   // Tab panel inner
   .tabs-panel-inner {
     &:focus {
@@ -97,6 +81,10 @@
   .tabs-errors {
     // initially hide to avoid flashes waiting for js to load and render.
     display: none;
+
+    &.is-selected {
+      display: block;
+    }
   }
 
 }

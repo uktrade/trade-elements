@@ -7,8 +7,9 @@
 
       <ul class="error-summary-list">
         {% for name, item in errors %}
-        <li>
-          <a href="#{{ name }}-wrapper">{{ item }}</a></li>
+          <li>
+            <a href="#{{ name }}-wrapper">{{ name }} - {{ item }}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>

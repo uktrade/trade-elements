@@ -1,0 +1,19 @@
+.fieldset-group {
+  margin: 0 0 40px 0;
+  float: left;
+  width: 100%;
+
+  .form-group {
+    .form-label,
+    .form-label-bold {
+      display: none;
+    }
+
+    &:first-child {
+      .form-label,
+      .form-label-bold {
+        display: block;
+      }
+    }
+  }
+}

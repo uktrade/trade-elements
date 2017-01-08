@@ -1,0 +1,12 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+
+  <h1 class="heading-xlarge">Buttons</h1>
+  {{ trade.button("Simple", id="button-1", class="custom-class") }}
+  {{ trade.button("Secondary", id="button-2", variation="secondary") }}
+  {{ trade.button("Warning", id="button-3", variation="warning") }}
+  {{ trade.button("disabled", id="button-4", variation="disabled") }}
+
+{% endblock %}

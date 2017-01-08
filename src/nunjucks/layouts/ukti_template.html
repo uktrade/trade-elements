@@ -44,18 +44,11 @@
           <div class="header-logo">
             <a href="{{ root_url | default('/') }}" title="Home link" id="logo" class="content">
               <img src="{{ asset_path | default('/') }}images/gov.uk_logotype_crown_invert_trans.png" width="35" height="31" alt="Crown logo">
+              {% block service_name %}{% endblock %}
             </a>
           </div>
-          {% block inside_header %}{% endblock %}
         </div>
-        {% block proposition_header %}
-          <div class="header-proposition">
-            <div class="content">
-              <a href="{{ proposition_url | default('/') }}" id="proposition-name">{{ proposition_title | default('') }}</a>
-              {% block after_proposition %}{% endblock %}
-            </div>
-          </div>
-        {% endblock %}
+        {% block sub_header %}{% endblock %}
       </div>
     </header>
 
@@ -65,7 +58,7 @@
 
     <main id="content" role="main">
       {% block phasebanner %}{% endblock %}
-      {% block main %}{% endblock %}
+      {% block content %}{% endblock %}
     </main>
 
     {% block footer %}

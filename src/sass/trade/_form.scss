@@ -3,7 +3,6 @@
 }
 
 .form-section.form-section--compact {
-
   margin-bottom: $gutter / 3;
 
   @include media(tablet) {
@@ -12,7 +11,6 @@
 }
 
 .form-control {
-
   + p {
     margin-top: em(5);
   }
@@ -22,32 +20,7 @@
   }
 }
 
-.fieldset-group {
-  margin: 0 0 40px;
-  float: left;
-  width: 100%;
-
-  .form-group {
-    .form-label {
-      display: none;
-    }
-
-    &:first-child {
-      .form-label {
-        display: block;
-      }
-    }
-  }
-}
-
-.form-group__checkbox-group {
-  .form-label {
-    margin-bottom: 3px;
-  }
-}
-
-.form-group__radiohide.inline .block-label {
-  @include media(tablet) {
-    margin-bottom: 10px;
-  }
+.form-label.hidden,
+.form-label-bold.hidden{
+  display: none;
 }

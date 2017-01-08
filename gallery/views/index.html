@@ -1,7 +1,7 @@
 {% extends "gallery_template.html" %}
 {% import "macros/trade.html" as trade %}
 
-{% block content %}
+{% block main %}
   <div class="grid-row">
     <div class="column-two-thirds">
 
@@ -20,8 +20,10 @@
   </div>
   <div class="grid-row">
     <div class="column-one-third">
-      <h2 class="heading-medium"><a href="/forms">Form elements</a></h2>
-      <p>Form fields, labels, focus states, radio buttons, checkboxes.</p>
+      <h2 class="heading-medium"><a href="/buttons">Buttons</a></h2>
+    </div>
+    <div class="column-one-third">
+      <h2 class="heading-medium"><a href="/error">Error</a></h2>
     </div>
   </div>
 {% endblock %}

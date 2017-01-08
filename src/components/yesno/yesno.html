@@ -1,23 +1,73 @@
 {% macro yesNo(name, label, radioValue='no', error) %}
-<fieldset class="inline form-group form-group__checkbox-group" id="{{ name }}-wrapper">
+  <fieldset class="inline form-group form-group__checkbox-group" id="{{ name }}-wrapper">
 
-  <legend class="form-label">{{ label }}</legend>
+    {% if radioValue and radioValue.length > 0 %}
+      {% set radioValue = radioValue.toLowerCase() %}
+    {% endif %}
 
-  <label class="block-label" for="{{ name }}-yes">
-    <input id="{{ name }}-yes"
-           type="radio"
-           name="{{ name }}"
-           value="Yes"
-           {% if radioValue == 'yes' or radioValue == true %}checked="checked"{% endif %} />
-    Yes
-  </label>
-  <label class="block-label" for="{{ name }}-no">
-    <input id="{{ name }}-no"
-           type="radio"
-           name="{{ name }}"
-           value="No"
-           {% if radioValue == 'no' or radioValue == false or not radioValue %}checked="checked"{% endif %} />
-    No
-  </label>
-</fieldset>
+    <legend class="form-label-bold">{{ label }}</legend>
+
+    <label class="block-label" for="{{ name }}-yes">
+      <input id="{{ name }}-yes"
+             type="radio"
+             name="{{ name }}"
+             value="Yes"
+             {% if radioValue == 'yes' or radioValue == true %}checked="checked"{% endif %} />
+      Yes
+    </label>
+    <label class="block-label" for="{{ name }}-no">
+      <input id="{{ name }}-no"
+             type="radio"
+             name="{{ name }}"
+             value="No"
+             {% if radioValue == 'no' or radioValue == false %}checked="checked"{% endif %} />
+      No
+    </label>
+  </fieldset>
+{% endmacro %}
+
+{% macro yesNoHidden(name, label, radioValue='none', revealFor="yes", error) %}
+
+  {% if radioValue and radioValue.toLowerCase %}
+    {% set radioValue = radioValue.toLowerCase() %}
+  {% endif %}
+
+  {% if radioValue == 'yes' or radioValue == true %}
+    {% set yesno = 'Yes' %}
+  {% elif radioValue == 'no' or radioValue == true %}
+    {% set yesno = 'No' %}
+  {% else %}
+    {% set yesno = 'none' %}
+  {% endif %}
+
+  <fieldset
+    class="inline form-group form-group__checkbox-group form-group__radiohide js-radiohide"
+    id="{{ name }}-wrapper"
+    data-reveal-for="{{ revealFor }}">
+    <legend class="form-label-bold">{{ label }}</legend>
+
+    <label class="block-label" for="{{ name }}-yes">
+      <input id="{{ name }}-yes"
+             type="radio"
+             name="{{ name }}"
+             value="Yes"
+             {% if yesno == 'Yes' %}checked="checked"{% endif %} />
+      Yes
+    </label>
+    <label class="block-label" for="{{ name }}-no">
+      <input id="{{ name }}-no"
+             type="radio"
+             name="{{ name }}"
+             value="No"
+             {% if yesno == 'No' %}checked="checked"{% endif %} />
+      No
+    </label>
+
+    <div class="js-radiohide-content">
+      {{ caller() }}
+    </div>
+
+  </fieldset>
+
+
 {% endmacro %}
