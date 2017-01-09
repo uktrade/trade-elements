@@ -32,8 +32,21 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    {% block main %}{% endblock %}
+  <div class="container grid-row">
+    <div id="left-menu">
+      <nav>
+        <a href="/backlink">Back link</a><br/>
+        <a href="/button">Button</a><br/>
+        <a href="/date">Date</a><br/>
+        <a href="/dropdown">Dropdown</a><br/>
+        <a href="/errorpanel">Error panel</a><br/>
+        <a href="/flashmessage">Flash message</a><br/>
+        <a href="/horizontaltabs">Horizontal tabs</a>
+      </nav>
+    </div>
+    <div id="main-content">
+      {% block main %}{% endblock %}
+    </div>
   </div>
 {% endblock %}
 

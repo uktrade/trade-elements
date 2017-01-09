@@ -3,3 +3,19 @@ $asset-path: '/' !default;
 // Elements
 @import 'trade-elements';
 @import 'example';
+
+
+#left-menu {
+  @include grid-column( 1/4 );
+
+  nav {
+    margin-top: 20px;
+    margin-right: 20px;
+    border-right: 1px solid $border-colour;
+  }
+
+}
+
+#main-content {
+  @include grid-column( 3/4 );
+}
