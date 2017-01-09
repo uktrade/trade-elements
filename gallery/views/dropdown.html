@@ -1,0 +1,91 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<a class="back-link" href="/">Back</a>
+
+<h1 class="heading-xlarge">Dropdown</h1>
+<section>
+  <p>A standard select control styled for GDS style forms.</p>
+  <div class="example">
+    {{ trade.dropdown("dropthing", label="Example dropdown", hint="Just a bit of fun", emptyLabel="Pick a value", value="one", options=options) }}
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="form-group " id="dropthing-wrapper">
+    &lt;label class="form-label-bold" for="dropthing">
+      Example dropdown
+      &lt;span class="form-hint">Just a bit of fun&lt;/span>
+    &lt;/label>
+    &lt;select id="dropthing" class="form-control" name="dropthing">
+      &lt;option value="">Pick a value&lt;/option>
+      &lt;option value="one" selected="selected">one&lt;/option>
+      &lt;option value="two">two&lt;/option>
+      &lt;option value="three">three&lt;/option>
+    &lt;/select>
+  &lt;/div></code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}{{ trade.dropdown("dropthing", label="Example dropdown", hint="Just a bit of fun", emptyLabel="Pick a value", value="one", options=options) }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>name</td>
+        <td>Y</td>
+        <td>The prefix name for the form field</td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>Y</td>
+        <td>The text to display as a label for this field</td>
+      </tr>
+      <tr>
+        <td>hint</td>
+        <td>N</td>
+        <td>Optional text below label to give the user more help</td>
+      </tr>
+      <tr>
+        <td>emptyLabel</td>
+        <td>N</td>
+        <td>An optional option to show when there is no selected value</td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>N</td>
+        <td>The current selected value</td>
+      </tr>
+      <tr>
+        <td>options</td>
+        <td>Y</td>
+        <td>An array of possible options to display and select. This is currently an array of strings. Later support will
+          be provided for key value pairs.</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>N</td>
+        <td>An optional id value to use on a wrapper around the markup</td>
+      </tr>
+      <tr>
+        <td>class</td>
+        <td>N</td>
+        <td>A optional class name to add on the wrapper around the markup</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>N</td>
+        <td>An optional string describing an error to display for the field.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

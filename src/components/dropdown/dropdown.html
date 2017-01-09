@@ -12,6 +12,7 @@
     <select id="{{ id }}" class="form-control" name="{{ name }}">
       {% if emptyLabel %}<option value="">{{ emptyLabel }}</option>{% endif %}
       {% for option in options  %}
+
       {% if option.label %}
       <option value="{{ option.value }}" {% if option.value == value %}selected="selected"{% endif %}>{{ option.label }}</option>
       {% elif option.id %}
@@ -19,6 +20,7 @@
       {% else %}
       <option value="{{ option }}" {% if option == value %}selected="selected"{% endif %}>{{ option }}</option>
       {% endif %}
+
       {% endfor %}
     </select>
   </div>

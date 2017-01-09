@@ -30,11 +30,20 @@ app.use('/javascripts/', express.static(path.resolve(__dirname, '../dist/javascr
 app.use('/css', express.static(path.resolve(__dirname, '../dist/css')))
 app.use('/css', express.static(path.resolve(__dirname, './styles')))
 app.use('/favicon.ico', express.static(path.resolve(__dirname, '../dist/images')))
+app.use('/themes', express.static(path.resolve(__dirname, '../node_modules/prismjs/themes')))
+app.use('/prism.js', express.static(path.resolve(__dirname, '../node_modules/prismjs/prism.js')))
+
 
 app.use(require('./middleware/locals'))
 
 app.get(['/:page', '/'], (req, res) => {
   const page = req.params.page || 'index'
+
+  const options = ['one', 'two', 'three']
+  const messages = {
+    success: ['Hi there this is a message'],
+    errors: ['Some error']
+  }
 
   const errors = {
     'name': [
@@ -51,7 +60,7 @@ app.get(['/:page', '/'], (req, res) => {
     ]
   }
 
-  res.render(page, { fakeData, errors })
+  res.render(page, { fakeData, errors, options, messages })
 })
 
 app.get('/lookup', (req, res) => {

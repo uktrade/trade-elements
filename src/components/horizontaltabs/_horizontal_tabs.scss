@@ -53,7 +53,7 @@
 
       // Active tab
       [aria-selected='true'],
-      .is-selected {
+      .selected {
         background-color: $white;
         color: $text-colour;
         cursor: default;
@@ -69,22 +69,15 @@
       }
     }
   }
+}
 
-  // Tab panel inner
-  .tabs-panel-inner {
-    &:focus {
-      border: 0;
-      outline: 0;
-    }
-  }
-
-  .tabs-errors {
+.js-enabled .js-tabs {
+  .tabs-panel {
     // initially hide to avoid flashes waiting for js to load and render.
     display: none;
 
-    &.is-selected {
+    &.selected {
       display: block;
     }
   }
-
 }

@@ -1,0 +1,55 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<a class="back-link" href="/">Back</a>
+
+<h1 class="heading-xlarge">Horizontal Tabs</h1>
+<section>
+  <p>Horizontal tab panel to allow a header/detail type view</p>
+  <p>The horizontal tab is a self activating control. The Javascript for this control requires markup in the structure documented below.
+    If no tab is selected then the first tab is auto selected. When the control loads the active tab is displayed and all over tab
+    content is hidden. The URL is updated with a # pointing to the tab to be displayed so if the page is reloaded the correct tab is shown.</p>
+
+  <p>If Javascript is not enabled, all the tab content is visible and clicking the tab links move to that content.</p>
+  <div class="example">
+    <div class="tabs tabs--inline js-tabs">
+      <ul class="tabs-nav">
+        <li class="tab">
+          <a href="#tab1">Tab 1</a>
+        </li>
+        <li class="tab">
+          <a href="#tab2">Tab 2</a>
+        </li>
+      </ul>
+      <div id="tab1" class="tabs-panel">
+        <div class="tabs-panel-inner">This is tab 1</div>
+      </div>
+      <div id="tab2" class="tabs-panel">
+        <div class="tabs-panel-inner">This is tab 2</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="tabs tabs--inline js-tabs">
+  &lt;ul class="tabs-nav">
+    &lt;li class="tab">
+      &lt;a href="#tab1">Tab 1&lt;/a>
+    &lt;/li>
+    &lt;li class="tab">
+      &lt;a href="#tab2">Tab 2&lt;/a>
+    &lt;/li>
+  &lt;/ul>
+  &lt;div id="tab1" class="tabs-panel">
+    &lt;div class="tabs-panel-inner">This is tab 1&lt;/div>
+  &lt;/div>
+  &lt;div id="tab2" class="tabs-panel">
+    &lt;div class="tabs-panel-inner">This is tab 2&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>
+  </div>
+</section>
+
+{% endblock %}

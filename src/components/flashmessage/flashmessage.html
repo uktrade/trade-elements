@@ -1,0 +1,9 @@
+{% macro flashMessages(messages, type="success") %}
+  <div class="flash-message {{type}}-message">
+    <p class="flash-message-content">
+      {% for message in messages %}
+        {{ message }}<br>
+      {% endfor %}
+    </p>
+  </div>
+{% endmacro %}

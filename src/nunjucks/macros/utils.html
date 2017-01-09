@@ -1,7 +1,0 @@
-{% macro trade_scripts(scriptroot = '/javascripts') %}
-  <script src="{{ ( scriptroot + '/trade.js') | versionAssetUrl | safe }}"></script>
-{% endmacro %}
-
-{% macro trade_styles(stylesheetroot = '/stylesheets') %}
-  <link href="{{ ( stylesheetroot + '/trade-elements.css') | versionAssetUrl | safe }}" rel="stylesheet" type="text/css">
-{% endmacro %}

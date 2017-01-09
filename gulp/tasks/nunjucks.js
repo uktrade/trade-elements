@@ -6,7 +6,7 @@ gulp.task('nunjucks', () => {
   const concat = require('gulp-concat')
 
   return es.merge(
-    gulp.src([`${paths.projectDir}/src/components/**/*.html`, `${paths.projectDir}/src/nunjucks/macros/utils.html`])
+    gulp.src(`${paths.projectDir}/src/components/**/*.html`)
       .pipe(concat('trade.html'))
       .pipe(gulp.dest(`${paths.projectDir}/dist/nunjucks/macros/`)),
     gulp.src(`${paths.projectDir}/src/nunjucks/layouts/*.html`)

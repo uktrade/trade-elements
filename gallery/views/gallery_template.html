@@ -5,7 +5,9 @@
 {% block head_styles %}
   <!-- This is a test -->
   <link href="{{ asset_path | default('/') }}css/gallery.css" media="screen" rel="stylesheet" />
+  <link href="{{ asset_path | default('/') }}themes/prism-okaidia.css" media="screen" rel="stylesheet" />
 {% endblock %}
+
 
 {% set proposition_title="Trade Elements" %}
 {% set proposition_url="/" %}
@@ -33,4 +35,8 @@
   <div class="container">
     {% block main %}{% endblock %}
   </div>
+{% endblock %}
+
+{% block body_end_scripts %}
+<script src="/prism.js"></script>
 {% endblock %}

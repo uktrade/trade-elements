@@ -1,0 +1,69 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <a class="back-link" href="/">Back</a>
+
+  <h1 class="heading-xlarge">Button</h1>
+  <section>
+    <p>Trade GDS style buttons extends the base Elements buttons to add some additional colours and styles.</p>
+    <div class="example">
+    {{ trade.button("Simple", id="button-1", class="custom-class") }}
+    {{ trade.button("Secondary", id="button-2", variation="secondary") }}
+    {{ trade.button("Warning", id="button-3", variation="warning") }}
+    {{ trade.button("disabled", id="button-4", variation="disabled") }}
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;button class="btn">This is a button&lt;/button></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.button("Simple", id="button-1", class="custom-class") }}
+{{ trade.button("Secondary", id="button-2", variation="secondary") }}
+{{ trade.button("Warning", id="button-3", variation="warning") }}
+{{ trade.button("disabled", id="button-4", variation="disabled") }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Required</th>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>Y</td>
+            <td>The text to show on the button</td>
+          </tr>
+          <tr>
+            <td>id</td>
+            <td>N</td>
+            <td>If you wish the button to be assigned an ID pass it here</td>
+          </tr>
+
+          <tr>
+            <td>class</td>
+            <td>N</td>
+            <td>Pass an extra class value to add to the markup, e.g. selected</td>
+          </tr>
+
+          <tr>
+            <td>variation</td>
+            <td>N</td>
+            <td>In addition to the default green button styled by GDS, trade element add variations, supported values include: secondary,
+              warning, disabled and link. Note that passing 'disabled' will also set the button so that it cannot be used.</td>
+          </tr>
+
+          <tr>
+            <td>type</td>
+            <td>N</td>
+            <td>Used to specify if a button is a 'button' or 'submit', defaults to 'button'</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endblock %}

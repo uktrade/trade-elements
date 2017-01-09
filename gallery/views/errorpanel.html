@@ -1,0 +1,64 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<a class="back-link" href="/">Back</a>
+
+<h1 class="heading-xlarge">Error panel</h1>
+<section>
+  <p>A panel to show at the very top of the page when a form contains validation errors.</p>
+  <div class="example">
+    {{ trade.errorPanel( errors ) }}
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+  &lt;h1 class="heading-medium error-summary-heading" id="error-summary-heading">
+    Incomplete Information
+  &lt;/h1>
+  &lt;ul class="error-summary-list">
+    &lt;li>
+      &lt;a href="#name-wrapper">name - This field may not be null.&lt;/a>
+    &lt;/li>
+    &lt;li>
+      &lt;a href="#business_type-wrapper">business_type - This field may not be null.&lt;/a>
+    &lt;/li>
+    &lt;li>
+      &lt;a href="#sector-wrapper">sector - This field may not be null.&lt;/a>
+    &lt;/li>
+    &lt;li>
+      &lt;a href="#registered_address-wrapper">registered_address - Invalid address&lt;/a>
+    &lt;/li>
+  &lt;/ul>
+&lt;/div></code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}    {{ trade.errorPanel( errors ) }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>errors</td>
+        <td>Y</td>
+        <td>An object containing error messages in the following format:<br/>
+<pre><code class="language-twig">{<br/>
+  'name': ['This field may not be null.'],<br/>
+  'business_type': ['This field may not be null.'],<br/>
+  'sector': ['This field may not be null.'],<br/>
+  'registered_address': ['Invalid address']<br/>
+}<br/></code></pre>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

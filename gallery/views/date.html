@@ -1,0 +1,93 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<a class="back-link" href="/">Back</a>
+
+<h1 class="heading-xlarge">Date</h1>
+<section>
+  <p>Allow the user to enter a date in UK format, dd/mm/yyyy. The control accepts a string in dd/mm/yyyy format and
+  split it into 3 fields for the user to edit.</p>
+  <div class="example">
+    {{ trade.date('dob', label="Date of birth", value="07/01/1971") }}
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="form-group form-date ">
+  &lt;fieldset>
+    &lt;legend class="form-label-bold">Date of birth&lt;/legend>
+    &lt;span class="error-message">&lt;/span>
+
+    &lt;div class="form-group form-group-day">
+      &lt;label for="dob_day">&lt;span class="form-hint">DD&lt;/span>&lt;/label>
+      &lt;input type="text" id="dob_day" class="form-control" name="dob_day" value="07" maxlength="2" autocomplete="dd">
+    &lt;/div>
+
+    &lt;div class="form-group form-group-month">
+      &lt;label for="dob_month">
+        &lt;span class="form-hint">MM&lt;/span>
+      &lt;/label>
+      &lt;input type="text" id="dob_month" class="form-control" name="dob_month" value="01" maxlength="2" autocomplete="mm">
+    &lt;/div>
+
+    &lt;div class="form-group form-group-year">
+      &lt;label for="dob_year">
+        &lt;span class="form-hint">YYYY&lt;/span>
+      &lt;/label>
+      &lt;input type="text" id="dob_year" class="form-control" name="dob_year" value="1971" maxlength="4" autocomplete="yyyy">
+    &lt;/div>
+  &lt;/fieldset>
+&lt;/div></code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}{{ trade.date('dob', label="Date of birth", value="07/01/1971") }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>name</td>
+        <td>Y</td>
+        <td>The prefix name for the form field</td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>Y</td>
+        <td>The text to display as a label for this field</td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>N</td>
+        <td>The date value in the format 'dd/mm/yyyy', leave empty if there is no existing value</td>
+      </tr>
+
+      <tr>
+        <td>id</td>
+        <td>N</td>
+        <td>An optional id value to use on a wrapper around the markup</td>
+      </tr>
+
+      <tr>
+        <td>class</td>
+        <td>N</td>
+        <td>A optional class name to add on the wrapper around the markup</td>
+      </tr>
+
+      <tr>
+        <td>error</td>
+        <td>N</td>
+        <td>An optional string describing an error to display for the field.</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

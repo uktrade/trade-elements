@@ -54,6 +54,7 @@
     "jquery": "^1.12.3",
     "moment": "^2.17.1",
     "nunjucks": "^3.0.0",
+    "prismjs": "^1.6.0",
     "require-dir": "^0.3.1",
     "standard": "^8.6.0",
     "webpack": "^1.14.0"

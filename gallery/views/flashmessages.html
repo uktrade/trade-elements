@@ -1,0 +1,51 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<a class="back-link" href="/">Back</a>
+
+<h1 class="heading-xlarge">Flash messages</h1>
+<section>
+  <p>A panel to show at the top of the page to user of a completed action or an error carrying out an action</p>
+  <div class="example">
+    {{ trade.flashMessages( messages.success ) }}
+    {{ trade.flashMessages( messages.errors, type="error" ) }}
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="flash-message success-message">
+  &lt;p class="flash-message-content">Hi this is a message&lt;/p>
+&lt;/div>
+&lt;div class="flash-message error-message">
+  &lt;p class="flash-message-content">Some error&lt;/p>
+&lt;/div></code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}{{ trade.flashMessages( messages.success ) }}
+{{ trade.flashMessages( messages.errors, type="error" ) }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>messages</td>
+        <td>Y</td>
+        <td>A string array with one or more messages to display.</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>N</td>
+        <td>Messages can either be of type 'success' (default) or 'error'.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
