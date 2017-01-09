@@ -1,6 +1,6 @@
 {
-  "name": "trade_elements",
-  "version": "0.0.7",
+  "name": "@uktrade/trade_elements",
+  "version": "0.0.8",
   "description": "** Not Ready Yet ** Pattern library with styles, templates and js to create UKTI Trade and internal sites and services",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "author": "Zac Tolley <zac@thetolleys.com>",
   "license": "MIT",
+  "main": "index.js",
   "engines": {
     "node": "6.9.4"
   },
@@ -47,8 +48,8 @@
     "gulp-sass": "^3.0.0",
     "gulp-sass-lint": "^1.2.2",
     "gulp-sequence": "^0.4.6",
-    "gulp-standard": "^8.0.3",
     "gulp-sourcemaps": "^1.9.1",
+    "gulp-standard": "^8.0.3",
     "gulp-util": "^3.0.8",
     "jquery": "^1.12.3",
     "moment": "^2.17.1",

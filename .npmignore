@@ -1,2 +1,3 @@
 *
 !dist/**
+!src/javascripts/lib/**
