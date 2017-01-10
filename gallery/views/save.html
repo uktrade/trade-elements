@@ -1,0 +1,45 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Save bar</h1>
+  <section>
+    <p>A common used pattern to provide a save and cancel button at the bottom of a form.</p>
+    <div class="example">
+      {{ trade.save(backUrl ='/') }}
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;div class="save-bar">
+  &lt;button class="button button--save" type="submit">Save&lt;/button>
+  &lt;a class="button-link button--cancel js-button-cancel" href="/">Cancel&lt;/a>
+&lt;/div></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.save(backUrl ='/') }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>backUrl</td>
+          <td>Y</td>
+          <td>The url to use for the cancel button</td>
+        </tr>
+        <tr>
+          <td>buttonText</td>
+          <td>N</td>
+          <td>Alternative text to use instead of 'Save' on the save button, e.g. Submit</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endblock %}

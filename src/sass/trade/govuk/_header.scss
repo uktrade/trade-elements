@@ -26,17 +26,14 @@
 
     .header-global {
       @extend %contain-floats;
+      @include media(tablet) {
+        display: inline-block;
+        float: left;
+        width: 50%;
+      }
+
       .header-logo {
         @extend %contain-floats;
-        float: left;
-
-        @include media(desktop){
-          width: 33.33%;
-        }
-        @media screen and (max-width: 379px) {
-          width: auto;
-          float: none;
-        }
 
         .content {
           margin: 0 15px;
@@ -46,30 +43,15 @@
         margin: 5px 0 2px;
       }
     }
-  }
-  &.with-proposition {
-    .header-wrapper {
-      .header-global {
-        @include media(desktop){
-          float: left;
-          width: 33.33%;
 
-          .header-logo,
-          .site-search {
-            width: 100%;
-          }
-        }
-      }
-      .header-proposition {
-        @include media(desktop){
-          width: 66.66%;
-          float: left;
-        }
-        .content {
-          margin: 0 15px;
-        }
+    .top-menu {
+      @include media(tablet) {
+        display: inline-block;
+        float: right;
+        width: 50%;
       }
     }
+
   }
 
   #logo {
@@ -121,28 +103,21 @@
       border-bottom-color: $white;
     }
   }
-  .header-proposition {
+
+  .top-menu {
     padding-top: 10px;
-    @include media(desktop){
+    @include media(desktop) {
       padding-top: 0;
     }
-    #proposition-name {
-      @include core-24;
-      font-weight: bold;
-      color: $white;
-      text-decoration: none;
-    }
-    a#proposition-name:hover {
-      text-decoration: underline;
-    }
-    a.menu {
+
+    a {
       @include core-16;
       color: $white;
       display: block;
       float: right;
       text-decoration: none;
       padding-top: 6px;
-      @include media(desktop){
+      @include media(desktop) {
         display: none;
       }
       &:hover {
@@ -158,84 +133,6 @@
       }
       &.js-hidden:after {
         content: " \25B2";
-      }
-    }
-    #proposition-menu {
-      margin-top: 5px;
-
-      // Some headers (Whitehall) don't have a propsition name, offset as if they did.
-      &.no-proposition-name {
-        @include media(desktop){
-          margin-top: 37px;
-          // 37px is the amount of margin required to line up the nav list with the top of the search box
-        }
-      }
-    }
-    #proposition-link,
-    #proposition-links {
-      clear: both;
-      @extend %contain-floats;
-      margin: 2px 0 0 0;
-      padding: 0;
-
-      .js-enabled & {
-        display: none;
-        @include media(desktop){
-          display: block;
-        }
-        &.js-visible {
-          display: block;
-        }
-      }
-
-      li {
-        float: left;
-        width: 50%;
-        padding: 3px 0;
-        border-bottom: 1px solid $proposition-border;
-
-        @include media(desktop){
-          display: block;
-          width: auto;
-          padding: 0 15px 0 0;
-          border-bottom: 0;
-
-          &.clear-child {
-            clear: left;
-          }
-        }
-      }
-
-      a {
-        color: $white;
-        text-decoration: none;
-        @include bold-14;
-
-        @include media(desktop) {
-          @include bold-16;
-          line-height: 23px;
-        }
-
-        &:hover {
-          text-decoration: underline;
-        }
-        &.active {
-          color: $proposition-active-nav;
-        }
-        &:focus {
-          color: $black;
-        }
-      }
-    }
-
-    #proposition-link {
-      float: right;
-      line-height: 22px;
-      .js-enabled & {
-        display:block;
-      }
-      @include media(desktop) {
-        float:none;
       }
     }
   }

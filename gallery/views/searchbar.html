@@ -1,0 +1,54 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block top_menu %}
+{{ trade.searchbar("search", label="Search", value="fred", type="header" ) }}
+{% endblock %}
+
+
+{% block main %}
+  <h1 class="heading-xlarge">Search bar</h1>
+  <section>
+    <p>A Google like search bar. This control has two 'types', it can either be a regular searchbar displayed
+    below, or a 'header' searchbar which is suited to use in the GDS style header, and is more compact.</p>
+    <div class="example">
+      {{ trade.searchbar("search", label="Search", value="fred") }}
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;form class="searchbar" action="/search" method="get" role="search">
+  &lt;div class="searchbar__wrapper">
+    &lt;label class="searchbar__label" for="search-term">Search for company name or contact&lt;/label>
+    &lt;input class="searchbar__input form-control" id="search-term" type="search" name="term" value="" placeholder="Search for company name or contact">
+    &lt;input class="searchbar__submit" type="submit" value="Search">
+  &lt;/div>
+&lt;/form></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.save(backUrl ='/') }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>backUrl</td>
+          <td>Y</td>
+          <td>The url to use for the cancel button</td>
+        </tr>
+        <tr>
+          <td>buttonText</td>
+          <td>N</td>
+          <td>Alternative text to use instead of 'Save' on the save button, e.g. Submit</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endblock %}

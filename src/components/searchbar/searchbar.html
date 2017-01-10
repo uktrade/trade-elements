@@ -1,4 +1,4 @@
-{% macro searchbar(name, label, value="", type, action="/search", method="get", submitLabel="Search", error) %}
+{% macro searchbar(name, label, value="", type, action="/search", method="get", submitLabel="Search") %}
   <form class="searchbar{% if type %} searchbar--{{type}}{% endif %}"
         action="{{ action }}"
         method="{{ method }}"

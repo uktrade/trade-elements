@@ -1,0 +1,35 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Pagination</h1>
+  <section>
+    <p>Pagination allows movement through long lists of data of results. There is no macro to create the markup for this but by
+    using the classes demonstrated it it possible to create the correctly styled layout.</p>
+    <div class="example">
+      <div class="pagination">
+        <div>
+          <a href="/search?term=fred&amp;page=1" class="pagination__page">Previous</a>
+          <a href="/search?term=fred&amp;page=1" class="pagination__page">1</a>
+          <div class="pagination__page">2</div>
+          <a href="/search?term=fred&amp;page=3" class="pagination__page">3</a>
+          <a href="/search?term=fred&amp;page=3" class="pagination__page">Next</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;div class="pagination">
+  &lt;div>
+    &lt;a href="/search?term=fred&amp;page=1" class="pagination__page">Previous&lt;/a>
+    &lt;a href="/search?term=fred&amp;page=1" class="pagination__page">1&lt;/a>
+    &lt;div class="pagination__page">2&lt;/div>
+    &lt;a href="/search?term=fred&amp;page=3" class="pagination__page">3&lt;/a>
+    &lt;a href="/search?term=fred&amp;page=3" class="pagination__page">Next&lt;/a>
+  &lt;/div>
+&lt;/div></code></pre>
+    </div>
+  </section>
+
+{% endblock %}

@@ -48,13 +48,15 @@
 
 .searchbar.searchbar--header {
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   padding-left: 0;
   padding-right: 0;
 
   @include media(tablet) {
     float: right;
+    max-width: 250px;
     width: 50%;
+    margin: 0 auto;
   }
 
   .searchbar__wrapper {
