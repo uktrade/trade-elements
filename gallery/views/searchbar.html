@@ -26,7 +26,7 @@
     </div>
     <div class="nunjucks">
       <h3 class="heading-medium">Nunjucks Macros</h3>
-      <pre><code class="language-twig">{% raw %}{{ trade.save(backUrl ='/') }}{% endraw %}</code></pre>
+      <pre><code class="language-twig">{% raw %}{{ trade.searchbar("search", label="Search", value="fred") }}{% endraw %}</code></pre>
       <table>
         <thead>
         <tr>
@@ -37,15 +37,37 @@
         </thead>
         <tbody>
         <tr>
-          <td>backUrl</td>
+          <td>name</td>
           <td>Y</td>
           <td>The url to use for the cancel button</td>
         </tr>
         <tr>
-          <td>buttonText</td>
-          <td>N</td>
-          <td>Alternative text to use instead of 'Save' on the save button, e.g. Submit</td>
+          <td>label</td>
+          <td>Y</td>
+          <td>A label to use to indicate what the search field is for, note that this is hidden from view and rendered solely for the purpose of accessibility</td>
         </tr>
+        <tr>
+          <td>value</td>
+          <td>N</td>
+          <td>An existing value to populate the search field is there is one, e.g. the user has landed on a results page, show the current term</td>
+        </tr>
+        <tr>
+          <td>type</td>
+          <td>N</td>
+          <td>By default the search bar is styled for use in the main part of the page, optionally the developer can pass a value of 'header' to
+            mutate the style to suit usage in a compact space such as the header.</td>
+        </tr>
+        <tr>
+          <td>action</td>
+          <td>N</td>
+          <td>The action attribute for the search form, this is a url. If no value is specified then '/search' is used.</td>
+        </tr>
+        <tr>
+          <td>submitLabel</td>
+          <td>N</td>
+          <td>A text label for the search button, this defaults to 'Search'</td>
+        </tr>
+
         </tbody>
       </table>
     </div>

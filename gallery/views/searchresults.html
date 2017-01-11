@@ -1,0 +1,81 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Search Results</h1>
+  <section>
+    <p>Search result has a collect of css classes to help display a search summary and a list of individual
+      search results. There are no macros for this component as the layout of each search result may differ
+      or need flexibility to show different markup for different entity types.
+    </p>
+    <p>For each result the title should have a class 'result-title' and each distinct
+     piece of data with that should be wrapped with a 'meta', classes like 'meta--ch'
+     are outside the scope of this control but show how aditional styling could be added.</p>
+
+    <div class="example">
+        <div id="result-summary" class="result-summary">
+          <span class="result-summary--result-count">20</span> results found containing
+          <span class="result-summary--result-query">fred</span>
+        </div>
+        <ol class="results-list">
+          <li class="results-list__result result-list__ch" data_name="FORGING FRED">
+            <h3 class="result-title">
+              <a href="/company/company_companieshousecompany/09763666?term=fred">FORGING <strong>FRED</strong></a>
+            </h3>
+            <div class="meta meta--ch">09763666 - Incorporated on 4 September 2015</div>
+            <div class="meta meta--address">
+              47 york place,
+              newport,
+              <span class="meta--address__postcode">NP20 4GD</span>
+            </div>
+          </li>
+          <li class="results-list__result result-list__ch" data_name="BETTY AND FRED LIMITED">
+            <h3 class="result-title">
+              <a href="/company/company_companieshousecompany/05556650?term=fred">BETTY AND <strong>FRED</strong> LIMITED</a>
+            </h3>
+            <div class="meta meta--ch">05556650 - Incorporated on 7 September 2005</div>
+            <div class="meta meta--address">
+              chapel cottage, cadley road,
+              collingbourne-ducis,
+              wiltshire,
+              <span class="meta--address__postcode">SN8 3EB</span>
+            </div>
+          </li>
+        </ol>
+    </div>
+
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;div id="result-summary" class="result-summary">
+  &lt;span class="result-summary--result-count">20&lt;/span> results found containing
+  &lt;span class="result-summary--result-query">fred&lt;/span>
+&lt;/div>
+&lt;ol class="results-list">
+  &lt;li class="results-list__result result-list__ch" data_name="FORGING FRED">
+    &lt;h3 class="result-title">
+      &lt;a href="/company/company_companieshousecompany/09763666?term=fred">FORGING &lt;strong>FRED&lt;/strong>&lt;/a>
+    &lt;/h3>
+    &lt;div class="meta meta--ch">09763666 - Incorporated on 4 September 2015&lt;/div>
+    &lt;div class="meta meta--address">
+      47 york place,
+      newport,
+      &lt;span class="meta--address__postcode">NP20 4GD&lt;/span>
+    &lt;/div>
+  &lt;/li>
+  &lt;li class="results-list__result result-list__ch" data_name="BETTY AND FRED LIMITED">
+    &lt;h3 class="result-title">
+      &lt;a href="/company/company_companieshousecompany/05556650?term=fred">BETTY AND &lt;strong>FRED&lt;/strong> LIMITED&lt;/a>
+    &lt;/h3>
+    &lt;div class="meta meta--ch">05556650 - Incorporated on 7 September 2005&lt;/div>
+    &lt;div class="meta meta--address">
+      chapel cottage, cadley road,
+      collingbourne-ducis,
+      wiltshire,
+      &lt;span class="meta--address__postcode">SN8 3EB&lt;/span>
+    &lt;/div>
+  &lt;/li>
+&lt;/ol></code></pre>
+    </div>
+  </section>
+
+{% endblock %}

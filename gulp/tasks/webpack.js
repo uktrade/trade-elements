@@ -12,6 +12,9 @@ gulp.task('webpack', done => {
       gulp.src([`${paths.projectDir}/node_modules/jquery/dist/jquery.min.js`, `${paths.sourceJS}/cookie.js`])
         .pipe(gulp.dest(paths.outputJS))
 
+      gulp.src(`${paths.sourceJS}/lib/**/*.js`)
+        .pipe(gulp.dest(`${paths.outputJS}/lib`))
+
       webpack(require(paths.webpackConfig)).run((err, stats) => {
         if (err) { throw new gutil.PluginError('webpack', err); }
 

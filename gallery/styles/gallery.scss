@@ -19,3 +19,7 @@ $asset-path: '/' !default;
 #main-content {
   @include grid-column( 3/4 );
 }
+
+.html, .nunjucks {
+  @include core-14
+}
