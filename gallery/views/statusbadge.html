@@ -1,0 +1,52 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Status badge</h1>
+  <section>
+    <p>A badge for use next to heading, or a small version in other places to indicate a type.</p>
+    <div class="example">
+      {{  trade.statusbadge('Company') }}<br/><br/>
+      {{  trade.statusbadge('Company', variation="turquoise", size="small") }}<br/>
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;span class="status-badge">Archived&lt;/span></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.statusbadge('Company' }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <td>Description</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>text</td>
+          <td>Y</td>
+          <td>The text to appear inside the badge</td>
+        </tr>
+        <tr>
+          <td>variation</td>
+          <td>Y</td>
+          <td>The basic badge is blue. Other variations have been created, including:
+            turquoise and fuschia.
+          </td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>N</td>
+          <td>By default no size is needed, but if a small badge is requried, pass 'small'. The small
+            version uses a 16px font.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endblock %}

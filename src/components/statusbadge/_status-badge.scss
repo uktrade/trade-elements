@@ -3,18 +3,19 @@
   display: inline-block;
   font-weight: normal;
   border: 2px solid $black;
-  padding: 2px 10px 0;
-  position: absolute;
+  padding: 2px 10px 2px;
   margin-left: 10px;
   white-space: nowrap;
 }
 
-.status-badge--prospect {
+.status-badge--prospect,
+.status-badge--turquoise {
   color: $turquoise;
   border-color: $turquoise;
 }
 
-.status-badge--primary-contact {
+.status-badge--primary-contact,
+.status-badge--primary-fuschia {
   color: $fuschia;
   border-color: $fuschia;
 }
