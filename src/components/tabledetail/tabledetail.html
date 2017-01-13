@@ -1,0 +1,13 @@
+{% macro tabledetail(entries) %}
+    <table class="table-detail table-detail--readonly">
+        {% for entry in entries  %}
+            <tr class="table-detail--readonly__section">
+                {% if loop.index == 1 %}
+                    <td rowspan="{{ loop.length }}" class="spacer">&nbsp;</td>
+                {% endif %}
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endmacro %}
