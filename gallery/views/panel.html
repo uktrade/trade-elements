@@ -1,0 +1,162 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<h1 class="heading-xlarge">Sub panel</h1>
+<section>
+  <p>Panels are a way to group sections within a section, and their variant, panel-border, allows the sub sections to be visually indented. GDS
+    is a little ambiguous how to handle errors<p>
+  <p>For trade the style is slightly modified to it clear, consistent and work with
+    the macros to create field layouts. If a field in a section has an error the 'pane' should have an 'error' class. The fields within the panel
+    will still have an error in it's form group but the left red border styling for this will not be shown, to avoid 2 borders.</p>
+
+  <p>
+    As fields in the sub panel are related to a top field, they should all be contained in a fieldset.
+  </p>
+  <div class="example">
+    <fieldset>
+      <legend class="visually-hidden">Sector and sub-sector</legend>
+      <div class="form-group">
+      <label class="form-label-bold" for="primary-sector">Sector</label>
+      <select class="form-control" id="primary-sector" name="sector">
+        <option value="">Select option</option>
+        <option>Sector one</option>
+        <option>Sector two</option>
+      </select>
+    </div>
+      <div class="panel panel-border-narrow">
+      <div class="form-group" id="sub-sector-wrapper">
+        <label class="form-label-bold" for="sub-sector">Sub-sector</label>
+        <select class="form-control" id="sub-sector" name="sub-sector">
+          <option value="">Select option</option>
+          <option>Sub-sector one</option>
+          <option>Sub-sector two</option>
+        </select>
+      </div>
+    </div>
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+      <legend class="visually-hidden">Sector and sub-sector</legend>
+      <div class="form-group error">
+        <label class="form-label-bold" for="primary-sector2">Sector
+          <span class="error-message">You must select a sector</span>
+        </label>
+        <select class="form-control" id="primary-sector2" name="sector">
+          <option value="">Select option</option>
+          <option>Sector one</option>
+          <option>Sector two</option>
+        </select>
+      </div>
+      <div class="panel panel-border-narrow">
+        <div class="form-group" id="sub-sector-wrapper2">
+          <label class="form-label-bold" for="sub-sector2">Sub-sector</label>
+          <select class="form-control" id="sub-sector2" name="sub-sector">
+            <option value="">Select option</option>
+            <option>Sub-sector one</option>
+            <option>Sub-sector two</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <hr/>
+    <fieldset>
+      <legend class="visually-hidden">Sector and sub-sector</legend>
+      <div class="form-group">
+        <label class="form-label-bold" for="primary-sector3">Sector</label>
+        <select class="form-control" id="primary-sector3" name="sector">
+          <option value="">Select option</option>
+          <option>Sector one</option>
+          <option>Sector two</option>
+        </select>
+      </div>
+      <div class="panel panel-border-narrow error">
+        <div class="form-group error" id="sub-sector-wrapper3">
+          <label class="form-label-bold" for="sub-sector3">Sub-sector
+            <span class="error-message">You must select a sub-sector</span></label>
+          <select class="form-control" id="sub-sector3" name="sub-sector">
+            <option value="">Select option</option>
+            <option>Sub-sector one</option>
+            <option>Sub-sector two</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;fieldset>
+  &lt;legend class="visually-hidden">Sector and sub-sector&lt;/legend>
+  &lt;div class="form-group">
+  &lt;label class="form-label-bold" for="primary-sector">Sector&lt;/label>
+  &lt;select class="form-control" id="primary-sector" name="sector">
+    &lt;option value="">Select option&lt;/option>
+    &lt;option>Sector one&lt;/option>
+    &lt;option>Sector two&lt;/option>
+  &lt;/select>
+  &lt;/div>
+  &lt;div class="panel panel-border-narrow">
+  &lt;div class="form-group" id="sub-sector-wrapper">
+    &lt;label class="form-label-bold" for="sub-sector">Sub-sector&lt;/label>
+    &lt;select class="form-control" id="sub-sector" name="sub-sector">
+      &lt;option value="">Select option&lt;/option>
+      &lt;option>Sub-sector one&lt;/option>
+      &lt;option>Sub-sector two&lt;/option>
+    &lt;/select>
+  &lt;/div>
+&lt;/div>
+&lt;/fieldset>
+
+&lt;fieldset>
+  &lt;legend class="visually-hidden">Sector and sub-sector&lt;/legend>
+  &lt;div class="form-group error">
+    &lt;label class="form-label-bold" for="primary-sector2">Sector
+      &lt;span class="error-message">You must select a sector&lt;/span>
+    &lt;/label>
+    &lt;select class="form-control" id="primary-sector2" name="sector">
+      &lt;option value="">Select option&lt;/option>
+      &lt;option>Sector one&lt;/option>
+      &lt;option>Sector two&lt;/option>
+    &lt;/select>
+  &lt;/div>
+  &lt;div class="panel panel-border-narrow">
+    &lt;div class="form-group" id="sub-sector-wrapper2">
+      &lt;label class="form-label-bold" for="sub-sector2">Sub-sector&lt;/label>
+      &lt;select class="form-control" id="sub-sector2" name="sub-sector">
+        &lt;option value="">Select option&lt;/option>
+        &lt;option>Sub-sector one&lt;/option>
+        &lt;option>Sub-sector two&lt;/option>
+      &lt;/select>
+    &lt;/div>
+  &lt;/div>
+&lt;/fieldset>
+
+&lt;fieldset>
+  &lt;legend class="visually-hidden">Sector and sub-sector&lt;/legend>
+  &lt;div class="form-group">
+    &lt;label class="form-label-bold" for="primary-sector3">Sector&lt;/label>
+    &lt;select class="form-control" id="primary-sector3" name="sector">
+      &lt;option value="">Select option&lt;/option>
+      &lt;option>Sector one&lt;/option>
+      &lt;option>Sector two&lt;/option>
+    &lt;/select>
+  &lt;/div>
+  &lt;div class="panel panel-border-narrow error">
+    &lt;div class="form-group error" id="sub-sector-wrapper3">
+      &lt;label class="form-label-bold" for="sub-sector3">Sub-sector
+        &lt;span class="error-message">You must select a sub-sector&lt;/span>&lt;/label>
+      &lt;select class="form-control" id="sub-sector3" name="sub-sector">
+        &lt;option value="">Select option&lt;/option>
+        &lt;option>Sub-sector one&lt;/option>
+        &lt;option>Sub-sector two&lt;/option>
+      &lt;/select>
+    &lt;/div>
+  &lt;/div>
+&lt;/fieldset></code></pre>
+  </div>
+</section>
+
+{% endblock %}
