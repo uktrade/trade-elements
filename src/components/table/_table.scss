@@ -1,6 +1,6 @@
-.table-detail {
+.table--key-value {
 
-  margin-bottom: em(22);
+  margin: 20px 0;
 
   tbody {
     th {
@@ -25,15 +25,19 @@
   }
 }
 
-.table-detail--readonly {
-  margin-top: 20px;
-  border-left: 10px solid $grey-2;
+.table--readonly {
+
+  border-left: 10px solid $border-colour;
 
   tbody {
+
+    display: block;
+    padding: 0 0 0 10px;
+
     tr {
       td,
       th {
-        border-bottom: 1px solid $grey-2;
+        border-bottom: 1px solid $border-colour;
         color: $grey-1;
       }
 
@@ -41,12 +45,7 @@
         padding-left: 15px;
       }
 
-      &:nth-child(even) {
-        td,
-        th {
-          background: $white;
-        }
-      }
+
 
       &:last-child {
         td,
@@ -65,4 +64,37 @@
 
 .record-title {
   position: relative;
+}
+
+
+.table-detail.table-detail--compact {
+  margin-bottom: 0;
+}
+
+table.table--striped {
+
+  tr:first-child {
+    border-top: 1px solid $border-colour;
+  }
+
+  tr:nth-child(even) {
+    background: $highlight-colour;
+  }
+}
+
+table.table-sortable thead tr {
+  th {
+    cursor: pointer;
+
+    &.desc {
+      &:after {
+        content: "\00a0\00a0\25BC";
+      }
+    }
+    &.asc {
+      &:after {
+        content: "\00a0\00a0\25B2";
+      }
+    }
+  }
 }

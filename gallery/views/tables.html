@@ -1,0 +1,262 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Tables</h1>
+  <p>Tables are used throughout the site to show data, there are 3 styles of table:</p>
+
+  <section>
+    <h2 class="heading-large">Key Value table</h2>
+    <p>A Key value table is a tool to display data such as fields and values for an entity. The markup for this data uses
+      tables to provided a structured layout, but also uses aria attributes to indicate the relationship between a field label and
+      it's corresponding value.
+    </p>
+    <div class="example">
+      <table class="table--key-value table--striped">
+        <tbody>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;table class="table--key-value table--striped">
+  &lt;tbody>
+  &lt;tr>
+    &lt;th>Registered name&lt;/th>
+    &lt;td>Marriott Hotels & Resorts&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;th>Registered name&lt;/th>
+    &lt;td>Marriott Hotels & Resorts&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;th>Registered name&lt;/th>
+    &lt;td>Marriott Hotels & Resorts&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;th>Registered name&lt;/th>
+    &lt;td>Marriott Hotels & Resorts&lt;/td>
+  &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code></pre>
+    </div>
+    <h2 class="heading-large">Readonly key values</h2>
+    <div class="example">
+      <table class="table--readonly">
+        <tbody>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+          <tr>
+            <th>Registered name</th>
+            <td>Marriott Hotels & Resorts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;table class="table--key-value table--readonly">
+  &lt;tbody>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.keyvaluetable(data, stripey=true) }}
+{{ trade.keyvaluetable(data, readonly=true) }}{% endraw %}</code></pre>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>data</td>
+        <td>Y</td>
+        <td>The text to appear inside the badge</td>
+      </tr>
+      <tr>
+        <td>readonly</td>
+        <td>N</td>
+        <td>true or false, defaults to false.</td>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+        <td>stripey</td>
+        <td>N</td>
+        <td>true or false, defaults to false.
+        </td>
+      </tr>
+      <tr>
+        <td>Labels</td>
+        <td>N</td>
+        <td>A key value pair of labels to lookup, e.g  <i>{ firstname: 'First name' }</i>. This list is used for the left label.</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2 class="heading-large">Sortable data table</h2>
+    <p>Sortable data tables are useful for listing things such as contacts, they provide a tabular view of record data and
+      further enhance that view so that the user can click on a table heading and sort the table by that column. </p>
+    <div class="example">
+      <table class="data-table contact-table" id="contact-table">
+        <thead>
+          <tr>
+            <th class="name asc">Name</th>
+            <th class="occupation">Role</th>
+            <th class="telephonenumber">Phone</th>
+            <th class="emailaddress">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name"><a href="/contact/e5319c7b-1d38-4b97-90e5-c0225752639e">Stephen Belshaw</a></td>
+            <td class="title">Director</td>
+            <td class="phone">909090134527</td>
+            <td class="email"><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+          </tr>
+          <tr>
+            <td class="name"><a href="/contact/16b07b1f-d3e9-43c1-862e-8045c6750907">Fred Bloggs</a></td>
+            <td class="title">Director</td><td class="phone">66666666666</td>
+            <td class="email"><a href="mailto:testing@test.com">testing@test.com</a></td>
+          </tr>
+          <tr>
+            <td class="name"><a href="/contact/ecfcfacb-07f1-4594-8eac-7dfa26a1c555">Carrie Fisher</a></td>
+            <td class="title">Actress</td>
+            <td class="phone">01211111111</td>
+            <td class="email"><a href="mailto:A@b.co.uk">A@b.co.uk</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;table class="table--data-table">
+  &lt;thead>
+    &lt;tr>
+      &lt;th class="name asc">Name&lt;/th>
+      &lt;th class="occupation">Role&lt;/th>
+      &lt;th class="telephonenumber">Phone&lt;/th>
+      &lt;th class="emailaddress">Email&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;td class="name">&lt;a href="/contact/e5319c7b-1d38-4b97-90e5-c0225752639e">Stephen Belshaw&lt;/a>&lt;/td>
+      &lt;td class="title">Director&lt;/td>
+      &lt;td class="phone">909090134527&lt;/td>
+      &lt;td class="email">&lt;a href="mailto:test@test.co.uk">test@test.co.uk&lt;/a>&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;td class="name">&lt;a href="/contact/16b07b1f-d3e9-43c1-862e-8045c6750907">Fred Bloggs&lt;/a>&lt;/td>
+      &lt;td class="title">Director&lt;/td>&lt;td class="phone">66666666666&lt;/td>
+      &lt;td class="email">&lt;a href="mailto:testing@test.com">testing@test.com&lt;/a>&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;td class="name">&lt;a href="/contact/ecfcfacb-07f1-4594-8eac-7dfa26a1c555">Carrie Fisher&lt;/a>&lt;/td>
+      &lt;td class="title">Actress&lt;/td>
+      &lt;td class="phone">01211111111&lt;/td>
+      &lt;td class="email">&lt;a href="mailto:A@b.co.uk">A@b.co.uk&lt;/a>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.datatable(data) }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>data</td>
+          <td>Y</td>
+          <td>The text to appear inside the table</td>
+        </tr>
+        <tr>
+          <td>readonly</td>
+          <td>N</td>
+          <td>true or false, defaults to false.</td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+          <td>stripey</td>
+          <td>N</td>
+          <td>true or false, defaults to false.
+          </td>
+        </tr>
+        <tr>
+          <td>Headings</td>
+          <td>N</td>
+          <td>A key value pair of labels to lookup, e.g  <i>{ firstname: 'First name' }</i>. This list is used for the table headings.</td>
+        </tr>
+        </tbody>
+      </table>
+      <p>Example data:</p>
+      <pre><code class="language-json">[
+  {
+    name: 'Fred Smith',
+    role: 'Director'
+  },
+  {
+    name: 'Bill Jones',
+    role: 'Director'
+  }
+]</code></pre>
+    </div>
+  </section>
+{% endblock %}
