@@ -1,0 +1,66 @@
+{% macro keyvaluetable(data, readonly=false, stripey=false, labels, class, id) %}
+
+{% set className = "table--key-value " + class %}
+
+{% if stripey == true %}
+  {% set className = className + ' table--striped' %}
+{% endif %}
+
+{% if readonly == true %}
+  {% set className = className + ' table--readonly' %}
+{% endif %}
+
+
+<table class="{{ className }}" id="{{ id }}">
+  <tbody>
+  {% for key, value in data %}
+
+    {% if labels and labels[key] %}
+      {% set forLabel = labels[key] %}
+    {% else %}
+      {% set forLabel = key %}
+    {% endif %}
+
+    <tr>
+      <th>{{ forLabel }}</th>
+      <td>{{ value }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endmacro %}
+
+{% macro datatable(data, stripey=false, headings, class, id) %}
+  {% set className = "table--key-value " + class %}
+
+  {% if stripey == true %}
+    {% set className = className + ' table--striped' %}
+  {% endif %}
+
+  {% set headData = data[0] %}
+  <table class="{{ className }}" id="{{ id }}">
+    <thead>
+      <tr>
+        {% for key, value in headData %}
+          <th>
+            {% if headings and headings[key] %}
+              {{ headings[key] }}
+            {% else %}
+              {{ key }}
+            {% endif %}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in data %}
+        <tr>
+          {% for key, value in record %}
+            <td>{{ value }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endmacro %}

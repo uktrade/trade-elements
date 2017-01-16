@@ -140,4 +140,14 @@ filter.attributeObject = function(myObject) {
   return result;
 };
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+filter.gtlt = function gtlt(a) {
+  let parsed = replaceAll(a, '<', '&lt;');
+  parsed = replaceAll(parsed, '>', '&gt;');
+  return parsed;
+}
+
 module.exports = filter;

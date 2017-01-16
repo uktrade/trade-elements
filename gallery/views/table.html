@@ -12,26 +12,7 @@
       it's corresponding value.
     </p>
     <div class="example">
-      <table class="table--key-value table--striped">
-        <tbody>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-        </tbody>
-      </table>
+      {{ trade.keyvaluetable(company, stripey=true, labels=companyLabels) }}
     </div>
     <div class="html">
       <h3 class="heading-medium">HTML</h3>
@@ -58,29 +39,10 @@
     </div>
     <h2 class="heading-large">Readonly key values</h2>
     <div class="example">
-      <table class="table--readonly">
-        <tbody>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-          <tr>
-            <th>Registered name</th>
-            <td>Marriott Hotels & Resorts</td>
-          </tr>
-        </tbody>
-      </table>
+      {{ trade.keyvaluetable(company, readonly=true, labels=companyLabels) }}
     </div>
     <div class="html">
-      <h3 class="heading-medium">HTML</h3>
+        <h3 class="heading-medium">HTML</h3>
       <pre><code class="language-markup">&lt;table class="table--key-value table--readonly">
   &lt;tbody>
     &lt;tr>
@@ -106,76 +68,51 @@
       <h3 class="heading-medium">Nunjucks Macros</h3>
       <pre><code class="language-twig">{% raw %}{{ trade.keyvaluetable(data, stripey=true) }}
 {{ trade.keyvaluetable(data, readonly=true) }}{% endraw %}</code></pre>
+      <table>
+        <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>data</td>
+          <td>Y</td>
+          <td>The data to render into the table</td>
+        </tr>
+        <tr>
+          <td>stripey</td>
+          <td>N</td>
+          <td>true or false, defaults to false.
+          </td>
+        </tr>
+        <tr>
+          <td>labels</td>
+          <td>N</td>
+          <td>A key value pair of labels to lookup, e.g  <i>{ firstname: 'First name' }</i>. This list is used for the left label.</td>
+        </tr>
+        <tr>
+          <td>class</td>
+          <td>N</td>
+          <td>An additional css class to add to the table tag to allow further styling</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>N</td>
+          <td>A id value to add to the table tag</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-    <table>
-      <thead>
-      <tr>
-        <th>Parameter</th>
-        <th>Required</th>
-        <th>Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>data</td>
-        <td>Y</td>
-        <td>The text to appear inside the badge</td>
-      </tr>
-      <tr>
-        <td>readonly</td>
-        <td>N</td>
-        <td>true or false, defaults to false.</td>
-      </tr>
-      <tr>
-      </tr>
-      <tr>
-        <td>stripey</td>
-        <td>N</td>
-        <td>true or false, defaults to false.
-        </td>
-      </tr>
-      <tr>
-        <td>Labels</td>
-        <td>N</td>
-        <td>A key value pair of labels to lookup, e.g  <i>{ firstname: 'First name' }</i>. This list is used for the left label.</td>
-      </tr>
-      </tbody>
-    </table>
   </section>
   <section>
     <h2 class="heading-large">Sortable data table</h2>
     <p>Sortable data tables are useful for listing things such as contacts, they provide a tabular view of record data and
       further enhance that view so that the user can click on a table heading and sort the table by that column. </p>
     <div class="example">
-      <table class="data-table contact-table" id="contact-table">
-        <thead>
-          <tr>
-            <th class="name asc">Name</th>
-            <th class="occupation">Role</th>
-            <th class="telephonenumber">Phone</th>
-            <th class="emailaddress">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="name"><a href="/contact/e5319c7b-1d38-4b97-90e5-c0225752639e">Stephen Belshaw</a></td>
-            <td class="title">Director</td>
-            <td class="phone">909090134527</td>
-            <td class="email"><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
-          </tr>
-          <tr>
-            <td class="name"><a href="/contact/16b07b1f-d3e9-43c1-862e-8045c6750907">Fred Bloggs</a></td>
-            <td class="title">Director</td><td class="phone">66666666666</td>
-            <td class="email"><a href="mailto:testing@test.com">testing@test.com</a></td>
-          </tr>
-          <tr>
-            <td class="name"><a href="/contact/ecfcfacb-07f1-4594-8eac-7dfa26a1c555">Carrie Fisher</a></td>
-            <td class="title">Actress</td>
-            <td class="phone">01211111111</td>
-            <td class="email"><a href="mailto:A@b.co.uk">A@b.co.uk</a></td>
-          </tr>
-        </tbody>
-      </table>
+      {{ trade.datatable(contacts, headings=contactLabels) }}
     </div>
     <div class="html">
       <h3 class="heading-medium">HTML</h3>
@@ -243,6 +180,16 @@
           <td>Headings</td>
           <td>N</td>
           <td>A key value pair of labels to lookup, e.g  <i>{ firstname: 'First name' }</i>. This list is used for the table headings.</td>
+        </tr>
+        <tr>
+          <td>class</td>
+          <td>N</td>
+          <td>An additional css class to add to the table tag to allow futther styling</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>N</td>
+          <td>A id value to add to the table tag</td>
         </tr>
         </tbody>
       </table>
