@@ -1,0 +1,72 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<h1 class="heading-xlarge">Textarea</h1>
+<section>
+  <p>A traditional style GDS textarea, with a helper macro to create it. The id for the control  uses a value designed to work with the error list component.</p>
+  <div class="example">
+    {{ trade.textarea("Simple", label="Description", hint="This is a hint", value="Hello Mum", id="textarea-1", class="custom-class") }}
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;div class="form-group custom-class" id="Simple-wrapper">
+  &lt;label class="form-label-bold" for="textarea-1">Description
+    &lt;span class="form-hint">This is a hint&lt;/span>
+  &lt;/label>
+  &lt;textarea id="textarea-1" class="form-control" name="Simple" rows="5">Hello Mum&lt;/textarea>
+&lt;/div></code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}{{ trade.textarea("Simple", label="Description", hint="This is a hint", value="Hello Mum", id="textarea-1", class="custom-class") }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>name</td>
+        <td>Y</td>
+        <td>the name for the field</td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>Y</td>
+        <td>The label for the field</td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>Y</td>
+        <td>The text value for the field</td>
+      </tr>
+      <tr>
+        <td>hint</td>
+        <td>N</td>
+        <td>Optional hint to show below the label</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>N</td>
+        <td>If you wish the field to be assigned an ID pass it here</td>
+      </tr>
+      <tr>
+        <td>class</td>
+        <td>N</td>
+        <td>Pass an extra class value to add to the markup, e.g. selected</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>N</td>
+        <td>If there is an error with the field, set the error string here.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
