@@ -16,6 +16,7 @@
     "start": "node gallery/index.js",
     "build": "gulp build",
     "develop": "gulp watch",
+    "test": "mocha --require test/common.js --ui bdd test/**/*.test.js",
     "prepublish": "npm run build",
     "heroku-postbuild": "npm run build"
   },
