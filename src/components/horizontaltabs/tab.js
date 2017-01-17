@@ -72,9 +72,10 @@ class Tabs {
 
   static activateAll () {
     const tabWrappers = document.querySelectorAll('.js-tabs')
-    tabWrappers.forEach((elem) => {
+    for (let pos = 0; pos < tabWrappers.length; pos += 1) {
+      const elem = tabWrappers.item(pos)
       new Tabs(elem)
-    })
+    }
   }
 }
 

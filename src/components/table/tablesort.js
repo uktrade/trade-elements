@@ -1,25 +1,32 @@
-function isDate(text) {
+const {addClass, removeClass} = require('../../javascripts/lib/elementstuff')
+
+function isDate (text) {
   return text.length === 10 && text.charAt(2) === '/' && text.charAt(5) === '/'
 }
 
-function convertToDate(string) {
-  const parts =string.split('/');
-  return new Date(parts[2],parts[1]-1,parts[0]);
+function convertToDate (string) {
+  const parts = string.split('/')
+  return new Date(parts[2], parts[1] - 1, parts[0])
 }
+
+const ASC_CLASS = 'table--sortable__sort-asc'
+const DESC_CLASS = 'table--sortable__sort-desc'
 
 class TableSort {
 
-  constructor (element) {
+  constructor (element, document) {
     this.element = element
     this.cacheElements()
     this.attachEvents()
     this.parseTable()
-    this.direction = 'asc'
+    this.sortAsc = true
     this.currentKey = null
+    this.document = document
   }
 
   cacheElements () {
     this.headingElements = this.element.querySelectorAll('thead th')
+    this.tableBody = this.element.querySelector('tbody')
   }
 
   attachEvents () {
@@ -34,19 +41,34 @@ class TableSort {
     this.data = TableSort.parseTableBody(this.element, this.keys)
   }
 
-  handleHeadingClick =  (event) => {
-    // Figure get the key to sort from the markup
+  handleHeadingClick = (event) => {
     const key = event.target.getAttribute('data-key')
 
-    // asc or descending? is the current key the same as the last one
+    if (!this.currentKey) {
+      this.sortAsc = true
+      this.currentKey = key
+    } else if (key === this.currentKey) {
+      this.sortAsc = !this.sortAsc
+    } else {
+      this.sortAsc = true
+      this.currentKey = key
+    }
 
-    // sort the data
+    this.data = TableSort.sort(this.data, key, this.sortAsc)
+    this.tableBody.innerHTML = TableSort.render(this.data)
 
-    // render to html
+    this.clearSortClasses()
 
-    // replace the table body
+    if (this.sortAsc) {
+      addClass(event.target, ASC_CLASS)
+    } else {
+      addClass(event.target, DESC_CLASS)
+    }
+  }
 
-    // mark the column as sorted
+  clearSortClasses () {
+    removeClass(this.headingElements, ASC_CLASS)
+    removeClass(this.headingElements, DESC_CLASS)
   }
 
   static parseTableHeader (headingElements) {
@@ -60,7 +82,7 @@ class TableSort {
   }
 
   static parseTableBody (tableElement, keys) {
-    let rowsData = [];
+    let rowsData = []
     const rows = tableElement.querySelectorAll('tbody tr')
 
     for (let rowPos = 0; rowPos < rows.length; rowPos += 1) {
@@ -75,9 +97,8 @@ class TableSort {
     return rowsData
   }
 
-  static sort (data, key, direction = 'asc') {
-    const sortAsc = (direction.toLowerCase() === 'asc') ? true : false
-    return data.sort( (a,b) => {
+  static sort (data, key, sortAsc = true) {
+    return data.sort((a, b) => {
       let aValue = a[key]
       let bValue = b[key]
 
@@ -86,7 +107,7 @@ class TableSort {
         bValue = convertToDate(bValue)
       }
 
-      let result = 0;
+      let result = 0
       if (aValue < bValue) result = -1
       if (aValue > bValue) result = 1
 
@@ -98,6 +119,26 @@ class TableSort {
     })
   }
 
+  static render (data) {
+    let html = ''
+    for (const record of data) {
+      let string = '<tr>'
+      for (const key in record) {
+        string += `<td>${record[key]}</td>`
+      }
+      string += '</tr>'
+      html += string
+    }
+    return html
+  }
+
+  static activateAll () {
+    const elements = document.querySelectorAll('.js-table--sortable')
+    for (let pos = 0; pos < elements.length; pos += 1) {
+      const element = elements.item(pos)
+      new TableSort(element)   // eslint-disable-line no-new
+    }
+  }
 }
 
 module.exports = TableSort

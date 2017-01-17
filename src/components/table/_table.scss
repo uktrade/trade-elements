@@ -62,17 +62,7 @@
   }
 }
 
-.record-title {
-  position: relative;
-}
-
-
-.table-detail.table-detail--compact {
-  margin-bottom: 0;
-}
-
-table.table--striped {
-
+.table--striped {
   tr:first-child {
     border-top: 1px solid $border-colour;
   }
@@ -82,16 +72,16 @@ table.table--striped {
   }
 }
 
-table.table-sortable thead tr {
+.table--sortable thead tr {
   th {
     cursor: pointer;
 
-    &.desc {
+    &.table--sortable__sort-desc {
       &:after {
         content: "\00a0\00a0\25BC";
       }
     }
-    &.asc {
+    &.table--sortable__sort-asc  {
       &:after {
         content: "\00a0\00a0\25B2";
       }

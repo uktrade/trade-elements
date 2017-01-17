@@ -2,3 +2,6 @@
 //require('../components/radio/radio')
 require('../components/flashmessage/flash-message')
 require('../components/horizontaltabs/tab')
+require('../components/radio/radio')
+
+require('../components/table/tablesort').activateAll()
