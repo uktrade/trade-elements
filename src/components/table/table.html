@@ -31,8 +31,8 @@
 
 {% endmacro %}
 
-{% macro datatable(data, stripey=false, headings, class, id) %}
-  {% set className = "table--key-value " + class %}
+{% macro datatable(data, stripey=false, headings, class="", id) %}
+  {% set className = "table--data js-table--sortable " + class %}
 
   {% if stripey == true %}
     {% set className = className + ' table--striped' %}
@@ -43,7 +43,7 @@
     <thead>
       <tr>
         {% for key, value in headData %}
-          <th>
+          <th key="{{ key }}">
             {% if headings and headings[key] %}
               {{ headings[key] }}
             {% else %}
