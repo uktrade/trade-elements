@@ -1,5 +1,5 @@
-{% macro textarea(name, label, value='', hint, id, class, error) %}
-  {% if not id %}
+{% macro textarea(name, label, value="", hint, id="", class, error) %}
+  {% if id == "" %}
     {% set id = name.replace('.','-') %}
   {% endif %}
 

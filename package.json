@@ -16,7 +16,6 @@
     "start": "node gallery/index.js",
     "build": "gulp build",
     "develop": "gulp watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build",
     "heroku-postbuild": "npm run build"
   },
