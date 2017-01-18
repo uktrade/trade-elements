@@ -24,9 +24,10 @@ class FlashMessage {
 
   static activateAll () {
     const flashes = document.querySelectorAll('.flash-message')
-    flashes.forEach((elem) => {
+    for (let pos = 0; pos < flashes.length; pos += 1) {
+      const elem = flashes.item(pos)
       new FlashMessage(elem)
-    })
+    }
   }
 }
 

@@ -8,7 +8,6 @@ $asset-path: '/' !default;
 
 // Trade Elements
 @import "trade/errors";
-@import "trade/tables";
 @import "trade/form";
 
 strong {

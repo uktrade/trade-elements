@@ -1,0 +1,90 @@
+.table--key-value {
+
+  margin: 20px 0;
+
+  tbody {
+    th {
+      vertical-align: top;
+      width: 40%;
+
+      @include media(tablet) {
+        width: 30%;
+        white-space: nowrap;
+      }
+    }
+
+    td:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.table--readonly {
+
+  border-left: 10px solid $border-colour;
+
+  tbody {
+
+    display: block;
+    padding: 0 0 0 10px;
+
+    tr {
+      td,
+      th {
+        border-bottom: 1px solid $border-colour;
+        color: $grey-1;
+      }
+
+      th {
+        padding-left: 15px;
+      }
+
+
+
+      &:last-child {
+        td,
+        th {
+          border-bottom: 0;
+        }
+      }
+
+      .spacer {
+        border-bottom: 0;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.table--striped {
+  tr:first-child {
+    border-top: 1px solid $border-colour;
+  }
+
+  tr:nth-child(even) {
+    background: $highlight-colour;
+  }
+}
+
+.table--sortable thead tr {
+  th {
+    cursor: pointer;
+
+    &.table--sortable__sort-desc {
+      &:after {
+        content: "\00a0\00a0\25BC";
+      }
+    }
+    &.table--sortable__sort-asc  {
+      &:after {
+        content: "\00a0\00a0\25B2";
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ const regularExp2 = '(\\s|$)'
 function addClass (element, className) {
   if (isNodeList(element)) {
     for (let pos = element.length - 1; pos > -1; pos -= 1) {
-      addClass(element[pos], className)
+      addClass(element.item(pos), className)
     }
   } else if (element.classList) {
     element.classList.add(className)
@@ -16,7 +16,7 @@ function addClass (element, className) {
 function removeClass (element, className) {
   if (isNodeList(element)) {
     for (let pos = element.length - 1; pos > -1; pos -= 1) {
-      removeClass(element[pos], className)
+      removeClass(element.item(pos), className)
     }
   } else if (element.classList) {
     element.classList.remove(className)
@@ -36,7 +36,7 @@ function hasClass (element, className) {
 function toggleClass (element, className) {
   if (isNodeList(element)) {
     for (let pos = element.length - 1; pos > -1; pos -= 1) {
-      toggleClass(element[pos], className)
+      toggleClass(element.item(pos), className)
     }
   } else if (hasClass(element, className)) {
     removeClass(element, className)

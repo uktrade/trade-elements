@@ -60,7 +60,54 @@ app.get(['/:page', '/'], (req, res) => {
     ]
   }
 
-  res.render(page, { fakeData, errors, options, messages })
+  const company = {
+    registeredName: 'Marriot Hotels',
+    type: 'Unknown',
+    sector: 'Leisure and tourism',
+    subSector: 'Unknown',
+    tradingName: 'Unknown'
+  };
+
+  const companyLabels = {
+    registeredName: 'Registered name',
+    type: 'Type of business',
+    sector: 'Primary sector',
+    subSector: 'Subsector',
+    tradingName: 'Trading name'
+  }
+
+  const contactLabels = {
+    name: 'Name',
+    role: 'Role',
+    phone: 'Phone',
+    email: 'Email'
+  }
+
+  const contacts = [
+    {
+      name: 'Fred Bloggs',
+      role: 'Director',
+      phone: '+44 7888 777 333',
+      email: 'fred@acme.org'
+    },
+    {
+      name: 'Wilma Bloggs',
+      role: 'Director',
+      phone: '+44 7888 777 333',
+      email: 'wilma@acme.org'
+    }
+  ]
+
+  res.render(page, {
+    fakeData,
+    errors,
+    options,
+    messages,
+    company,
+    companyLabels,
+    contacts,
+    contactLabels
+  })
 })
 
 app.get('/lookup', (req, res) => {
