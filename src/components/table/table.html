@@ -20,10 +20,12 @@
         {% set forLabel = key %}
       {% endif %}
 
-      <tr>
-        <th>{{ forLabel }}</th>
-        <td>{{ data[key] }}</td>
-      </tr>
+      {% if data[key] or data[key] == '' %}
+        <tr>
+          <th>{{ forLabel }}</th>
+          <td>{{ data[key] }}</td>
+        </tr>
+      {% endif %}
     {% endfor %}
   {% else %}
 
