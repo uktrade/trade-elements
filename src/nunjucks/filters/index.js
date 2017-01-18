@@ -1,42 +1,21 @@
 'use strict';
 
-var moment = require('moment');
-var pkgJson = require('../../../package.json');
+const moment = require('moment');
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
 
 /**
  * object used store the methods registered as a 'filter' (of the same name) within nunjucks
  * filter.foo("input") here, becomes {{ "input" | foo }} within nunjucks templates
  * @type {Object}
  */
-var filter = {};
-
-/**
- * creates rearranges values and creates new date object
- * @param  {String} d   A date string (must be) formatted (d)d/(m)m/yyy - in parens means optional
- * @return {String}     a javascript date string
- */
-filter.newDate = function date(d) {
-  var dateArr = d.split('/');
-  return dateArr.length === 3 ? new Date(dateArr[2], parseInt(dateArr[1]) - 1, dateArr[0]) : NaN;
-};
-
-/**
- * returns a standard gov.uk date from a string using momentjs
- * moment documentation: http://momentjs.com/docs/
- * @method function
- * @param  {string} d date e.g 09/12/1981 or 9-12-1981
- * @param  {string} f moment.js format string (to override the default if needed)
- * @return {string} date string as per the current gov.uk standard 09/12/1981 -> 09 December 1981
- */
-filter.formatDate = function(d, f) {
-  const formatted = moment(filter.newDate(d)).locale('en-gb').format(f ? f : 'LL');
-
-  if (formatted === 'Invalid date') {
-    return '';
-  }
-
-  return formatted;
-};
+const filter = {};
 
 /**
  * logs an object in the template to the console on the client.
@@ -72,7 +51,6 @@ filter.toHyphenated = function toHyphenated(s) {
   return s.trim().toLowerCase().replace(/\s+/g, '-');
 };
 
-
 /**
  * Highlights a phrase in a source piece of text
  * @param  {String} text    The original text to be updated
@@ -92,7 +70,7 @@ filter.attributeArray = function attributeArray(list) {
 
   let result = '[';
 
-  for (var iPos = 0; iPos < list.length - 1; iPos += 1) {
+  for (let iPos = 0; iPos < list.length - 1; iPos += 1) {
     result += '&#34;' + list[iPos] + '&#34;,';
   }
 
@@ -107,11 +85,11 @@ filter.versionAssetUrl = function(asset) {
   if (env == 'production') {
     let pos = asset.lastIndexOf('.');
     if (pos !== -1) {
-      asset = asset.substr(0, pos) + asset.substr(pos);
+      asset = asset.substr(0, pos) + '.min' + asset.substr(pos);
     }
   }
 
-  return `${asset}?${pkgJson.version}`;
+  return `${asset}`;
 };
 
 filter.splitPart = function(value, seperator, part) {
@@ -140,14 +118,98 @@ filter.attributeObject = function(myObject) {
   return result;
 };
 
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(find, 'g'), replace);
+filter.humanFieldName = function(fieldName) {
+  fieldName = fieldName.toLocaleLowerCase();
+  fieldName = capitalizeFirstLetter(fieldName);
+  fieldName = replaceAll(fieldName, '_', ' ');
+  return fieldName;
+};
+
+function escapeRegExp(str) {
+  if (str || str.length === 0) return str;
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
-filter.gtlt = function gtlt(a) {
-  let parsed = replaceAll(a, '<', '&lt;');
-  parsed = replaceAll(parsed, '>', '&gt;');
-  return parsed;
-}
+filter.highlightTerm = function highlightTerm(phrase, term = '') {
+  try {
+    if (!phrase) phrase = '';
+    if (phrase.length === 0 || term.length === 0) return phrase;
+
+    const cleanTerm = term.replace(/\*/g, '').replace(/\\/g, '\\\\');
+    const regex = new RegExp(escapeRegExp(`(${cleanTerm})`), 'gi');
+    return phrase.replace(regex, '<strong>$1</strong>');
+  } catch (e) {
+    return phrase;
+  }
+};
+
+
+/**
+ * creates rearranges values and creates new date object
+ * @param  {String} d   A date string (must be) formatted yyyy-mm-dd
+ * @return {String}     a javascript date string
+ */
+filter.newDate = function(d) {
+  var dateArr = d.split('-');
+  return dateArr.length === 3 ? new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]) : NaN;
+};
+
+/**
+ * returns a standard gov.uk date from a string using momentjs
+ * moment documentation: http://momentjs.com/docs/
+ * @method function
+ * @param  {string} d date e.g 09/12/1981 or 9-12-1981
+ * @param  {string} f moment.js format string (to override the default if needed)
+ * @return {string} date string as per the current gov.uk standard 09/12/1981 -> 09 December 1981
+ */
+filter.formatDate = function(d, f) {
+
+  let formatted;
+
+  if (f) {
+    formatted = moment(d, moment.ISO_8601).format(f);
+  } else if (d && d.length > 0 && d.length < 11) {
+    formatted = moment(filter.newDate(d)).locale('en-gb').format(f ? f : 'LL');
+  } else {
+    formatted = moment(d, moment.ISO_8601).format('DD MMMM YYYY, h:mm:ss a');
+  }
+
+  if (formatted === 'Invalid date') {
+    return '';
+  }
+
+  return formatted;
+};
+
+/**
+ * returns a standard gov.uk date from an epoch using momentjs
+ * moment documentation: http://momentjs.com/docs/
+ * @method function
+ * @param  {string} d date e.g 1462834800000
+ * @param  {string} f moment.js format string (to override the default if needed)
+ * @return {string} date string as per the current gov.uk standard 09/12/1981 -> 09 December 1981
+ */
+filter.date = function( date, format ) {
+
+  format = ( format || 'DD MMMM YYYY, h:mm:ss a' );
+
+  let formatted = moment( date ).format( format );
+
+  if (formatted === 'Invalid date') {
+    return '';
+  }
+
+  return formatted;
+};
+
+
+filter.pluralise = function(number, string){
+  if (number != 1) {
+    string += 's';
+  }
+
+  return number + ' ' + string;
+};
+
 
 module.exports = filter;
