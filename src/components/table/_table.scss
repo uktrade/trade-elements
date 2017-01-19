@@ -62,11 +62,7 @@
 }
 
 .table--striped {
-  tr:first-child {
-    border-top: 1px solid $border-colour;
-  }
-
-  tr:nth-child(even) {
+  tr:nth-child(odd) {
     background: $highlight-colour;
   }
 }

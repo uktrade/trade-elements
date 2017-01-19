@@ -23,3 +23,6 @@
 
 # 1.2.1
 - Fix issue again with showing table cells when the key doesn't exist
+
+# 1.2.2
+- Minor changes to striped tables
