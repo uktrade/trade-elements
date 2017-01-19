@@ -1,6 +1,6 @@
 {
   "name": "@uktrade/trade_elements",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Pattern library with styles, templates and js to create UKTI Trade and internal sites and services",
   "repository": {
     "type": "git",

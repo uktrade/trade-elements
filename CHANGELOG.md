@@ -26,3 +26,6 @@
 
 # 1.2.2
 - Minor changes to striped tables
+
+# 1.2.3
+- Make read only table font black to improve contrast
