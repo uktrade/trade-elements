@@ -1,4 +1,4 @@
-{% macro keyvaluetable(data, readonly, stripey, labels, class="", id) %}
+{% macro keyvaluetable(data, readonly, stripey, labels, class="", id, keyorder) %}
 
 {% set className = "table--key-value " + class %}
 
@@ -10,28 +10,44 @@
   {% set className = className + ' table--readonly' %}
 {% endif %}
 
-
 <table class="{{ className }}" id="{{ id }}">
   <tbody>
-  {% for key, value in data %}
+  {% if keyorder %}
+    {% for key in keyorder %}
+      {% if labels and labels[key] %}
+        {% set forLabel = labels[key] %}
+      {% else %}
+        {% set forLabel = key %}
+      {% endif %}
 
-    {% if labels and labels[key] %}
-      {% set forLabel = labels[key] %}
-    {% else %}
-      {% set forLabel = key %}
-    {% endif %}
+      {% if data[key] or data[key] == '' %}
+        <tr>
+          <th>{{ forLabel }}</th>
+          <td>{{ data[key] }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  {% else %}
 
-    <tr>
-      <th>{{ forLabel }}</th>
-      <td>{{ value }}</td>
-    </tr>
-  {% endfor %}
+    {% for key, value in data %}
+      {% if labels and labels[key] %}
+        {% set forLabel = labels[key] %}
+      {% else %}
+        {% set forLabel = key %}
+      {% endif %}
+
+      <tr>
+        <th>{{ forLabel }}</th>
+        <td>{{ value }}</td>
+      </tr>
+    {% endfor %}
+  {% endif %}
   </tbody>
 </table>
 
 {% endmacro %}
 
-{% macro datatable(data, stripey=false, headings, class="", id) %}
+{% macro datatable(data, stripey, headings, class="", id, columnorder) %}
   {% set className = "table--data table--sortable js-table--sortable " + class %}
 
   {% if stripey == true %}
@@ -42,23 +58,41 @@
   <table class="{{ className }}" id="{{ id }}">
     <thead>
       <tr>
-        {% for key, value in headData %}
-          <th data-key="{{ key }}">
-            {% if headings and headings[key] %}
-              {{ headings[key] }}
-            {% else %}
-              {{ key }}
-            {% endif %}
-          </th>
-        {% endfor %}
+        {% if not columnorder %}
+          {% for key, value in headData %}
+            <th data-key="{{ key }}">
+              {% if headings and headings[key] %}
+                {{ headings[key] }}
+              {% else %}
+                {{ key }}
+              {% endif %}
+            </th>
+          {% endfor %}
+        {% else %}
+          {% for key in columnorder %}
+            <th data-key="{{ key }}">
+              {% if headings and headings[key] %}
+                {{ headings[key] }}
+              {% else %}
+                {{ key }}
+              {% endif %}
+            </th>
+          {% endfor %}
+        {% endif %}
       </tr>
     </thead>
     <tbody>
       {% for record in data %}
         <tr>
-          {% for key, value in record %}
-            <td>{{ value }}</td>
-          {% endfor %}
+          {% if not columnorder %}
+            {% for key, value in record %}
+              <td>{{ value }}</td>
+            {% endfor %}
+          {% else %}
+            {% for key in columnorder %}
+              <td>{{ record[key] }}</td>
+            {% endfor %}
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>

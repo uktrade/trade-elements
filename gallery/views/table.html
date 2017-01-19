@@ -39,7 +39,7 @@
     </div>
     <h2 class="heading-large">Readonly key values</h2>
     <div class="example">
-      {{ trade.keyvaluetable(company, readonly=true, labels=companyLabels) }}
+      {{ trade.keyvaluetable(company, readonly=true, labels=companyLabels, keyorder=['registeredName', 'tradingName', 'type', 'sector', 'subSector']) }}
     </div>
     <div class="html">
         <h3 class="heading-medium">HTML</h3>
@@ -103,6 +103,11 @@
           <td>N</td>
           <td>A id value to add to the table tag</td>
         </tr>
+        <tr>
+          <td>keyorder</td>
+          <td>N</td>
+          <td>An array of 'keys', to allow the developer to specify the order fields appear</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -113,7 +118,7 @@
       further enhance that view so that the user can click on a table heading and sort the table by that column. If you miss out the sortable classes on the markup
       then the table will display ok, it just wont be enhanced to allow sorting.</p>
     <div class="example">
-      {{ trade.datatable(contacts, headings=contactLabels) }}
+      {{ trade.datatable(contacts, headings=contactLabels, columnorder=['name', 'email', 'phone', 'role']) }}
     </div>
     <div class="html">
       <h3 class="heading-medium">HTML</h3>
@@ -191,6 +196,11 @@
           <td>id</td>
           <td>N</td>
           <td>A id value to add to the table tag</td>
+        </tr>
+        <tr>
+          <td>columnorder</td>
+          <td>N</td>
+          <td>An array of 'keys', to allow the developer to specify the order columns appear</td>
         </tr>
         </tbody>
       </table>
