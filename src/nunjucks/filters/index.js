@@ -1,3 +1,4 @@
+/* global JSON:true */
 const moment = require('moment')
 
 function capitalizeFirstLetter (string) {
@@ -17,7 +18,7 @@ const filter = {}
 
 /**
  * logs an object in the template to the console on the client.
- * @param  {Any} a any type
+ * @param  {*} a any type
  * @return {String}   a script tag with a console.log call.
  * @example {{ "hello world" | log }}
  * @example {{ "hello world" | log | safe }}  [for environments with autoescaping turned on]
@@ -28,7 +29,7 @@ filter.log = function log (a) {
 
 /**
  * Converts string to camel case
- * @param {String} any string
+ * @param {String} s any string
  * @return {String} a string
  * @example {{ "Hello There" | toCamelCase }} // helloThere
  */
@@ -45,8 +46,8 @@ filter.toCamelCase = function toCamelCase (s) {
  * @return {String}
  * @example {{ "Hello there" | toHyphenated }} // hello-there
  */
-filter.toHyphenated = function toHyphenated (s) {
-  return s.trim().toLowerCase().replace(/\s+/g, '-')
+filter.toHyphenated = function toHyphenated (string) {
+  return string.trim().toLowerCase().replace(/\s+/g, '-')
 }
 
 /**
@@ -144,7 +145,7 @@ filter.highlightTerm = function highlightTerm (phrase, term = '') {
  * @return {String}     a javascript date string
  */
 filter.newDate = function (d) {
-  var dateArr = d.split('-')
+  const dateArr = d.split('-')
   return dateArr.length === 3 ? new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]) : NaN
 }
 
@@ -178,8 +179,8 @@ filter.formatDate = function (d, f) {
  * returns a standard gov.uk date from an epoch using momentjs
  * moment documentation: http://momentjs.com/docs/
  * @method function
- * @param  {string} d date e.g 1462834800000
- * @param  {string} f moment.js format string (to override the default if needed)
+ * @param  {string} date date e.g 1462834800000
+ * @param  {string} format moment.js format string (to override the default if needed)
  * @return {string} date string as per the current gov.uk standard 09/12/1981 -> 09 December 1981
  */
 filter.date = function (date, format) {
