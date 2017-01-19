@@ -66,6 +66,7 @@ app.get(['/:page', '/'], (req, res) => {
     sector: 'Leisure and tourism',
     subSector: 'Unknown',
     tradingName: 'Unknown',
+    pet: '',
     codes: ['1', '2', '3']
   }
 
@@ -74,7 +75,8 @@ app.get(['/:page', '/'], (req, res) => {
     type: 'Type of business',
     sector: 'Primary sector',
     subSector: 'Subsector',
-    tradingName: 'Trading name'
+    tradingName: 'Trading name',
+    pet: 'Pet'
   }
 
   const contactLabels = {

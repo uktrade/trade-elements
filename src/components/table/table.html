@@ -10,9 +10,11 @@
   {% set className = className + ' table--readonly' %}
 {% endif %}
 
+{% if not keyorder %}
+  {% set keyorder = data | keys %}
+{% endif %}
 <table class="{{ className }}" id="{{ id }}">
   <tbody>
-  {% if keyorder %}
     {% for key in keyorder %}
       {% if labels and labels[key] %}
         {% set forLabel = labels[key] %}
@@ -20,28 +22,13 @@
         {% set forLabel = key %}
       {% endif %}
 
-      {% if data[key] or data[key] == '' %}
+      {% if data[key] | hasValue %}
         <tr>
           <th>{{ forLabel }}</th>
-          <td>{{ data[key] | safe }}</td>
+          <td>{{ data[key] | cellValue | safe }}</td>
         </tr>
       {% endif %}
     {% endfor %}
-  {% else %}
-
-    {% for key, value in data %}
-      {% if labels and labels[key] %}
-        {% set forLabel = labels[key] %}
-      {% else %}
-        {% set forLabel = key %}
-      {% endif %}
-
-      <tr>
-        <th>{{ forLabel }}</th>
-        <td>{{ value | safe }}</td>
-      </tr>
-    {% endfor %}
-  {% endif %}
   </tbody>
 </table>
 
@@ -55,44 +42,31 @@
   {% endif %}
 
   {% set headData = data[0] %}
+
+  {% if not columnorder %}
+    {% set columnorder = headData | keys %}
+  {% endif %}
+
   <table class="{{ className }}" id="{{ id }}">
     <thead>
       <tr>
-        {% if not columnorder %}
-          {% for key, value in headData %}
-            <th data-key="{{ key }}">
-              {% if headings and headings[key] %}
-                {{ headings[key] }}
-              {% else %}
-                {{ key }}
-              {% endif %}
-            </th>
-          {% endfor %}
-        {% else %}
-          {% for key in columnorder %}
-            <th data-key="{{ key }}">
-              {% if headings and headings[key] %}
-                {{ headings[key] }}
-              {% else %}
-                {{ key }}
-              {% endif %}
-            </th>
-          {% endfor %}
-        {% endif %}
+        {% for key in columnorder %}
+          <th data-key="{{ key }}">
+            {% if headings and headings[key] %}
+              {{ headings[key] }}
+            {% else %}
+              {{ key }}
+            {% endif %}
+          </th>
+        {% endfor %}
       </tr>
     </thead>
     <tbody>
       {% for record in data %}
         <tr>
-          {% if not columnorder %}
-            {% for key, value in record %}
-              <td>{{ value | safe }}</td>
-            {% endfor %}
-          {% else %}
-            {% for key in columnorder %}
-              <td>{{ record[key] | safe }}</td>
-            {% endfor %}
-          {% endif %}
+          {% for key in columnorder %}
+            <td>{{ record[key] | safe }}</td>
+          {% endfor %}
         </tr>
       {% endfor %}
     </tbody>
