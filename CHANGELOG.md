@@ -20,3 +20,6 @@
 
 # 1.2.0
 - Add Styles for pre and post heading
+
+# 1.2.1
+- Fix issue again with showing table cells when the key doesn't exist

@@ -22,7 +22,7 @@
         {% set forLabel = key %}
       {% endif %}
 
-      {% if data[key] | hasValue %}
+      {% if data | hasKey(key) %}
         <tr>
           <th>{{ forLabel }}</th>
           <td>{{ data[key] | cellValue | safe }}</td>

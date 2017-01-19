@@ -228,4 +228,8 @@ filter.hasValue = function (value) {
   return value !== null
 }
 
+filter.hasKey = function (value, key) {
+  return (value.hasOwnProperty(key) && value[key] !== null)
+}
+
 module.exports = filter
