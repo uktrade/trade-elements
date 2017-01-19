@@ -23,7 +23,7 @@
       {% if data[key] or data[key] == '' %}
         <tr>
           <th>{{ forLabel }}</th>
-          <td>{{ data[key] }}</td>
+          <td>{{ data[key] | safe }}</td>
         </tr>
       {% endif %}
     {% endfor %}
@@ -38,7 +38,7 @@
 
       <tr>
         <th>{{ forLabel }}</th>
-        <td>{{ value }}</td>
+        <td>{{ value | safe }}</td>
       </tr>
     {% endfor %}
   {% endif %}
@@ -86,11 +86,11 @@
         <tr>
           {% if not columnorder %}
             {% for key, value in record %}
-              <td>{{ value }}</td>
+              <td>{{ value | safe }}</td>
             {% endfor %}
           {% else %}
             {% for key in columnorder %}
-              <td>{{ record[key] }}</td>
+              <td>{{ record[key] | safe }}</td>
             {% endfor %}
           {% endif %}
         </tr>

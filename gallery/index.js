@@ -62,11 +62,12 @@ app.get(['/:page', '/'], (req, res) => {
 
   const company = {
     registeredName: 'Marriot Hotels',
-    type: 'Unknown',
+    type: '<span class="status-badge status-badge--xsmall status-badge--action">TO DO</span>',
     sector: 'Leisure and tourism',
     subSector: 'Unknown',
-    tradingName: 'Unknown'
-  };
+    tradingName: 'Unknown',
+    codes: ['1', '2', '3']
+  }
 
   const companyLabels = {
     registeredName: 'Registered name',
@@ -85,13 +86,13 @@ app.get(['/:page', '/'], (req, res) => {
 
   const contacts = [
     {
-      name: 'Fred Bloggs',
+      name: '<a href="/table">Fred Bloggs</a>',
       role: 'Director',
       phone: '+44 7888 777 333',
       email: 'fred@acme.org'
     },
     {
-      name: 'Wilma Bloggs',
+      name: '<a href="/table">Wilma Bloggs</a>',
       role: 'Director',
       phone: '+44 7888 777 333',
       email: 'wilma@acme.org'

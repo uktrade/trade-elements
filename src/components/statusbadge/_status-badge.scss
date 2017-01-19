@@ -1,5 +1,6 @@
 .status-badge {
   @include core-19;
+  @include border-radius(5px);
   display: inline-block;
   font-weight: normal;
   border: 2px solid $black;
@@ -15,13 +16,24 @@
 }
 
 .status-badge--primary-contact,
-.status-badge--primary-fuschia {
+.status-badge--fuschia {
   color: $fuschia;
   border-color: $fuschia;
 }
 
+.status-badge--green,
+.status-badge--action {
+  color: $button-colour;
+  border-color: $button-colour;
+}
+
 .status-badge--small {
   @include core-16
+}
+
+.status-badge--xsmall {
+  @include bold-14;
+  margin: 0;
 }
 
 .badged-heading {
