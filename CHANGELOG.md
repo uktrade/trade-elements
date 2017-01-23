@@ -29,3 +29,6 @@
 
 # 1.2.3
 - Make read only table font black to improve contrast
+
+# 1.2.4
+- Made path for css image assets relative
