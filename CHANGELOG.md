@@ -32,3 +32,9 @@
 
 # 1.2.4
 - Made path for css image assets relative
+
+# 1.3.0
+- Automatically rev asset names to break caches
+
+# 1.4.0
+- Change page headings in a distinct style instead of overriding just xlarge

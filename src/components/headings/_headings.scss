@@ -1,4 +1,7 @@
-.heading-xlarge {
+.page-heading {
+  @extend .heading-large;
+  margin: 30px 0;
+
   .pre-header,
   .post-header {
     @include core-16;
