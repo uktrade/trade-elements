@@ -38,3 +38,6 @@
 
 # 1.4.0
 - Change page headings in a distinct style instead of overriding just xlarge
+
+# 1.5.0
+- Add a top border to key value tables
