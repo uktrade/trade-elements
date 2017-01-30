@@ -41,3 +41,6 @@
 
 # 1.5.0
 - Add a top border to key value tables
+
+# 1.5.1
+- Minor tweek to spacing in panels
