@@ -44,3 +44,6 @@
 
 # 1.5.1
 - Minor tweek to spacing in panels
+
+# 2.0.0
+- Remove jquery, none of the JS needs it.

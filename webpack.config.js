@@ -27,9 +27,6 @@ module.exports = [
         }
       ]
     },
-    externals: {
-      'jquery': 'jQuery'
-    },
     plugins: prod ? [
         new webpack.DefinePlugin({
           'process.env': {
