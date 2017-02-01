@@ -47,3 +47,6 @@
 
 # 2.0.0
 - Remove jquery, none of the JS needs it.
+
+# 2.1.0
+- Fixed a bug with radio button highlight that meant the old version simply didn't work

@@ -12,8 +12,11 @@ function handleFocus (event) {
 }
 
 function handleChange (event) {
+  console.log('test')
   const allWithName = document.querySelectorAll(`input[name="${event.target.name}"]`)
-  removeClass(allWithName, 'selected')
+  for (let pos = allWithName.length - 1; pos > -1; pos -= 1) {
+    removeClass(allWithName.item(pos).parentElement, 'selected')
+  }
   addClass(event.target.parentElement, 'selected')
 }
 
