@@ -50,3 +50,6 @@
 
 # 2.1.0
 - Fixed a bug with radio button highlight that meant the old version simply didn't work
+
+# 2.1.1
+- Stray log statement
