@@ -53,3 +53,9 @@
 
 # 2.1.1
 - Stray log statement
+
+# 2.2.0
+- Fix small bugs in dropdown 
+- Add a info strip class that can be used in flash messages or regular messages. 
+- Added more features to element helper
+- Added an autocomplete component that enhances a regular select. 
