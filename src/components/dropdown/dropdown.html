@@ -2,8 +2,7 @@
   {% if not id %}
     {% set id = name.replace('.','-') %}
   {% endif %}
-
-<div class="form-group{% if error %} error{% endif %} {{ class }}" id="{{ name }}-wrapper">
+  <div class="form-group{% if error %} error{% endif %} {{ class }}" id="{{ name }}-wrapper">
     <label class="form-label-bold" for="{{ id }}">
       {{ label }}
       {% if hint %}<span class="form-hint">{{ hint }}</span>{% endif %}
@@ -12,15 +11,13 @@
     <select id="{{ id }}" class="form-control" name="{{ name }}">
       {% if emptyLabel %}<option value="">{{ emptyLabel }}</option>{% endif %}
       {% for option in options  %}
-
-      {% if option.label %}
-      <option value="{{ option.value }}" {% if option.value == value %}selected="selected"{% endif %}>{{ option.label }}</option>
-      {% elif option.id %}
-      <option value="{{ option.id }}" {% if option.id == value %}selected="selected"{% endif %}>{{ option.name }}</option>
-      {% else %}
-      <option value="{{ option }}" {% if option == value %}selected="selected"{% endif %}>{{ option }}</option>
-      {% endif %}
-
+        {% if option.label %}
+          <option value="{{ option.value }}" {% if option.value == value %}selected="selected"{% endif %}>{{ option.label }}</option>
+        {% elif option.id %}
+          <option value="{{ option.id }}" {% if option.id == value %}selected="selected"{% endif %}>{{ option.name }}</option>
+        {% else %}
+          <option value="{{ option }}" {% if option == value %}selected="selected"{% endif %}>{{ option }}</option>
+        {% endif %}
       {% endfor %}
     </select>
   </div>
