@@ -59,9 +59,8 @@
     &:first-child {
       border-top: 1px solid $border-colour;
     }
-
-    a {
-      color: $black;
-    }
+  }
+  .result-title a {
+    color: $black;
   }
 }
