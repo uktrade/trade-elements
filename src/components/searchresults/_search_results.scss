@@ -24,6 +24,8 @@
   .results-list__result {
     margin: 30px 0 0;
 
+    position: relative;
+
     &:first-child {
       margin-top: 0;
     }
@@ -40,6 +42,12 @@
 
     .meta {
       margin: 0;
+    }
+
+    a.close-link {
+      position: absolute;
+      right: 20px;
+      top: 18px;
     }
   }
 }

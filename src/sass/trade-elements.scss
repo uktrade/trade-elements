@@ -13,3 +13,7 @@ $asset-path: '../' !default;
 strong {
   @include bold-19;
 }
+
+.column-three-quarters {
+  @include grid-column( 3/4 );
+}

@@ -58,4 +58,10 @@
 - Fix small bugs in dropdown 
 - Add a info strip class that can be used in flash messages or regular messages. 
 - Added more features to element helper
-- Added an autocomplete component that enhances a regular select. 
+- Added an autocomplete component that enhances a regular select.
+
+# 2.3.0
+- Added a new style of table modifier for small key value tables
+- Tweeked search result layout to allow elements to be absolutely positioned in a search result
+- Added a close link style in search results for use when expanding or closing more info in a search result
+- Added a column-three-quarters style for some layouts that need it and not found in gds elements
