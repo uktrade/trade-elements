@@ -65,3 +65,6 @@
 - Tweeked search result layout to allow elements to be absolutely positioned in a search result
 - Added a close link style in search results for use when expanding or closing more info in a search result
 - Added a column-three-quarters style for some layouts that need it and not found in gds elements
+
+# 2.3.1
+- Fine tuned the result close link. Moves inside title and with titles with and without links

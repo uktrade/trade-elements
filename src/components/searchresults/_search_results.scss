@@ -38,17 +38,17 @@
       strong {
         @include bold-19();
       }
+
+      a.close-link {
+        float: right;
+        padding-right: 20px;
+      }
     }
 
     .meta {
       margin: 0;
     }
 
-    a.close-link {
-      position: absolute;
-      right: 20px;
-      top: 18px;
-    }
   }
 }
 
