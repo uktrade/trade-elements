@@ -1,18 +1,25 @@
-{% macro searchbar(name, label, value="", type, action="/search", method="get", submitLabel="Search") %}
+{% macro searchbar(name, label, hint, value="", type, action="/search", method="get", submitLabel="Search") %}
   <form class="searchbar{% if type %} searchbar--{{type}}{% endif %}"
         action="{{ action }}"
         method="{{ method }}"
         role="search">
-    <div class="searchbar__wrapper">
-      <label class="searchbar__label" for="search-{{ name }}">{{ label }}</label>
-      <input class="searchbar__input form-control"
-             id="search-{{ name }}"
-             type="search"
-             name="{{ name }}"
-             value="{{ value }}"
-             placeholder="{{ label }}"
-      />
-      <input class="searchbar__submit" type="submit" value="{{ submitLabel }}" />
+    <div class="form-group">
+      {% if label %}
+        <label class="form-label-bold" for="search-{{ name }}">
+          {{ label }}
+          {% if hint %}<span class="form-hint">{{hint}}</span>{% endif %}
+        </label>
+      {% endif %}
+      <div class="searchbar__wrapper">
+        <input class="searchbar__input form-control"
+              id="search-{{ name }}"
+              type="search"
+              name="{{ name }}"
+              value="{{ value }}"
+              placeholder="{{ label }}"
+        />
+        <input class="searchbar__submit" type="submit" value="{{ submitLabel }}" />
+      </div>
     </div>
   </form>
 {% endmacro %}

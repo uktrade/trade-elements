@@ -1,17 +1,19 @@
 .searchbar {
+  @extend %contain-floats;
+  margin: 20px 0 25px;
 
-  .searchbar__wrapper {
-    margin: 20px 0 25px;
-    position: relative;
-    background: $white;
-
-    @include media(tablet) {
-      margin: 30px 0;
-    }
+  @include media(tablet) {
+    margin: 30px 0;
   }
 
-  .searchbar__label {
-    display: none;
+  .form-label,
+  .form-label-bold {
+    display: none
+  }
+
+  .searchbar__wrapper {
+    position: relative;
+    background: $white;
   }
 
   .searchbar__input {
@@ -75,4 +77,11 @@
     width: 34px;
   }
 
+}
+
+.searchbar.searchbar--show-label {
+  .form-label,
+  .form-label-bold {
+    display: block
+  }
 }

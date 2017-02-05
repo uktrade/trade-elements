@@ -90,3 +90,13 @@
     }
   }
 }
+
+table.table--key-value.table--small {
+  th {
+    @include core-16;
+    color: $secondary-text-colour;
+  }
+  td {
+    @include core-16
+  }
+}

@@ -25,10 +25,9 @@
 
 p.infostrip,
 .infostrip {
-  @include core-19(2.5);
+  @include core-19();
   border-left: 5px solid $border-colour;
   background: $panel-colour;
   display: inline-block;
-  line-height: 2;
-  padding: 0 15px;
+  padding: 10px 15px;
 }

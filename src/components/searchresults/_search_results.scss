@@ -24,6 +24,8 @@
   .results-list__result {
     margin: 30px 0 0;
 
+    position: relative;
+
     &:first-child {
       margin-top: 0;
     }
@@ -36,14 +38,37 @@
       strong {
         @include bold-19();
       }
+
+      a.close-link {
+        float: right;
+        padding-right: 20px;
+      }
     }
 
     .meta {
       margin: 0;
     }
+
   }
 }
 
 .actions + .results-list {
   padding-top: 0;
+}
+
+.results-list.results-list--lined {
+  margin-bottom: 40px;
+
+  .results-list__result {
+    border-bottom: 1px solid $border-colour;
+    margin: 0;
+    padding: 15px 0;
+
+    &:first-child {
+      border-top: 1px solid $border-colour;
+    }
+  }
+  .result-title a {
+    color: $black;
+  }
 }
