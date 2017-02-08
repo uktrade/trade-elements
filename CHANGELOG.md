@@ -68,3 +68,7 @@
 
 # 2.3.1
 - Fine tuned the result close link. Moves inside title and with titles with and without links
+
+# 2.4.0
+- Added more useful methods to element stuff
+- Changed button styles to use prebuild helpers

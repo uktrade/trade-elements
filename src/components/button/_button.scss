@@ -1,6 +1,5 @@
 .button-secondary {
-  background-color: $grey-2;
-  color: $black;
+  @include button ($grey-2);
 
   &:link,
   &:visited {
@@ -10,23 +9,12 @@
 }
 
 .button-warning {
-  background-color: $mellow-red-50;
-  color: $black;
-
-  &:focus, &:hover {
-    background-color: $mellow-red;
-    color: $black;
-  }
+  @include button ($mellow-red-50);
 }
 
 .button-disabled {
-  background-color: $grey-3;
-  color: $grey-1;
+  @include button ($grey-3);
 
-  &:focus, &:hover {
-    background-color: $grey-3;
-    color: $grey-1;
-  }
 }
 
 .button-link {

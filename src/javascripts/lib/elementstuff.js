@@ -88,6 +88,23 @@ function insertAfter (newElement, targetElement) {
   }
 }
 
+function hide (element) {
+  addClass(element, 'hidden')
+  element.setAttribute('aria-hidden', true)
+}
+
+function show (element) {
+  removeClass(element, 'hidden')
+  element.setAttribute('aria-hidden', false)
+}
+
+
+function createElementFromMarkup (markup) {
+  let tmp = document.createElement('body')
+  tmp.innerHTML = markup
+  return tmp.firstElementChild
+}
+
 module.exports = {
-  addClass, removeClass, hasClass, toggleClass, generateID, isNodeList, findDoc, insertAfter
+  addClass, removeClass, hasClass, toggleClass, generateID, isNodeList, findDoc, insertAfter, hide, show, createElementFromMarkup
 }
