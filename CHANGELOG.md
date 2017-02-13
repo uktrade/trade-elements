@@ -72,3 +72,6 @@
 # 2.4.0
 - Added more useful methods to element stuff
 - Changed button styles to use prebuild helpers
+
+# 2.5.0
+- Added support for labels in error panel

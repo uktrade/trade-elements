@@ -60,6 +60,12 @@ app.get(['/:page', '/'], (req, res) => {
     ]
   }
 
+  const errorLabels = {
+    name: 'Name',
+    sector: 'Sector',
+    registered_address: 'Registered address'
+  }
+
   const company = {
     registeredName: 'Marriot Hotels',
     type: '<span class="status-badge status-badge--xsmall status-badge--action">TO DO</span>',
@@ -109,7 +115,8 @@ app.get(['/:page', '/'], (req, res) => {
     company,
     companyLabels,
     contacts,
-    contactLabels
+    contactLabels,
+    errorLabels
   })
 })
 
