@@ -1,4 +1,6 @@
-{% macro errorPanel(errors) %}
+{% macro errorPanel(errors, labels) %}
+{{ 'test'| log | safe }}
+{{ labels | log | safe }}
   {% if errors %}
     <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
       <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
@@ -7,8 +9,13 @@
 
       <ul class="error-summary-list">
         {% for name, item in errors %}
+          {% if labels and labels[name] %}
+            {% set label = labels[name] %}
+          {% else %}
+            {% set label = name %}
+          {% endif %}
           <li>
-            <a href="#{{ name }}-wrapper">{{ name }} - {{ item }}</a>
+            <a href="#{{ name }}-wrapper">{{ label }} - {{ item }}</a>
           </li>
         {% endfor %}
       </ul>

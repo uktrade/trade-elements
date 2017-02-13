@@ -6,7 +6,7 @@
 <section>
   <p>A panel to show at the very top of the page when a form contains validation errors.</p>
   <div class="example">
-    {{ trade.errorPanel( errors ) }}
+    {{ trade.errorPanel( errors, labels=errorLabels ) }}
   </div>
   <div class="html">
     <h3 class="heading-medium">HTML</h3>
@@ -54,6 +54,14 @@
 }<br/></code></pre>
         </td>
       </tr>
+      <tr>
+        <td>labels</td>
+        <td>N</td>
+        <td>An object containing the field name and a label to use in its place:<br/>
+<pre><code class="language-twig">{<br/>
+  'business_type': 'Business type'
+}<br/></code></pre>
+
       </tbody>
     </table>
   </div>
