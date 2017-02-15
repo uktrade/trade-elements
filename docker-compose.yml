@@ -1,0 +1,14 @@
+version: "3"
+services:
+  trade-elements:
+    build:
+      context: .
+    ports:
+      - 3050:3050
+      - 3051:3051
+      - 5858:5858
+      - 9229:9229
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./test:/usr/src/app/test
+    command: npm run develop

@@ -13,7 +13,7 @@ gulp.task('browserSync', (done) => {
     proxy: `http://localhost:${config.port}`,
     files: [`${paths.projectDir}/gallery/styles/*.css`, `${paths.projectDir}/dist/styles/*.css`, `${paths.outputJS}/*.js`],
     reloadDelay: 1000,
-    port: 3001,
+    port: 3051,
     open: false
   })
   done()
