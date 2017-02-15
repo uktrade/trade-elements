@@ -46,3 +46,18 @@ A tutorial is in the process of being written, for now though take a look at the
 JS for components are 'self registering'. The control searches for all elements that have a given class name and progressively enhance the page. Parameters are specified in html attributes
 
 
+## Install
+### Native
+You download and install this application as normal for node by checking the code out, running npm install and then use the 
+following npm scripts to do something, enter npm run scriptname
+
+* start - run the server and access via http://localhost:3050/
+* build - assemble all the assets and compile js and sass
+* develop - Runs the server and watches all the js and sass. When a change is made the code is rebuilt. When running in developer mode use http://localhost:3051 and changes to style will show instantly on the page.
+* test - Run unit tests for js components
+
+
+### Docker
+Use docker and docker compose to start or develop components without having to install NodeJS. Simply docker-compose up and you can 
+connect to the sever via http://localhost:3050 for normal usage or http://localhost:3051 for a version in which css changes instantly show
+in the browser
