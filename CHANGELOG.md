@@ -75,3 +75,6 @@
 
 # 2.5.0
 - Added support for labels in error panel
+
+# 2.5.1
+- Minor spacing changes and additional styles for button bars
