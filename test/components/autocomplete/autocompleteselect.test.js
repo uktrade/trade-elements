@@ -1,4 +1,4 @@
-const SelectAutocomplete = require('../../../src/components/autocomplete/selectautocomplete')
+const AutocompleteSelect = require('../../../src/components/autocomplete/autocompleteselect')
 const jsdom = require('jsdom')
 
 const HTML = `<html>
@@ -32,7 +32,7 @@ describe('Select Autocomplete', function () {
 
       document = jsdomWindow.document
       const selectElement = document.getElementById('test-select')
-      selectAutocomplete = new SelectAutocomplete(selectElement)
+      selectAutocomplete = new AutocompleteSelect(selectElement)
       done()
     })
   })
@@ -58,7 +58,7 @@ describe('Select Autocomplete', function () {
       const newField = document.querySelector('[aria-owns="test-select"]')
       expect(newField.tagName).to.equal('INPUT')
     })
-    it('should show the initial value in the autosuggest field', function () {
+    it('should show the initial value in the autocomplete field', function () {
       const newField = document.querySelector('[aria-owns="test-select"]')
       expect(newField.value).to.equal('Two')
     })
@@ -80,7 +80,7 @@ describe('Select Autocomplete', function () {
 
         document = jsdomWindow.document
         const selectElement = document.getElementById('test-select')
-        selectAutocomplete = new SelectAutocomplete(selectElement)
+        selectAutocomplete = new AutocompleteSelect(selectElement)
         const newField = document.querySelector('[aria-owns="test-select"]')
 
         expect(newField.value).to.equal('')
@@ -99,8 +99,8 @@ describe('Select Autocomplete', function () {
       }
 
       selectAutocomplete.keyup(event)
-      const suggestionWrapper = document.querySelector('.autosuggest__suggestions')
-      const suggestions = document.querySelectorAll('.autosuggest__suggestion')
+      const suggestionWrapper = document.querySelector('.autocomplete__suggestions')
+      const suggestions = document.querySelectorAll('.autocomplete__suggestion')
 
       expect(suggestionWrapper.tagName).equal('UL')
       expect(suggestions).to.have.length(1)
@@ -114,8 +114,8 @@ describe('Select Autocomplete', function () {
       }
 
       selectAutocomplete.keyup(event)
-      const suggestionWrapper = document.querySelector('.autosuggest__suggestions')
-      const suggestions = document.querySelectorAll('.autosuggest__suggestion')
+      const suggestionWrapper = document.querySelector('.autocomplete__suggestions')
+      const suggestions = document.querySelectorAll('.autocomplete__suggestion')
 
       expect(suggestionWrapper).equal(null)
       expect(suggestions).to.have.length(0)
@@ -134,8 +134,8 @@ describe('Select Autocomplete', function () {
       event.keyCode = 8
       selectAutocomplete.keyup(event)
 
-      const suggestionWrapper = document.querySelector('.autosuggest__suggestions')
-      const suggestions = document.querySelectorAll('.autosuggest__suggestion')
+      const suggestionWrapper = document.querySelector('.autocomplete__suggestions')
+      const suggestions = document.querySelectorAll('.autocomplete__suggestion')
       expect(suggestionWrapper).equal(null)
       expect(suggestions).to.have.length(0)
     })
@@ -151,8 +151,8 @@ describe('Select Autocomplete', function () {
 
       selectAutocomplete.keyup(event)
 
-      const suggestionWrapper = document.querySelector('.autosuggest__suggestions')
-      const suggestions = document.querySelectorAll('.autosuggest__suggestion')
+      const suggestionWrapper = document.querySelector('.autocomplete__suggestions')
+      const suggestions = document.querySelectorAll('.autocomplete__suggestion')
       expect(suggestionWrapper).equal(null)
       expect(suggestions).to.have.length(0)
     })

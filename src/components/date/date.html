@@ -1,4 +1,9 @@
 {% macro date(name, label, value, id, class, error) %}
+
+{% set day = value | dateParseDay %}
+{% set month = value | dateParseMonth %}
+{% set year = value | dateParseYear %}
+
 <div id="form-group-asset_valuationDate" class="form-group form-date{% if error %} error{% endif %} {{ class }}">
   <fieldset>
     <legend class="form-label-bold">{{ label }}</legend>
@@ -10,7 +15,7 @@
              id="asset_valuationDate_day"
              class="form-control"
              name="{{ name }}_day"
-             value="{{ value | splitPart('/', 0) }}"
+             value="{{ day }}"
              maxlength="2"
              autocomplete="dd" />
     </div>
@@ -23,7 +28,7 @@
              id="asset_valuationDate_month"
              class="form-control"
              name="{{ name }}_month"
-             value="{{ value | splitPart('/', 1) }}"
+             value="{{ month }}"
              maxlength="2"
              autocomplete="mm"/>
     </div>
@@ -36,7 +41,7 @@
              id="asset_valuationDate_year"
              class="form-control"
              name="{{ name }}_year"
-             value="{{ value | splitPart('/', 2) }}"
+             value="{{ year }}"
              maxlength="4"
              autocomplete="yyyy"/>
     </div>

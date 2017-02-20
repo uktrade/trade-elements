@@ -6,7 +6,7 @@ module.exports = [
   {
     devtool: prod ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
     entry: {
-      'trade-elements-components': `${paths.sourceJS}/trade-elements-components.js`,
+      'trade-elements-components': `${paths.sourceJS}/trade-elements-components.js`
     },
     output: {
       path: `${paths.projectDir}/dist/javascripts`,

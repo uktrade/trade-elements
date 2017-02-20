@@ -78,3 +78,9 @@
 
 # 2.5.1
 - Minor spacing changes and additional styles for button bars
+
+# 2.6.0
+- Split autocomplete into 2 variations, select based and ajax based
+- Changed css names for autocomplete to use consistant naming convention
+- Added documentation for autocomplete to gallery
+- Added support for passing dates in yyyy-mm-ddTHH:MM:SS format to date fields.

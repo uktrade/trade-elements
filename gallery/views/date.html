@@ -8,6 +8,8 @@
   split it into 3 fields for the user to edit.</p>
   <div class="example">
     {{ trade.date('dob', label="Date of birth", value="07/01/1971") }}
+
+    {{ trade.date('startdate', label="Start date", value="2016-11-10T13:10:01.079Znpm ") }}
   </div>
   <div class="html">
     <h3 class="heading-medium">HTML</h3>
@@ -62,7 +64,9 @@
       <tr>
         <td>value</td>
         <td>N</td>
-        <td>The date value in the format 'dd/mm/yyyy', leave empty if there is no existing value</td>
+        <td>The date value in the format 'dd/mm/yyyy' or 'yyyy-mm-ddThh:MM:ss' or 'yyyy-mm-dd', leave empty if there is no existing value.
+          You may also pass a native JS date
+        </td>
       </tr>
 
       <tr>
