@@ -18,7 +18,7 @@
   padding: 0;
 
   strong {
-    @include bold-19();
+    @include bold-19;
   }
 
   .results-list__result {
@@ -35,8 +35,9 @@
       margin: 0 0 5px;
       padding: 0;
       text-transform: capitalize;
+
       strong {
-        @include bold-19();
+        @include bold-19;
       }
 
       a.close-link {
@@ -68,6 +69,7 @@
       border-top: 1px solid $border-colour;
     }
   }
+
   .result-title a {
     color: $black;
   }

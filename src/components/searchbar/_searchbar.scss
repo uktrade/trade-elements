@@ -8,7 +8,7 @@
 
   .form-label,
   .form-label-bold {
-    display: none
+    display: none;
   }
 
   .searchbar__wrapper {
@@ -43,7 +43,7 @@
     text-indent: -5000px;
     color: $white;
     cursor: pointer;
-    background: $govuk-blue url('/images/search-button.png') no-repeat 8px 50%;
+    background: $govuk-blue url("/images/search-button.png") no-repeat 8px 50%;
     border-radius: 0;
   }
 }
@@ -85,6 +85,6 @@
 .searchbar.searchbar--show-label {
   .form-label,
   .form-label-bold {
-    display: block
+    display: block;
   }
 }

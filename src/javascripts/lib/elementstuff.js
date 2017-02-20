@@ -1,3 +1,4 @@
+/* eslint no-useless-escape: 0 */
 const regularExp1 = '(\\s|^)'
 const regularExp2 = '(\\s|$)'
 
@@ -97,7 +98,6 @@ function show (element) {
   removeClass(element, 'hidden')
   element.setAttribute('aria-hidden', false)
 }
-
 
 function createElementFromMarkup (markup) {
   let tmp = document.createElement('body')

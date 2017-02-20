@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "index.js",
   "engines": {
-    "node": "6.9.4"
+    "node": "6.9.5"
   },
   "scripts": {
     "start": "node gallery/index.js",
@@ -18,7 +18,10 @@
     "develop": "gulp watch",
     "test": "mocha --require test/common.js --ui bdd test/**/*.test.js",
     "prepublish": "npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "lint": "npm run lint:js & npm run lint:sass",
+    "lint:js": "standard",
+    "lint:sass": "sass-lint -c .sass-lint.yml 'src/**/*.scss' -v -q"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

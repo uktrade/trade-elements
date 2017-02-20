@@ -7,7 +7,7 @@ const path = require('path')
 const compression = require('compression')
 const fakeData = require('./data/fakedata.json')
 const fakePostcodeLookup = require('./data/fakepostcodelookup.json')
-const filters = require('@uktrade/trade_elements/dist/nunjucks/filters')
+const filters = require('../dist/nunjucks/filters')
 const config = require('./config')
 
 const isDev = app.get('env') === 'development'

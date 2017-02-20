@@ -1,9 +1,9 @@
-@import 'shims';
-@import 'conditionals';
-@import 'measurements';
-@import 'colours/_palette';
-@import 'typography';
-@import 'colours';
+@import "shims";
+@import "conditionals";
+@import "measurements";
+@import "colours/palette";
+@import "typography";
+@import "colours";
 
 #global-header.global-header--govuk {
   background-color: $black;
@@ -16,7 +16,7 @@
     padding-top: 8px;
     padding-bottom: 8px;
     @extend %contain-floats;
-    @include media(tablet){
+    @include media(tablet) {
       padding-left: $gutter-half;
       padding-right: $gutter-half;
     }
@@ -39,6 +39,7 @@
           margin: 0 15px;
         }
       }
+
       .header-logo {
         margin: 5px 0 2px;
       }
@@ -73,27 +74,20 @@
     padding-top: 2px;
     border-bottom: 1px solid transparent;
 
-    background: url('#{$asset-path}images/gov.uk_logotype_crown.png') no-repeat;
+    background: url("#{$asset-path}images/gov.uk_logotype_crown.png") no-repeat;
     background-size: 35px 31px;
     background-position: 0 0;
     @include ie-lte(8) {
-      background-image: url('#{$assetPath}gov.uk_logotype_crown-1x.png');
+      background-image: url("#{$assetPath}gov.uk_logotype_crown-1x.png");
     }
 
     img {
       position: relative;
       top: -2px;
-
-      width: 35px;
-      height: 31px;
-
       padding-right: 6px;
-
-      float: left;
       display: inline;
       line-height: inherit;
       border: none;
-
       visibility: hidden;
     }
 
@@ -120,10 +114,12 @@
       @include media(desktop) {
         display: none;
       }
+
       &:hover {
         text-decoration: underline;
       }
-      &:after {
+
+      &::after {
         display: inline-block;
         font-size: 8px;
         height: 8px;
@@ -131,15 +127,15 @@
         vertical-align: middle;
         content: " \25BC";
       }
-      &.js-hidden:after {
+
+      &.js-hidden::after {
         content: " \25B2";
       }
     }
   }
 }
 
-/* Global header bar */
-
+// Global header bar
 #global-header-bar {
   @extend %site-width-container;
   height: 10px;
@@ -149,10 +145,9 @@
   }
 }
 
-/* Global cookie message */
-
+// Global cookie message
 .js-enabled #global-cookie-message {
-  display: none; /* shown with JS, always on for non-JS */
+  display: none; // shown with JS, always on for non-JS
 }
 
 #global-cookie-message {
@@ -160,6 +155,7 @@
   background-color: $light-blue-25;
   padding-top: 10px;
   padding-bottom: 10px;
+
   p {
     @extend %site-width-container;
     @include core-16;

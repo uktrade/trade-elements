@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const gulp = require('gulp');
+const gulp = require('gulp')
 
 gulp.task('' +
   'lint-js', () => {
@@ -12,4 +12,4 @@ gulp.task('' +
       breakOnError: true,
       quiet: true
     }))
-});
+})

@@ -1,8 +1,8 @@
+/* eslint handle-callback-err: 0 */
 const gulp = require('gulp')
 const fs = require('fs')
 const path = require('path')
 const paths = require('../paths')
-const del = require('del')
 
 function walk (dir, done) {
   let results = []

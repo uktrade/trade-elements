@@ -1,4 +1,4 @@
-/* Global footer */
+// Global footer
 
 #footer.footer--govuk {
   background-color: $footer-background;
@@ -55,7 +55,7 @@
       }
 
       ul {
-        @include core-16($line-height: (24/16), $line-height-640: (24/16));
+        @include core-16($line-height: (24 / 16), $line-height-640: (24 / 16));
         display: inline-block;
         list-style: none;
         margin: 0 0 1.5em 0;
@@ -104,10 +104,10 @@
             display: block;
             width: 41px;
             height: 17px;
-            overflow:hidden;
+            overflow: hidden;
             text-indent: -999em;
             background: url("#{$asset-path}images/open-government-licence.png") 0 0 no-repeat;
-            @include device-pixel-ratio() {
+            @include device-pixel-ratio {
               background-image: url("#{$asset-path}images/open-government-licence_2x.png");
               background-size: 41px 17px;
             }
@@ -154,7 +154,7 @@
           background-position: 100% 0%;
         }
 
-        @include device-pixel-ratio() {
+        @include device-pixel-ratio {
           background-image: url("#{$asset-path}images/govuk-crest-2x.png");
           background-size: 125px 102px;
         }
