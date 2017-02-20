@@ -10,4 +10,4 @@
   when you run `gulp`.
 */
 
-require('require-dir')('./gulp/tasks');
+require('require-dir')('./gulp/tasks')

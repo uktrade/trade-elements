@@ -1,3 +1,4 @@
+/* eslint no-new: 0 */
 const {addClass, removeClass} = require('../../javascripts/lib/elementstuff')
 
 function addEventListenerList (list, event, fn) {

@@ -12,7 +12,7 @@
       }
     }
 
-    td:first-letter {
+    td::first-letter {
       text-transform: capitalize;
     }
 
@@ -79,12 +79,13 @@
     cursor: pointer;
 
     &.table--sortable__sort-desc {
-      &:after {
+      &::after {
         content: "\00a0\00a0\25BC";
       }
     }
+
     &.table--sortable__sort-asc  {
-      &:after {
+      &::after {
         content: "\00a0\00a0\25B2";
       }
     }
@@ -96,6 +97,7 @@ table.table--key-value.table--small {
     @include core-16;
     color: $secondary-text-colour;
   }
+
   td {
     @include core-16
   }

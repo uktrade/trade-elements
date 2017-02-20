@@ -1,3 +1,4 @@
+/* eslint no-new: 0 */
 class FlashMessage {
   constructor (element) {
     this.element = element

@@ -52,7 +52,7 @@
       }
 
       // Active tab
-      [aria-selected='true'],
+      [aria-selected="true"],
       .selected {
         background-color: $white;
         color: $text-colour;
