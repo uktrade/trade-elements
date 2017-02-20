@@ -1,0 +1,119 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<h1 class="heading-xlarge">Autocomplete</h1>
+<section>
+  <p>Two styles of autocomplete, one aimed at progressive enhancement, turning a select into an autocompete, and another that
+    gets suggestions from an ajax endpoint. The autocomplete macro will create markup depending on if it is passed an array of options or a url.
+  </p>
+  <p>When the macro is passed an array of options will create a hidden select control in markup and present a textfield to the user to allow them to
+    type in their value to lookup. The control will then lookup the values in the select dropdwn
+  </p>
+  <p>When the macro is passed an url then it will call the url with the current term and present the matches returned.</p>
+  <div class="example">
+    {{ trade.autocomplete('selectadvisor',
+      label="DIT advisor",
+      value=interaction.advisor,
+      displayvalue=currentAdvisorName,
+      hint="Please start typing to serach for an advisor",
+      error=errors.selectadvisor,
+      url='/api/advisorlookup/?term=')
+    }}
+
+    {{ trade.autocomplete('ajaxadvisor',
+      label="DIT advisor",
+      value=1,
+      hint="Please start typing to serach for an advisor",
+      error=errors.ajaxadvisor,
+      options=advisors
+      )
+    }}
+  </div>
+
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macros</h3>
+    <pre><code class="language-twig">{% raw %}{{ trade.autocomplete('selectadvisor',
+  label="DIT advisor",
+  value=interaction.advisor,
+  displayvalue=currentAdvisorName,
+  hint="Please start typing to serach for an advisor",
+  error=errors.selectadvisor,
+  url='/api/advisorlookup/?term=')
+}}
+
+{{ trade.autocomplete('ajaxadvisor',
+  label="DIT advisor",
+  value=interaction.advisor,
+  hint="Please start typing to serach for an advisor",
+  error=errors.ajaxadvisor,
+  options=advisors
+  )
+}}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>name</td>
+        <td>Y</td>
+        <td>the name for the field</td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td>Y</td>
+        <td>The label for the field</td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>Y</td>
+        <td>The text value for the field</td>
+      </tr>
+      <tr>
+        <td>hint</td>
+        <td>N</td>
+        <td>Optional hint to show below the label</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>N</td>
+        <td>If you wish the field to be assigned an ID pass it here</td>
+      </tr>
+      <tr>
+        <td>class</td>
+        <td>N</td>
+        <td>Pass an extra class value to add to the markup, e.g. selected</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>N</td>
+        <td>If there is an error with the field, set the error string here.</td>
+      </tr>
+      <tr>
+        <td>displayvalue</td>
+        <td>N</td>
+        <td>Only required for ajax lookup. Provide the display value associated with the given id value</td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td>N</td>
+        <td>A URL to use to lookup values for the field, e.g. http://test/lookup?term=<br/>
+          The return must be an array of objects with an id and name, e.g. [{id:1, name:'test'}]
+        </td>
+      </tr>
+      <tr>
+        <td>options</td>
+        <td>N</td>
+        <td>An array of objects with an id and name property, similar to the url return values.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

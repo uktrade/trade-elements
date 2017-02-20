@@ -7,7 +7,7 @@ const path = require('path')
 const compression = require('compression')
 const fakeData = require('./data/fakedata.json')
 const fakePostcodeLookup = require('./data/fakepostcodelookup.json')
-const filters = require('../dist/nunjucks/filters/index')
+const filters = require('@uktrade/trade_elements/dist/nunjucks/filters')
 const config = require('./config')
 
 const isDev = app.get('env') === 'development'
@@ -32,7 +32,6 @@ app.use('/css', express.static(path.resolve(__dirname, './styles')))
 app.use('/favicon.ico', express.static(path.resolve(__dirname, '../dist/images')))
 app.use('/themes', express.static(path.resolve(__dirname, '../node_modules/prismjs/themes')))
 app.use('/prism.js', express.static(path.resolve(__dirname, '../node_modules/prismjs/prism.js')))
-
 
 app.use(require('./middleware/locals'))
 
@@ -116,7 +115,8 @@ app.get(['/:page', '/'], (req, res) => {
     companyLabels,
     contacts,
     contactLabels,
-    errorLabels
+    errorLabels,
+    advisors
   })
 })
 
@@ -139,6 +139,22 @@ app.get('/lookup', (req, res) => {
   } else {
     res.json([])
   }
+})
+
+const advisors = [
+  {id: 1, name: 'Fred'},
+  {id: 2, name: 'Andrew'}
+]
+
+app.get('/api/advisorlookup', (req, res) => {
+  const term = req.query.term.toLocaleLowerCase()
+
+  const results = advisors.filter((advisor) => {
+    const name = advisor.name.toLocaleLowerCase()
+    return name.substr(0, term.length) === term
+  })
+
+  res.json(results)
 })
 
 app.get('/postcodelookup/:postcode', (req, res) => {

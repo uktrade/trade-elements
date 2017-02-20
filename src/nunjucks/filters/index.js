@@ -103,6 +103,54 @@ filter.splitPart = function (value, seperator, part) {
   return array[part]
 }
 
+// Accept dates in format dd/mm/yyyy or yyyy-mm-ddThh:MM:ss or yyyy-mm-dd
+function getDateParts (value) {
+  if (!value || value.length === 0) {
+    return
+  }
+
+  if (typeof value === 'object') {
+    value = moment(value).format('DD/MM/YYYY')
+  }
+
+  const seperator = (value.indexOf('-') !== -1) ? '-' : '/'
+  if (value.indexOf('T') !== -1) {
+    value = value.substr(0, value.indexOf('T'))
+  }
+  const parts = value.split(seperator)
+
+  if (seperator === '/') {
+    return parts
+  }
+
+  return [parts[2], parts[1], parts[0]]
+}
+
+filter.dateParseDay = function (value) {
+  if (!value || value.length === 0) return
+  const parts = getDateParts(value)
+  if (!parts) return
+  let day = parts[0]
+  if (day.length < 2) day = `0${day}`
+  return day
+}
+
+filter.dateParseMonth = function (value) {
+  if (!value || value.length === 0) return
+  const parts = getDateParts(value)
+  if (!parts) return
+  let month = parts[1]
+  if (month.length < 2) month = `0${month}`
+  return month
+}
+
+filter.dateParseYear = function (value) {
+  if (!value || value.length === 0) return
+  const parts = getDateParts(value)
+  if (!parts) return
+  return parts[2]
+}
+
 filter.attributeObject = function (myObject) {
   let result = '{'
 

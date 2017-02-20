@@ -1,101 +1,67 @@
 /* eslint no-useless-escape: 0, no-new: 0 */
 const { addClass, removeClass, insertAfter, findDoc } = require('../../javascripts/lib/elementstuff')
-const ACTIVECLASS = 'autosuggest__suggestion--active'
-const SUGGESTIONCLASS = 'autosuggest__suggestion'
 
-// A Select autocomplete, turns an existing autocomplete into
-// an autosuggest field. Changes you make update select.
-class SelectAutocomplete {
-
+class AutocompleteBase {
   constructor (element) {
     this.element = element
     this.document = findDoc(this.element)
+
     this.mousedover = false
     this.focused = false
-    this.getOptions()
+
+    this.ACTIVECLASS = 'autocomplete__suggestion--active'
+    this.SUGGESTIONCLASS = 'autocomplete__suggestion'
+
     this.getCurrentValue()
     this.hideCurrentControl()
     this.createInput()
     this.attachEvents()
-    addClass(this.element.parentNode, 'autosuggest__container')
+    addClass(this.element.parentNode, 'autocomplete__container')
   }
 
   hideCurrentControl () {
     addClass(this.element, 'hidden')
   }
 
-  getOptions () {
-    const options = {}
-    const optionElements = this.element.querySelectorAll('option')
-    for (let pos = 0; pos < optionElements.length; pos += 1) {
-      const element = optionElements.item(pos)
-      if (element.value.length > 0) {
-        options[element.value] = element.innerHTML
-      }
-    }
-
-    this.options = options
-  }
-
-  getCurrentValue () {
-    this.value = this.element.value
-    if (typeof this.options[this.value] !== 'undefined') {
-      this.displayValue = this.options[this.value]
-    } else {
-      this.displayValue = ''
-    }
-  }
-
   createInput () {
     const input = this.document.createElement('input')
     input.setAttribute('aria-owns', this.element.id)
     input.setAttribute('aria-hidden', true)
+    input.setAttribute('autocomplete', 'off')
     input.setAttribute('type', 'text')
     addClass(input, 'form-control')
-    input.value = this.displayValue
     insertAfter(input, this.element)
+    input.value = this.displayValue
     this.displayField = input
   }
 
-  lookup () {
-    this.hide()
-    const term = this.displayField.value.toLowerCase().trim()
-
-    if (term.length === 0) {
-      this.hide()
-      return
-    }
-
-    const matches = {}
-    let found = false
-    for (const key of Object.keys(this.options)) {
-      const option = this.options[key]
-      if (option.toLowerCase().indexOf(term.toLowerCase()) !== -1) {
-        found = true
-        matches[key] = option
-      }
-    }
-
-    if (found) {
-      this.renderSuggestions(matches, term)
-    }
-  }
-
   renderSuggestions (matches, term) {
-    console.log('render suggestions')
+    const matchesToRender = (matches && matches.length > 7) ? matches.slice(0, 10) : matches
+
     let markup = ''
-    const keys = Object.keys(matches)
-    for (const key of keys) {
-      const option = matches[key]
-      markup += `<li class="${SUGGESTIONCLASS}" data-value="${key}">${this.highlighter(option, term)}</li>`
+    for (const match of matchesToRender) {
+      markup += `<li class="${this.SUGGESTIONCLASS}" data-value="${match.id}">${this.highlighter(match.name, term)}</li>`
     }
 
     this.suggestionsElement = this.document.createElement('ul')
-    this.suggestionsElement.setAttribute('aria-hidden', true)
-    addClass(this.suggestionsElement, 'autosuggest__suggestions')
+    this.suggestionsElement.setAttribute('aria-hidden', false)
+    addClass(this.suggestionsElement, 'autocomplete__suggestions')
     this.suggestionsElement.innerHTML = markup
     this.attachSuggestionEvents(this.suggestionsElement)
     insertAfter(this.suggestionsElement, this.displayField)
+  }
+
+  select (target) {
+    if (!target) {
+      target = this.suggestionsElement.querySelector(`.${this.ACTIVECLASS}`)
+    }
+    if (!target) return
+
+    const value = target.getAttribute('data-value')
+    const display = target.textContent
+    this.element.value = value
+    this.displayField.value = display
+    this.hideSuggestions()
   }
 
   highlighter (item, term) {
@@ -105,21 +71,28 @@ class SelectAutocomplete {
     })
   }
 
-  select (target) {
-    if (!target) {
-      target = this.suggestionsElement.querySelector(`.${ACTIVECLASS}`)
+  lookup () {
+    this.hideSuggestions()
+    const term = this.displayField.value.toLowerCase().trim()
+    if (term.length === 0) {
+      this.hideSuggestions()
+      return
     }
-    if (!target) return
 
-    const value = target.getAttribute('data-value')
-    const display = target.textContent
-    this.element.value = value
-    this.displayField.value = display
-    this.hide()
+    this.getMatches(term, (error, matches) => {
+      if (error) {
+        if (console) {
+          console.log(error)
+        }
+        return
+      }
+      if (matches.length > 0) {
+        this.renderSuggestions(matches, term)
+      }
+    })
   }
 
   // Event Handers
-
   focus = (event) => {
     this.focused = true
   }
@@ -127,7 +100,7 @@ class SelectAutocomplete {
   blur = (event) => {
     this.focused = false
     if (!this.mousedover) {
-      this.hide()
+      this.hideSuggestions()
     }
   }
 
@@ -182,7 +155,7 @@ class SelectAutocomplete {
 
       case 27: // escape
         if (!this.suggestionsElement) return
-        this.hide()
+        this.hideSuggestions()
         break
 
       default:
@@ -201,51 +174,51 @@ class SelectAutocomplete {
   }
 
   next () {
-    let currentActive = this.suggestionsElement.querySelector(`.${ACTIVECLASS}`)
+    let currentActive = this.suggestionsElement.querySelector(`.${this.ACTIVECLASS}`)
     if (!currentActive) {
-      addClass(this.suggestionsElement.querySelector(`.${SUGGESTIONCLASS}:first-child`), ACTIVECLASS)
+      addClass(this.suggestionsElement.querySelector(`.${this.SUGGESTIONCLASS}:first-child`), this.ACTIVECLASS)
       return
     }
 
-    removeClass(currentActive, ACTIVECLASS)
+    removeClass(currentActive, this.ACTIVECLASS)
     let next = currentActive.nextSibling
     if (!next) {
-      next = this.suggestionsElement.querySelector(`.${SUGGESTIONCLASS}:first-child`)
+      next = this.suggestionsElement.querySelector(`.${this.SUGGESTIONCLASS}:first-child`)
     }
 
-    addClass(next, ACTIVECLASS)
+    addClass(next, this.ACTIVECLASS)
   }
 
   prev () {
-    const currentActive = this.suggestionsElement.querySelector(`.${ACTIVECLASS}`)
+    const currentActive = this.suggestionsElement.querySelector(`.${this.ACTIVECLASS}`)
 
     if (!currentActive) {
-      addClass(this.suggestionsElement.querySelector(`.${SUGGESTIONCLASS}:last-child`), ACTIVECLASS)
+      addClass(this.suggestionsElement.querySelector(`.${this.SUGGESTIONCLASS}:last-child`), this.ACTIVECLASS)
       return
     }
 
-    removeClass(currentActive, ACTIVECLASS)
+    removeClass(currentActive, this.ACTIVECLASS)
     let prev = currentActive.previousSibling
 
     if (!prev) {
-      prev = this.suggestionsElement.querySelector(`.${SUGGESTIONCLASS}:last-child`)
+      prev = this.suggestionsElement.querySelector(`.${this.SUGGESTIONCLASS}:last-child`)
     }
 
-    addClass(prev, ACTIVECLASS)
+    addClass(prev, this.ACTIVECLASS)
   }
 
   mouseEnter = (event) => {
     this.mousedover = true
-    removeClass(this.suggestionsElement.querySelector(`.${ACTIVECLASS}`), ACTIVECLASS)
-    addClass(event.target, ACTIVECLASS)
+    removeClass(this.suggestionsElement.querySelector(`.${this.ACTIVECLASS}`), this.ACTIVECLASS)
+    addClass(event.target, this.ACTIVECLASS)
   }
 
   mouseLeave = (event) => {
     this.mousedover = false
-    removeClass(event.target, ACTIVECLASS)
+    removeClass(event.target, this.ACTIVECLASS)
   }
 
-  hide () {
+  hideSuggestions () {
     if (this.suggestionsElement) {
       this.element.parentNode.removeChild(this.suggestionsElement)
       this.suggestionsElement = null
@@ -266,12 +239,4 @@ class SelectAutocomplete {
   }
 }
 
-if (typeof document !== 'undefined') {
-  const selects = document.querySelectorAll('.select-autocomplete-js select')
-  for (let pos = 0; pos < selects.length; pos += 1) {
-    const select = selects.item(pos)
-    new SelectAutocomplete(select)
-  }
-}
-
-module.exports = SelectAutocomplete
+module.exports = AutocompleteBase

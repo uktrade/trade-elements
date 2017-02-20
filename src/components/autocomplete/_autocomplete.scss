@@ -1,7 +1,7 @@
-.autosuggest__container {
+.autocomplete__container {
   position: relative;
 
-  .autosuggest__suggestions {
+  .autocomplete__suggestions {
     box-sizing: border-box;
     border: 1px solid $border-colour;
     position: absolute;
@@ -13,7 +13,7 @@
     }
   }
 
-  .autosuggest__suggestion {
+  .autocomplete__suggestion {
     @include core-19;
     padding: 0 5px;
     background: $white;
@@ -30,7 +30,7 @@
       @include bold-19;
     }
 
-    &.autosuggest__suggestion--active,
+    &.autocomplete__suggestion--active,
     &:hover {
       background: $light-blue-25;
     }
