@@ -47,7 +47,7 @@ class AutocompleteBase {
       markup += `<li class="${this.SUGGESTIONCLASS}" data-value="${match.id}">${this.highlighter(match.name, term)}</li>`
     }
     markup += '</ul>'
-    this.suggestionsElement = createElementFromMarkup(markup)
+    this.suggestionsElement = createElementFromMarkup(markup, this.document)
     this.attachSuggestionEvents(this.suggestionsElement)
     insertAfter(this.suggestionsElement, this.displayField)
   }

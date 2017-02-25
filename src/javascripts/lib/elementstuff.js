@@ -99,8 +99,9 @@ function show (element) {
   element.setAttribute('aria-hidden', false)
 }
 
-function createElementFromMarkup (markup) {
-  let tmp = document.createElement('body')
+function createElementFromMarkup (markup, docToCreateIn) {
+  const documentRef = docToCreateIn || document
+  let tmp = documentRef.createElement('body')
   tmp.innerHTML = markup
   return tmp.firstElementChild
 }
