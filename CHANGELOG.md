@@ -84,3 +84,6 @@
 - Changed css names for autocomplete to use consistant naming convention
 - Added documentation for autocomplete to gallery
 - Added support for passing dates in yyyy-mm-ddTHH:MM:SS format to date fields.
+
+# 2.6.1
+- Fixed a bug in autosuggest when using ajax to lookup results

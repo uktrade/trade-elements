@@ -1,5 +1,5 @@
 /* eslint no-useless-escape: 0, no-new: 0 */
-const { addClass, removeClass, insertAfter, findDoc } = require('../../javascripts/lib/elementstuff')
+const { addClass, removeClass, insertAfter, findDoc, createElementFromMarkup } = require('../../javascripts/lib/elementstuff')
 
 class AutocompleteBase {
   constructor (element) {
@@ -36,17 +36,18 @@ class AutocompleteBase {
   }
 
   renderSuggestions (matches, term) {
+    // run hide again because due to a weird combination
+    // of events, async lookups sometimes render suggestions on top of each other.
+    this.hideSuggestions()
+
     const matchesToRender = (matches && matches.length > 7) ? matches.slice(0, 10) : matches
 
-    let markup = ''
+    let markup = '<ul class="autocomplete__suggestions">'
     for (const match of matchesToRender) {
       markup += `<li class="${this.SUGGESTIONCLASS}" data-value="${match.id}">${this.highlighter(match.name, term)}</li>`
     }
-
-    this.suggestionsElement = this.document.createElement('ul')
-    this.suggestionsElement.setAttribute('aria-hidden', false)
-    addClass(this.suggestionsElement, 'autocomplete__suggestions')
-    this.suggestionsElement.innerHTML = markup
+    markup += '</ul>'
+    this.suggestionsElement = createElementFromMarkup(markup)
     this.attachSuggestionEvents(this.suggestionsElement)
     insertAfter(this.suggestionsElement, this.displayField)
   }
@@ -75,7 +76,6 @@ class AutocompleteBase {
     this.hideSuggestions()
     const term = this.displayField.value.toLowerCase().trim()
     if (term.length === 0) {
-      this.hideSuggestions()
       return
     }
 

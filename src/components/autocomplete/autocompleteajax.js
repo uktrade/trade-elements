@@ -36,7 +36,7 @@ class AutocompleteAjax extends AutocompleteBase {
       callback(null, response.data)
     })
     .catch((error) => {
-      callback(error)
+      callback(null, [])
     })
   }
 }
