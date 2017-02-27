@@ -106,6 +106,22 @@ function createElementFromMarkup (markup, docToCreateIn) {
   return tmp.firstElementChild
 }
 
+function removeElement (element) {
+  if (!element) return
+  element.parentNode.removeChild(element)
+}
+
 module.exports = {
-  addClass, removeClass, hasClass, toggleClass, generateID, isNodeList, findDoc, insertAfter, hide, show, createElementFromMarkup
+  addClass,
+  removeClass,
+  hasClass,
+  toggleClass,
+  generateID,
+  isNodeList,
+  findDoc,
+  insertAfter,
+  hide,
+  show,
+  createElementFromMarkup,
+  removeElement
 }

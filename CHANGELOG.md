@@ -87,3 +87,7 @@
 
 # 2.6.1
 - Fixed a bug in autosuggest when using ajax to lookup results
+
+# 2.6.2
+- Allow create element to accept reference to document for testing.
+- Added a helper to remove elements off the page.
