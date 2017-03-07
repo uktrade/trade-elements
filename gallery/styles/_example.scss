@@ -2,6 +2,8 @@
 // ==========================================================================
 // Fix grid layout within example boxes for IE7 and below
 // where box-sizing isn't supported: http://caniuse.com/#search=box-sizing
+@import "measurements";
+
 @mixin example-box-column($width) {
   width: (($site-width - $gutter) * $width) - $gutter;
 }

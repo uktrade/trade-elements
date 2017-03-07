@@ -5,64 +5,18 @@
 @import "typography";
 @import "colours";
 
-#global-header.global-header--govuk {
+#global-header{
   background-color: $black;
-  width: 100%;
 
   .header-wrapper {
-    background-color: $black;
-    max-width: 990px;
-    margin: 0 auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    @extend %contain-floats;
-    @include media(tablet) {
-      padding-left: $gutter-half;
-      padding-right: $gutter-half;
-    }
-    @include ie-lte(8) {
-      width: 990px;
-    }
-
-    .header-global {
-      @extend %contain-floats;
-      @include media(tablet) {
-        display: inline-block;
-        float: left;
-        width: 50%;
-      }
-
-      .header-logo {
-        @extend %contain-floats;
-
-        .content {
-          margin: 0 15px;
-        }
-      }
-
-      .header-logo {
-        margin: 5px 0 2px;
-      }
-    }
-
-    .top-menu {
-      @include media(tablet) {
-        display: inline-block;
-        float: right;
-        width: 50%;
-      }
-    }
-
+    @extend %site-width-container;
+    padding: 8px 0;
   }
-
-  #logo {
-    float: left;
-    position: relative;
-    top: -1px;
-
-    height: 30px;
-    overflow: visible;
-    vertical-align: baseline;
+  .header-global {
+    @include media(tablet) {
+      display: inline-block;
+      margin: 5px 0 2px;
+    }
 
     color: $white;
     font-weight: bold;
@@ -74,34 +28,18 @@
     padding-top: 2px;
     border-bottom: 1px solid transparent;
 
-    background: url("#{$asset-path}images/gov.uk_logotype_crown.png") no-repeat;
-    background-size: 35px 31px;
-    background-position: 0 0;
-    @include ie-lte(8) {
-      background-image: url("#{$assetPath}gov.uk_logotype_crown-1x.png");
-    }
-
-    img {
-      position: relative;
-      top: -2px;
-      padding-right: 6px;
-      display: inline;
-      line-height: inherit;
-      border: none;
-      visibility: hidden;
-    }
-
     &:hover,
     &:focus {
       text-decoration: none;
       border-bottom-color: $white;
     }
   }
-
   .top-menu {
-    padding-top: 10px;
-    @include media(desktop) {
-      padding-top: 0;
+    @include media(tablet) {
+      display: inline-block;
+      float: right;
+      width: 50%;
+      padding-top: 4px;
     }
 
     a {
@@ -140,9 +78,6 @@
   @extend %site-width-container;
   height: 10px;
   background-color: $govuk-blue;
-  @include ie-lte(8) {
-    font-size: 0;
-  }
 }
 
 // Global cookie message
