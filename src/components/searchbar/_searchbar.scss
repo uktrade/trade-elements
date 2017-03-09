@@ -50,9 +50,8 @@
 
 .searchbar.searchbar--header {
   width: 90%;
-  margin: 10px auto;
-  padding-left: 0;
-  padding-right: 0;
+  margin: 10px 0;
+  padding: 0;
 
   @include media(tablet) {
     float: right;
@@ -66,8 +65,9 @@
 
   .searchbar__input {
     border: 0;
-    font-size: em(16);
+    font-size: em(18);
     line-height: 22px;
+    padding: 8px 15px 4px;
   }
 
   .searchbar__submit {
