@@ -91,3 +91,7 @@
 # 2.6.2
 - Allow create element to accept reference to document for testing.
 - Added a helper to remove elements off the page.
+
+# 3.0.0
+- Change header style to new simpler header with no crown
+- Disabled revision tools in develop mode
