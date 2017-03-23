@@ -95,3 +95,6 @@
 # 3.0.0
 - Change header style to new simpler header with no crown
 - Disabled revision tools in develop mode
+
+# 3.0.1
+- Fix support for IE11 and below by including polyfill

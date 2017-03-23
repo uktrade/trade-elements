@@ -65,8 +65,8 @@
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {} }
 
   GOVUK.addCookieMessage = function () {
-    const message = document.getElementById('global-cookie-message')
-    const hasCookieMessage = (message && GOVUK.cookie('seen_cookie_message') === null)
+    var message = document.getElementById('global-cookie-message')
+    var hasCookieMessage = (message && GOVUK.cookie('seen_cookie_message') === null)
 
     if (hasCookieMessage) {
       message.style.display = 'block'
@@ -84,16 +84,16 @@
 
   // header navigation toggle
   if (document.querySelectorAll && document.addEventListener) {
-    const els = document.querySelectorAll('.js-header-toggle')
-    let i
-    let _i
+    var els = document.querySelectorAll('.js-header-toggle')
+    var i
+    var _i
 
     for (i = 0, _i = els.length; i < _i; i++) {
       els[i].addEventListener('click', function (e) {
         e.preventDefault()
-        const target = document.getElementById(this.getAttribute('href').substr(1))
-        const targetClass = target.getAttribute('class') || ''
-        const sourceClass = this.getAttribute('class') || ''
+        var target = document.getElementById(this.getAttribute('href').substr(1))
+        var targetClass = target.getAttribute('class') || ''
+        var sourceClass = this.getAttribute('class') || ''
 
         if (targetClass.indexOf('js-visible') !== -1) {
           target.setAttribute('class', targetClass.replace(/(^|\s)js-visible(\s|$)/, ''))
