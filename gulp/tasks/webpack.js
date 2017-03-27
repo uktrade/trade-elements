@@ -10,6 +10,9 @@ gulp.task('webpack', done => {
       gulp.src(`${paths.sourceJS}/cookie.js`)
         .pipe(gulp.dest(paths.outputJS))
 
+      gulp.src(`${paths.node_modules}/babel-polyfill/dist/polyfill.min.js`)
+        .pipe(gulp.dest(`${paths.outputJS}`))
+
       gulp.src(`${paths.sourceJS}/lib/**/*.js`)
         .pipe(gulp.dest(`${paths.outputJS}/lib`))
 

@@ -98,3 +98,6 @@
 
 # 3.0.1
 - Fix support for IE11 and below by including polyfill
+
+# 3.1.0
+- Split out polyfill so that it fixes clashes with including polyfill in child projects.

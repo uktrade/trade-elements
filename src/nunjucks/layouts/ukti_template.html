@@ -76,6 +76,9 @@
       </footer>
     {% endblock %}
 
+    <!--[if lt IE 11]>
+    <script src="{{ asset_path | default('/') }}javascripts/polyfill.min.js"></script>
+    <![endif]-->
     <script src="{{ asset_path | default('/') }}javascripts/cookie.js"></script>
     <script src="{{ asset_path | default('/') }}javascripts/trade-elements-components.js"></script>
     {% block body_end %}{% endblock %}
