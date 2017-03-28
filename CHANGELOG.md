@@ -107,3 +107,6 @@
 - Switch from polyfill to babel-runtime to avoid side effects
 - Remove dependency on Array.prototype.includes as not supported in IE <= 11
 - Improve rendering of searchbar on IE by using padding instead of line-height
+
+# 3.0.4
+- Improve NPM package to reduce asset size
