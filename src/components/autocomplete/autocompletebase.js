@@ -1,5 +1,14 @@
 /* eslint no-useless-escape: 0, no-new: 0 */
 const { addClass, removeClass, insertAfter, findDoc, createElementFromMarkup } = require('../../javascripts/lib/elementstuff')
+const eventsToSuppress = [40, 38, 9, 13, 27]
+
+function arrayIncludes (array, item) {
+  if (!Array.isArray(array)) {
+    return false
+  }
+
+  return array.indexOf(item)
+}
 
 class AutocompleteBase {
   constructor (element) {
@@ -134,7 +143,7 @@ class AutocompleteBase {
   }
 
   keyDown = (event) => {
-    this.suppressKeyPressRepeat = [40, 38, 9, 13, 27].includes(event.keyCode)
+    this.suppressKeyPressRepeat = arrayIncludes(eventsToSuppress, event.keyCode)
     this.move(event)
   }
 

@@ -22,7 +22,7 @@ module.exports = [
             cacheDirectory: './babel_cache',
             babelrc: false,
             presets: ['es2015'],
-            plugins: ['transform-class-properties']
+            plugins: ['transform-class-properties', 'transform-runtime']
           }
         }
       ]
