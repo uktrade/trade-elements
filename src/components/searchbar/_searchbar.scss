@@ -20,13 +20,12 @@
     box-sizing: border-box;
     font-size: em(19);
     width: 100%;
-    padding: 6px 15px;
+    padding: 10px 15px;
     margin: 0;
     z-index: 3;
     background: transparent;
     position: relative;
     border-right: 0;
-    line-height: 34px;
     border-radius: 0;
     -webkit-appearance: none;
     text-overflow: ellipsis;
@@ -65,9 +64,8 @@
 
   .searchbar__input {
     border: 0;
-    font-size: em(18);
-    line-height: 22px;
-    padding: 8px 15px 4px;
+    font-size: 16px;
+    padding: 6px 15px;
   }
 
   .searchbar__submit {
