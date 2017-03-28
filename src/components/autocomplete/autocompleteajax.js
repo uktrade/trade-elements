@@ -1,4 +1,5 @@
-/* eslint no-useless-escape: 0, no-new: 0 */
+/* eslint no-useless-escape: 0, no-new: 0, handle-callback-err: 0 */
+require('es6-promise').polyfill()
 const axios = require('axios')
 const debounce = require('lodash/debounce')
 const AutocompleteBase = require('./autocompletebase')

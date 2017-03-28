@@ -99,5 +99,11 @@
 # 3.0.1
 - Fix support for IE11 and below by including polyfill
 
-# 3.1.0
+# 3.0.2
 - Split out polyfill so that it fixes clashes with including polyfill in child projects.
+
+# 3.0.3
+- Fix issue with IE browser detection as not supported >= IE10
+- Switch from polyfill to babel-runtime to avoid side effects
+- Remove dependency on Array.prototype.includes as not supported in IE <= 11
+- Improve rendering of searchbar on IE by using padding instead of line-height
