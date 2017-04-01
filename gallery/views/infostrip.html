@@ -1,0 +1,59 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Infostrip</h1>
+  <section>
+    <p>A small panel with a background set and a slightly darker left border. Typically used to inform the user they need to do something, something
+      happened or something went wrong.
+    </p>
+    <div class="example">
+      {{ trade.infostrip("Just a plain old infostrip, nothing to see here.")}}
+      {{ trade.infostrip("An information infostrip, typically something happened", variation="information") }}
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;p class="infostrip">This is a message&lt;/p></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}{{ trade.infostrip("Just a plain old infostrip, nothing to see here.")}}{% endraw %}</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Required</th>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>Y</td>
+            <td>The text to show in the panel</td>
+          </tr>
+          <tr>
+            <td>id</td>
+            <td>N</td>
+            <td>If you wish the infostrip to be assigned an ID pass it here</td>
+          </tr>
+
+          <tr>
+            <td>class</td>
+            <td>N</td>
+            <td>Pass an extra class value to add to the markup, e.g. selected</td>
+          </tr>
+
+          <tr>
+            <td>variation</td>
+            <td>N</td>
+            <td>In addition to the default grey style, there are variations. Currently the only varition if 'information', typically used after
+              something has been updated.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{% endblock %}
