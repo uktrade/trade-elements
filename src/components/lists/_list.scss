@@ -1,0 +1,11 @@
+.lined-list {
+  .line-list__item {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-colour;
+
+    &:first-child {
+      padding-top: 20px;
+      border-top: 1px solid $border-colour;
+    }
+  }
+}

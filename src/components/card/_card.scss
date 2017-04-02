@@ -1,0 +1,10 @@
+.card {
+  & > a {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  > .keyvalue {
+    display: inline-block;
+    width: 50%;
+  }
+}

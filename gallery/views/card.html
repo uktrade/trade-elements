@@ -1,0 +1,38 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+  <h1 class="heading-xlarge">Card</h1>
+  <section>
+    <p>A list of keys and values grouped into a card type layout</p>
+    <div class="example">
+      <ul id="lined-list" class="cardlist">
+        <li class="lined-list__item card contact">
+          <a class="card__metadata" href="/">Zac Tolley</a>
+          <div class="split-data">
+            <div>
+              <div class="card__metadata">Rear admiral</div>
+              <div class="cardlist__metadata">23 February 2017</div>
+            </div>
+            <div>
+              <div class="card__metadata">_+44 7733 221 112</div>
+              <div class="card__metadata">fred@acme.org</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="html">
+      <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;button class="btn">This is a button&lt;/button></code></pre>
+    </div>
+    <div class="nunjucks">
+      <h3 class="heading-medium">Nunjucks Macros</h3>
+      <pre><code class="language-twig">{% raw %}
+
+      {% endraw %}</code></pre>
+
+    </div>
+  </section>
+
+{% endblock %}
