@@ -1,4 +1,10 @@
-{% macro keyvaluetable(data, readonly, stripey, labels, class="", id, keyorder) %}
+{% macro keyvaluetable(data, readonly, stripey, labels, class, id, keyorder, variation) %}
+{% if not class %}
+  {% set class="" %}
+{% endif %}
+{% if readonly == true %}
+  {% set variation='readonly' %}
+{% endif %}
 
 {% set className = "table--key-value " + class %}
 
@@ -6,8 +12,8 @@
   {% set className = className + ' table--striped' %}
 {% endif %}
 
-{% if readonly == true %}
-  {% set className = className + ' table--readonly' %}
+{% if variation %}
+  {% set className = className + ' table--' + variation %}
 {% endif %}
 
 {% if not keyorder %}

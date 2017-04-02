@@ -39,7 +39,7 @@
     </div>
     <h2 class="heading-large">Readonly key values</h2>
     <div class="example">
-      {{ trade.keyvaluetable(company, readonly=true, labels=companyLabels, keyorder=['registeredName', 'tradingName', 'type', 'sector', 'subSector', 'dontShowthis']) }}
+      {{ trade.keyvaluetable(company, variation='readyonly', labels=companyLabels, keyorder=['registeredName', 'tradingName', 'type', 'sector', 'subSector', 'dontShowthis']) }}
     </div>
     <div class="html">
         <h3 class="heading-medium">HTML</h3>
@@ -64,10 +64,41 @@
   &lt;/tbody>
 &lt;/table></code></pre>
     </div>
+
+    <h2 class="heading-large">Plain key values</h2>
+    <div class="example">
+      {{ trade.keyvaluetable(company, variation='plain', labels=companyLabels, keyorder=['registeredName', 'tradingName', 'type', 'sector', 'subSector', 'dontShowthis']) }}
+    </div>
+    <div class="html">
+        <h3 class="heading-medium">HTML</h3>
+      <pre><code class="language-markup">&lt;table class="table--key-value table--plain">
+  &lt;tbody>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th>Registered name&lt;/th>
+      &lt;td>Marriott Hotels & Resorts&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code></pre>
+    </div>
+
+
     <div class="nunjucks">
       <h3 class="heading-medium">Nunjucks Macros</h3>
       <pre><code class="language-twig">{% raw %}{{ trade.keyvaluetable(data, stripey=true) }}
-{{ trade.keyvaluetable(data, readonly=true) }}{% endraw %}</code></pre>
+{{ trade.keyvaluetable(data, variation="readonly") }}
+{{ trade.keyvaluetable(data, variation="plain") }}{% endraw %}</code></pre>
       <table>
         <thead>
         <tr>
@@ -81,6 +112,19 @@
           <td>data</td>
           <td>Y</td>
           <td>The data to render into the table</td>
+        </tr>
+        <tr>
+          <td>readonly</td>
+          <td>N</td>
+          <td>(deprecated - use variation="readonly") true or false, defaults to false. This indicates if the table uses the readonly variation
+          </td>
+        </tr>
+        <tr>
+          <td>variation</td>
+          <td>N</td>
+          <td>If the keyvalue table style is not the default, specify the variation here. Valid values
+            include <strong>readonly</strong> and <strong>plain</strong>.
+          </td>
         </tr>
         <tr>
           <td>stripey</td>
