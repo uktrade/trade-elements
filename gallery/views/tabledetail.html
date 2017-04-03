@@ -1,0 +1,103 @@
+{% extends "gallery_template.html" %}
+{% import "macros/trade.html" as trade %}
+
+{% block main %}
+<h1 class="heading-xlarge">Table of details</h1>
+<section>
+  <p>A table to display structured key-value data: e.g. a Company House record set.</p>
+  <div class="example">
+
+    {{ trade.tabledetail([ {
+    "name": "Name 1",
+    "value": "Value 1"
+    },
+    {
+    "name": "Name 2",
+    "value": "Value 2"
+    },
+
+    {
+    "name": "Name 3",
+    "value": "Value 3"
+    }
+
+    ]) }}
+
+
+  </div>
+  <div class="html">
+    <h3 class="heading-medium">HTML</h3>
+    <pre><code class="language-markup">&lt;table class="table-detail table-detail--readonly"}>
+          &lt;tr class="table-detail--readonly__section">
+                &lt;td rowspan="4" class="spacer">&nbsp;&lt;/td>
+                &lt;td>Name 1&lt;/td>
+                &lt;td>Value 1&lt;/td>
+            &lt;/tr>
+          &lt;tr class="table-detail--readonly__section">
+                &lt;td>Name 1&lt;/td>
+                &lt;td>Value 1&lt;/td>
+            &lt;/tr>
+          &lt;tr class="table-detail--readonly__section">
+                &lt;td rowspan="4" class="spacer">&nbsp;&lt;/td>
+                &lt;td>Name 1&lt;/td>
+                &lt;td>Value 1&lt;/td>
+            &lt;/tr>
+    &lt;/table>
+
+
+    </code></pre>
+  </div>
+  <div class="nunjucks">
+    <h3 class="heading-medium">Nunjucks Macro</h3>
+    <pre><code class="language-twig">{% raw %}
+
+{{ trade.tabledetail([ {
+    "name": "Name 1",
+    "value": "Value 1"
+    },
+    {
+    "name": "Name 2",
+    "value": "Value 2"
+    },
+
+    {
+    "name": "Name 3",
+    "value": "Value 3"
+    }
+
+    ]) }}{% endraw %}</code></pre>
+    <table>
+      <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Required</th>
+        <td>Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>entries</td>
+        <td>Y</td>
+        <td>An array of objects in the form {"name":*, value:*}</td>
+      </tr>
+      <tr>
+        <td>id</td>
+        <td>N</td>
+        <td>An optional id</td>
+      </tr>
+      <tr>
+        <td>tableclass</td>
+        <td>N</td>
+        <td>A CSS class to override the default class for the table as a whole. NOTE: completely replaces default CSS</td>
+      </tr>
+      <tr>
+        <td>rowclass</td>
+        <td>N</td>
+        <td>A CSS class to override the default class for the table rows. NOTE: completely replaces default CSS</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
