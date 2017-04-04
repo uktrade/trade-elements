@@ -10,13 +10,12 @@
   .split-data {
     @extend %contain-floats;
     box-sizing: border-box;
+  }
 
-    > div,
-    > dl,
-    {
-      float: left;
-      width: 50%;
-    }
+  .split-data > div,
+  .split-data > dl {
+    float: left;
+    width: 50%;
   }
 
 }
