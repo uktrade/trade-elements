@@ -1,0 +1,15 @@
+<!--
+| Parameter | Required | Description |
+| --------- | -------- | ----------- |
+| text      | Y        | The text to show in the panel |
+| id        | N        | If you wish the panel to be assigned an ID pass it here|
+| class     | N        | Pass an extra class value to add to the markup, e.g. selected |
+| variation | N        | An optional type the is a variable, e.g. 'information' |
+-->
+{% macro infostrip(text, class, id, variation) %}
+  {% if variation %}
+    {% set variation = 'infostrip--' + variation %}
+  {% endif %}
+
+  <p class="infostrip {{variation}} {{class}}" id="{{id}}">{{text}}</p>
+{% endmacro %}
