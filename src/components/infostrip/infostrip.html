@@ -6,7 +6,7 @@
 | class     | N        | Pass an extra class value to add to the markup, e.g. selected |
 | variation | N        | An optional type the is a variable, e.g. 'information' |
 -->
-{% macro infostrip(text, variation) %}
+{% macro infostrip(text, class, id, variation) %}
   {% if variation %}
     {% set variation = 'infostrip--' + variation %}
   {% endif %}
