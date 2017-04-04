@@ -110,3 +110,9 @@
 
 # 3.0.4
 - Improve NPM package to reduce asset size
+
+# 3.1.0
+- Add a new 'plain' style table, with no ruler and subtle label
+- Deprecate use of 'readonly' property in tables to switch to use 'variation' property instead
+- Change flash messsages to create new control 'infostrip'
+- Added a new 'card' component to show details in a card like view
