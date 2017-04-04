@@ -3,7 +3,6 @@ p.infostrip,
   @include core-19;
   border-left: 8px solid $border-colour;
   background: $panel-colour;
-  display: inline-block;
   padding: 15px 20px;
 
   &.infostrip--information {
