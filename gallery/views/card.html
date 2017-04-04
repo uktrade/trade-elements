@@ -6,17 +6,35 @@
   <section>
     <p>A list of keys and values grouped into a card type layout</p>
     <div class="example">
-      <ul id="lined-list" class="cardlist">
-        <li class="lined-list__item card contact">
-          <a class="card__metadata" href="/">Zac Tolley</a>
-          <div class="split-data">
-            <div>
-              <div class="card__metadata">Rear admiral</div>
-              <div class="cardlist__metadata">23 February 2017</div>
+      <ul class="lined-list">
+        <li class="lined-list__item">
+          <div class="card contact">
+            <a class="card__metadata" href="/">Zac Tolley</a>
+            <div class="split-data">
+              <div>
+                <div class="card__metadata">Rear admiral</div>
+                <div class="cardlist__metadata">23 February 2017</div>
+              </div>
+              <div>
+                <div class="card__metadata">_+44 7733 221 112</div>
+                <div class="card__metadata">fred@acme.org</div>
+              </div>
             </div>
-            <div>
-              <div class="card__metadata">_+44 7733 221 112</div>
-              <div class="card__metadata">fred@acme.org</div>
+          </div>
+        </li>
+
+        <li class="lined-list__item">
+          <div class="card contact">
+            <a class="card__metadata" href="/">John Smith</a>
+            <div class="split-data">
+              <div>
+                <div class="card__metadata">Managing director</div>
+                <div class="cardlist__metadata">21 February 2017</div>
+              </div>
+              <div>
+                <div class="card__metadata">_+44 7733 222 112</div>
+                <div class="card__metadata">john@acme.org</div>
+              </div>
             </div>
           </div>
         </li>
@@ -24,14 +42,38 @@
     </div>
     <div class="html">
       <h3 class="heading-medium">HTML</h3>
-      <pre><code class="language-markup">&lt;button class="btn">This is a button&lt;/button></code></pre>
-    </div>
-    <div class="nunjucks">
-      <h3 class="heading-medium">Nunjucks Macros</h3>
-      <pre><code class="language-twig">{% raw %}
-
-      {% endraw %}</code></pre>
-
+      <pre><code class="language-html">&lt;ul class="lined-list"&gt;
+  &lt;li class="lined-list__item"&gt;
+    &lt;div class="card contact"&gt;
+      &lt;a class="card__metadata" href="/"&gt;Zac Tolley&ht;/a&gt;
+      &lt;div class="split-data">
+        &lt;div>
+          &lt;div class="card__metadata"&gt;Rear admiral&lt;/div&gt;
+          &lt;div class="cardlist__metadata"&gt;23 February 2017&lt;/div&ht;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="card__metadata"&gt;_+44 7733 221 112&lt;/div&gt;
+          &lt;div class="card__metadata"&gt;fred@acme.org&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="lined-list__item"&gt;
+    &lt;div class="card contact"&gt;
+      &lt;a class="card__metadata" href="/"&gt;John Smith&lt;/a&gt;
+      &lt;div class="split-data"&gt;
+        &lt;div&gt;
+          &lt;div class="card__metadata"&gt;Managing director&lt;/div&gt;
+          &lt;div class="cardlist__metadata"&gt;21 February 2017&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="card__metadata"&gt;_+44 7733 222 112&lt;/div&gt;
+          &lt;div class="card__metadata"&gt;john@acme.org&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
     </div>
   </section>
 

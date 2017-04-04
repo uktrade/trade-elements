@@ -1,10 +1,8 @@
 .lined-list {
-  .line-list__item {
-    padding-bottom: 20px;
+  .lined-list__item {
     border-bottom: 1px solid $border-colour;
 
     &:first-child {
-      padding-top: 20px;
       border-top: 1px solid $border-colour;
     }
   }
