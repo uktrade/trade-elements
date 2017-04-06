@@ -116,3 +116,6 @@
 - Deprecate use of 'readonly' property in tables to switch to use 'variation' property instead
 - Change flash messsages to create new control 'infostrip'
 - Added a new 'card' component to show details in a card like view
+
+# 3.1.1
+- Allow cards to be as wide as their container, it should not be up to them to limit their width
