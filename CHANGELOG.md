@@ -119,3 +119,6 @@
 
 # 3.1.1
 - Allow cards to be as wide as their container, it should not be up to them to limit their width
+
+# 3.1.2
+- Fix naming for some components and their input ids

@@ -4,15 +4,19 @@
 {% set month = value | dateParseMonth %}
 {% set year = value | dateParseYear %}
 
-<div id="form-group-asset_valuationDate" class="form-group form-date{% if error %} error{% endif %} {{ class }}">
+{% if not id %}
+  {% set id = name.replace('.','-') %}
+{% endif %}
+
+<div id="{{id}}-wrapper" class="form-group form-date{% if error %} error{% endif %} {{ class }}">
   <fieldset>
     <legend class="form-label-bold">{{ label }}</legend>
     <span class="error-message">{{ error }}</span>
 
     <div class="form-group form-group-day">
-      <label for="asset_valuationDate_day"><span class="form-hint">DD</span></label>
+      <label for="{{id}}_day"><span class="form-hint">DD</span></label>
       <input type="text"
-             id="asset_valuationDate_day"
+             id="{{id}}_day"
              class="form-control"
              name="{{ name }}_day"
              value="{{ day }}"
@@ -21,11 +25,11 @@
     </div>
 
     <div class="form-group form-group-month">
-      <label for="asset_valuationDate_month">
+      <label for="{{id}}_month">
         <span class="form-hint">MM</span>
       </label>
       <input type="text"
-             id="asset_valuationDate_month"
+             id="{{id}}_month"
              class="form-control"
              name="{{ name }}_month"
              value="{{ month }}"
@@ -34,11 +38,11 @@
     </div>
 
     <div class="form-group form-group-year">
-      <label for="asset_valuationDate_year">
+      <label for="{{id}}_year">
         <span class="form-hint">YYYY</span>
       </label>
       <input type="text"
-             id="asset_valuationDate_year"
+             id="{{id}}_year"
              class="form-control"
              name="{{ name }}_year"
              value="{{ year }}"
