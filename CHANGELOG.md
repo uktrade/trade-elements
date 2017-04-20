@@ -122,3 +122,6 @@
 
 # 3.1.2
 - Fix naming for some components and their input ids
+
+# 3.1.3
+- Minor fix to package file
