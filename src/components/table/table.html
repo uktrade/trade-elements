@@ -1,9 +1,12 @@
-{% macro keyvaluetable(data, readonly, stripey, labels, class, id, keyorder, variation) %}
+{% macro keyvaluetable(data, readonly, stripey, labels, class, id, keyorder, variation, shownull) %}
 {% if not class %}
   {% set class="" %}
 {% endif %}
 {% if readonly == true %}
   {% set variation='readonly' %}
+{% endif %}
+{% if not shownull %}
+  {% set shownull = false %}
 {% endif %}
 
 {% set className = "table--key-value " + class %}
@@ -28,7 +31,7 @@
         {% set forLabel = key %}
       {% endif %}
 
-      {% if data | hasKey(key) %}
+      {% if shownull == true or (data | hasKey(key)) %}
         <tr>
           <th>{{ forLabel }}</th>
           <td>{{ data[key] | cellValue | safe }}</td>

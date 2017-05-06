@@ -125,3 +125,6 @@
 
 # 3.1.3
 - Minor fix to package file
+
+# 3.2.0
+- Added ability to show null values in key value table
