@@ -11,4 +11,4 @@ services:
     volumes:
       - ./src:/usr/src/app/src
       - ./test:/usr/src/app/test
-    command: npm run develop
+    command: yarn develop

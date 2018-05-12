@@ -17,9 +17,9 @@
     "build": "gulp build",
     "develop": "gulp watch",
     "test": "mocha --require test/common.js --ui bdd test/**/*.test.js",
-    "prepublish": "NODE_ENV=production npm run build",
-    "heroku-postbuild": "npm run build",
-    "lint": "npm run lint:js & npm run lint:sass",
+    "prepublish": "NODE_ENV=production yarn build",
+    "heroku-postbuild": "yarn build",
+    "lint": "yarn lint:js & yarn lint:sass",
     "lint:js": "standard",
     "lint:sass": "sass-lint -c .sass-lint.yml 'src/**/*.scss' -v -q"
   },
