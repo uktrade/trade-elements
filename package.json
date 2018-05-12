@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "index.js",
   "engines": {
-   "node": ">=6.0.0"
+   "node": ">=8.11.1 < 9"
   },
   "scripts": {
     "start": "node gallery/index.js",
