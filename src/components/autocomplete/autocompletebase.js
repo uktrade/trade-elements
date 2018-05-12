@@ -21,6 +21,14 @@ class AutocompleteBase {
     this.ACTIVECLASS = 'autocomplete__suggestion--active'
     this.SUGGESTIONCLASS = 'autocomplete__suggestion'
 
+    this.keyDown = this.keyDown.bind(this)
+    this.keyup = this.keyup.bind(this)
+    this.focus = this.focus.bind(this)
+    this.blur = this.blur.bind(this)
+    this.suggestionClick = this.suggestionClick.bind(this)
+    this.mouseEnter = this.mouseEnter.bind(this)
+    this.mouseLeave = this.mouseLeave.bind(this)
+
     this.getCurrentValue()
     this.hideCurrentControl()
     this.createInput()
@@ -102,18 +110,18 @@ class AutocompleteBase {
   }
 
   // Event Handers
-  focus = (event) => {
+  focus (event) {
     this.focused = true
   }
 
-  blur = (event) => {
+  blur (event) {
     this.focused = false
     if (!this.mousedover) {
       this.hideSuggestions()
     }
   }
 
-  move = (event) => {
+  move (event) {
     if (!this.suggestionsElement) return
 
     switch (event.keyCode) {
@@ -137,17 +145,17 @@ class AutocompleteBase {
     event.stopPropagation()
   };
 
-  keypress = (event) => {
+  keypress (event) {
     if (this.suppressKeyPressRepeat) return
     this.move(event)
   }
 
-  keyDown = (event) => {
+  keyDown (event) {
     this.suppressKeyPressRepeat = arrayIncludes(eventsToSuppress, event.keyCode)
     this.move(event)
   }
 
-  keyup = (event) => {
+  keyup (event) {
     switch (event.keyCode) {
       case 40: // down arrow
       case 38: // up arrow
@@ -175,7 +183,7 @@ class AutocompleteBase {
     event.preventDefault()
   }
 
-  suggestionClick = (event) => {
+  suggestionClick (event) {
     event.stopPropagation()
     event.preventDefault()
     this.select(event.target)
@@ -216,13 +224,13 @@ class AutocompleteBase {
     addClass(prev, this.ACTIVECLASS)
   }
 
-  mouseEnter = (event) => {
+  mouseEnter (event) {
     this.mousedover = true
     removeClass(this.suggestionsElement.querySelector(`.${this.ACTIVECLASS}`), this.ACTIVECLASS)
     addClass(event.target, this.ACTIVECLASS)
   }
 
-  mouseLeave = (event) => {
+  mouseLeave (event) {
     this.mousedover = false
     removeClass(event.target, this.ACTIVECLASS)
   }

@@ -34,10 +34,10 @@ class Tabs {
   }
 
   bindEvents () {
-    addEventListenerList(this.tabs, 'click', this.clickTab)
+    addEventListenerList(this.tabs, 'click', this.clickTab.bind(this))
   }
 
-  clickTab = (event) => {
+  clickTab (event) {
     event.preventDefault()
     this.toggleTab(event.target)
   }

@@ -30,9 +30,11 @@ class TableSort {
   }
 
   attachEvents () {
+    const handleClickEvent = this.handleClickEvent.bind(this)
+
     for (let pos = 0; pos < this.headingElements.length; pos += 1) {
       const element = this.headingElements.item(pos)
-      element.addEventListener('click', this.handleHeadingClick)
+      element.addEventListener('click', handleClickEvent)
     }
   }
 
@@ -41,7 +43,7 @@ class TableSort {
     this.data = TableSort.parseTableBody(this.element, this.keys)
   }
 
-  handleHeadingClick = (event) => {
+  handleHeadingClick (event) {
     const key = event.target.getAttribute('data-key')
 
     if (!this.currentKey) {
