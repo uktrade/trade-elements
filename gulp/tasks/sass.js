@@ -34,14 +34,12 @@ function getComponentStyles (componentPath) {
         reject(err)
       }
 
-      resolve(
-        list
-          .filter(path => path.toLowerCase().endsWith('.scss'))
-          .map(path => {
-            const pos = path.lastIndexOf('/')
-            return pos ? path.substr(pos + 1) : path
-          })
-      )
+      const parsedFiles = list
+        .map(item => path.parse(item))
+        .filter(item => item.ext.endsWith('.scss'))
+        .map(item => item.base)
+
+      resolve(parsedFiles)
     })
   })
 }
@@ -60,7 +58,7 @@ function importComponentStyles (componentPath) {
             file = file.substr(0, file.indexOf('.'))
           }
 
-          toAdd += `\n@import 'trade/components/${file}';`
+          toAdd += `\n@import "trade/components/${file}";`
         })
         file.contents = new Buffer(String(file.contents) + toAdd)
         cb(null, file)
