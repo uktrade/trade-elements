@@ -11,10 +11,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
-RUN npm install
+RUN yarn install
 COPY . /usr/src/app
-RUN npm run build
+RUN yarn build
 
 EXPOSE 3050
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]

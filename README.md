@@ -48,8 +48,8 @@ JS for components are 'self registering'. The control searches for all elements 
 
 ## Install
 ### Native
-You download and install this application as normal for node by checking the code out, running npm install and then use the 
-following npm scripts to do something, enter npm run scriptname
+You download and install this application as normal for node by checking the code out, running yarn install and then use the 
+following yarn scripts to do something, enter yarn scriptname
 
 * start - run the server and access via http://localhost:3050/
 * build - assemble all the assets and compile js and sass

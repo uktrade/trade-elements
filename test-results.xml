@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.2419999999999993" tests="43" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-05-12T14:46:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="AJAX Autocomplete" timestamp="2018-05-12T14:46:32" tests="0" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteajax.test.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Lookup options and display as user types" timestamp="2018-05-12T14:46:32" tests="4" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteajax.test.js" failures="0" time="1.214">
+    <testcase name="AJAX Autocomplete Lookup options and display as user types should show a list of suggestions when the user enters a value and there are some" time="0.308" classname="should show a list of suggestions when the user enters a value and there are some">
+    </testcase>
+    <testcase name="AJAX Autocomplete Lookup options and display as user types should not show suggestions if there are none for the term entered" time="0.301" classname="should not show suggestions if there are none for the term entered">
+    </testcase>
+    <testcase name="AJAX Autocomplete Lookup options and display as user types should clear suggestions when the field is cleared" time="0.302" classname="should clear suggestions when the field is cleared">
+    </testcase>
+    <testcase name="AJAX Autocomplete Lookup options and display as user types should clear suggestions when you provide a good then bad term" time="0.303" classname="should clear suggestions when you provide a good then bad term">
+    </testcase>
+  </testsuite>
+  <testsuite name="Select Autocomplete" timestamp="2018-05-12T14:46:33" tests="0" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteselect.test.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Parse existing select" timestamp="2018-05-12T14:46:33" tests="6" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteselect.test.js" failures="0" time="0.006">
+    <testcase name="Select Autocomplete Parse existing select should parse the options" time="0.001" classname="should parse the options">
+    </testcase>
+    <testcase name="Select Autocomplete Parse existing select should know the currently selected value" time="0" classname="should know the currently selected value">
+    </testcase>
+    <testcase name="Select Autocomplete Parse existing select should hide the existing control" time="0.001" classname="should hide the existing control">
+    </testcase>
+    <testcase name="Select Autocomplete Parse existing select should create an text field to show the user" time="0.001" classname="should create an text field to show the user">
+    </testcase>
+    <testcase name="Select Autocomplete Parse existing select should show the initial value in the autocomplete field" time="0" classname="should show the initial value in the autocomplete field">
+    </testcase>
+    <testcase name="Select Autocomplete Parse existing select should not show a value if no value it selected" time="0.003" classname="should not show a value if no value it selected">
+    </testcase>
+  </testsuite>
+  <testsuite name="Lookup options and display as user types" timestamp="2018-05-12T14:46:33" tests="3" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteselect.test.js" failures="0" time="0.002">
+    <testcase name="Select Autocomplete Lookup options and display as user types should show a list of suggestions when the user enters a value" time="0.001" classname="should show a list of suggestions when the user enters a value">
+    </testcase>
+    <testcase name="Select Autocomplete Lookup options and display as user types should not provide the first empty option in results" time="0" classname="should not provide the first empty option in results">
+    </testcase>
+    <testcase name="Select Autocomplete Lookup options and display as user types should clear suggestions when the field is cleared" time="0.001" classname="should clear suggestions when the field is cleared">
+    </testcase>
+  </testsuite>
+  <testsuite name="Suggestion selection" timestamp="2018-05-12T14:46:33" tests="1" file="C:\Users\zac\development\bis\trade-elements\test\components\autocomplete\autocompleteselect.test.js" failures="0" time="0.001">
+    <testcase name="Select Autocomplete Suggestion selection should select the empty value when nothing is entered" time="0.001" classname="should select the empty value when nothing is entered">
+    </testcase>
+  </testsuite>
+  <testsuite name="Sortable Table" timestamp="2018-05-12T14:46:33" tests="0" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Parse headings" timestamp="2018-05-12T14:46:33" tests="1" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0.001">
+    <testcase name="Sortable Table Parse headings should parse the keys from the headings" time="0.001" classname="should parse the keys from the headings">
+    </testcase>
+  </testsuite>
+  <testsuite name="Parse table data" timestamp="2018-05-12T14:46:33" tests="2" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0">
+    <testcase name="Sortable Table Parse table data parse the correct number of records in a table" time="0" classname="parse the correct number of records in a table">
+    </testcase>
+    <testcase name="Sortable Table Parse table data parses a record with the correct keys and values" time="0" classname="parses a record with the correct keys and values">
+    </testcase>
+  </testsuite>
+  <testsuite name="Sort data" timestamp="2018-05-12T14:46:33" tests="4" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0">
+    <testcase name="Sortable Table Sort data should sort ascending" time="0" classname="should sort ascending">
+    </testcase>
+    <testcase name="Sortable Table Sort data should sort descending" time="0" classname="should sort descending">
+    </testcase>
+    <testcase name="Sortable Table Sort data should detect dates and sort asc" time="0" classname="should detect dates and sort asc">
+    </testcase>
+    <testcase name="Sortable Table Sort data should detect dates and sort desc" time="0" classname="should detect dates and sort desc">
+    </testcase>
+  </testsuite>
+  <testsuite name="Re-order table when selected" timestamp="2018-05-12T14:46:33" tests="2" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0.005">
+    <testcase name="Sortable Table Re-order table when selected should order the table by name when I click on name" time="0.002" classname="should order the table by name when I click on name">
+    </testcase>
+    <testcase name="Sortable Table Re-order table when selected should order by name desc if I click on name twice" time="0.003" classname="should order by name desc if I click on name twice">
+    </testcase>
+  </testsuite>
+  <testsuite name="indicate sort order in table heading" timestamp="2018-05-12T14:46:33" tests="4" file="C:\Users\zac\development\bis\trade-elements\test\components\table\tablesort.test.js" failures="0" time="0.011">
+    <testcase name="Sortable Table indicate sort order in table heading should indicate sort ascending when clicking on a column" time="0.002" classname="should indicate sort ascending when clicking on a column">
+    </testcase>
+    <testcase name="Sortable Table indicate sort order in table heading should indicate sort descending when clicking on a column twice" time="0.004" classname="should indicate sort descending when clicking on a column twice">
+    </testcase>
+    <testcase name="Sortable Table indicate sort order in table heading should indicate sort ascending on a column and clear previous if previous ascending" time="0.002" classname="should indicate sort ascending on a column and clear previous if previous ascending">
+    </testcase>
+    <testcase name="Sortable Table indicate sort order in table heading should indicate sort ascending on a column and clear previous if previous descending" time="0.003" classname="should indicate sort ascending on a column and clear previous if previous descending">
+    </testcase>
+  </testsuite>
+  <testsuite name="Nunjuck filters" timestamp="2018-05-12T14:46:33" tests="0" file="C:\Users\zac\development\bis\trade-elements\test\nunjucks\filters\index.test.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Parse a date in form dd/mm/yyyy" timestamp="2018-05-12T14:46:33" tests="5" file="C:\Users\zac\development\bis\trade-elements\test\nunjucks\filters\index.test.js" failures="0" time="0.001">
+    <testcase name="Nunjuck filters Parse a date in form dd/mm/yyyy should return the day for a date" time="0.001" classname="should return the day for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form dd/mm/yyyy should return the month for a date" time="0" classname="should return the month for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form dd/mm/yyyy should return the year for a date" time="0" classname="should return the year for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form dd/mm/yyyy should handle short days" time="0" classname="should handle short days">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form dd/mm/yyyy should handle short months" time="0" classname="should handle short months">
+    </testcase>
+  </testsuite>
+  <testsuite name="Parse a date in form yyyy-mm-ddThh:MM:ss" timestamp="2018-05-12T14:46:33" tests="5" file="C:\Users\zac\development\bis\trade-elements\test\nunjucks\filters\index.test.js" failures="0" time="0">
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-ddThh:MM:ss should return the day for a date" time="0" classname="should return the day for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-ddThh:MM:ss should return the month for a date" time="0" classname="should return the month for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-ddThh:MM:ss should return the year for a date" time="0" classname="should return the year for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-ddThh:MM:ss should handle short days" time="0" classname="should handle short days">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-ddThh:MM:ss should handle short months" time="0" classname="should handle short months">
+    </testcase>
+  </testsuite>
+  <testsuite name="Parse a date in form yyyy-mm-dd" timestamp="2018-05-12T14:46:33" tests="5" file="C:\Users\zac\development\bis\trade-elements\test\nunjucks\filters\index.test.js" failures="0" time="0">
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-dd should return the day for a date" time="0" classname="should return the day for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-dd should return the month for a date" time="0" classname="should return the month for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-dd should return the year for a date" time="0" classname="should return the year for a date">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-dd should handle short days" time="0" classname="should handle short days">
+    </testcase>
+    <testcase name="Nunjuck filters Parse a date in form yyyy-mm-dd should handle short months" time="0" classname="should handle short months">
+    </testcase>
+  </testsuite>
+  <testsuite name="handle native js date" timestamp="2018-05-12T14:46:33" tests="1" file="C:\Users\zac\development\bis\trade-elements\test\nunjucks\filters\index.test.js" failures="0" time="0.001">
+    <testcase name="Nunjuck filters handle native js date should handle a regular js date" time="0.001" classname="should handle a regular js date">
+    </testcase>
+  </testsuite>
+</testsuites>
