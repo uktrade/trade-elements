@@ -1,21 +1,19 @@
 {
-  "extends": ["standard"],
-  "parser": "babel-eslint",
-  "globals": {
-    "afterEach": true,
-    "assert": true,
-    "beforeEach": true,
-    "describe": true,
-    "es": true,
-    "expect": true,
-    "ga": true,
-    "GOVUK": true,
-    "Image": true,
-    "it": true,
-    "jasmine": true,
-    "spyOn": true,
-    "$": true,
-    "_gaq": true,
-    "require": true
+  "extends": "standard",
+  "plugins": ["mocha"],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "dot-notation": "error",
+    "mocha/no-exclusive-tests": "error"
   }
 }
