@@ -10,5 +10,5 @@ module.exports = {
   node_modules: `${projectDir}/node_modules`,
   imagesSrc: `${projectDir}/src/images`,
   imagesDest: `${projectDir}/dist/images`,
-  outputCss: `${projectDir}/dist/css`
+  outputCss: `${projectDir}/dist/css`,
 }

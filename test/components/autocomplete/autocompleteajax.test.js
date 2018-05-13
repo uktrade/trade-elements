@@ -1,3 +1,4 @@
+/* globals expect: true, describe: true, it: true, beforeEach: true */
 const jsdom = require('jsdom')
 const proxyquire = require('proxyquire')
 
@@ -18,16 +19,17 @@ const fakeAxios = {
     return new Promise((resolve, reject) => {
       resolve(
         {
-          data: result
+          data: result,
         }
       )
     })
-  }
+  },
 }
 
 function makeStubbedAutocomplete (fakeAxios) {
-  return proxyquire('../../../src/components/autocomplete/autocompleteajax',
-  {'axios': fakeAxios})
+  return proxyquire('../../../src/components/autocomplete/autocompleteajax', {
+    'axios': fakeAxios,
+  })
 }
 
 const StubbedAutocompete = makeStubbedAutocomplete(fakeAxios)
@@ -39,7 +41,7 @@ describe('AJAX Autocomplete', function () {
   beforeEach(function (done) {
     jsdom.env(HTML, (err, jsdomWindow) => {
       if (err) {
-        throw new Error(err)  // eslint-disable-line no-new
+        throw new Error(err) // eslint-disable-line no-new
       }
 
       document = jsdomWindow.document
@@ -55,7 +57,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -75,7 +77,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -93,7 +95,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -117,7 +119,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)

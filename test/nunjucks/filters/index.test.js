@@ -1,3 +1,4 @@
+/* globals expect: true, describe: true, it: true */
 const filters = require('../../../src/nunjucks/filters')
 
 describe('Nunjuck filters', function () {
@@ -80,7 +81,7 @@ describe('Nunjuck filters', function () {
     it('should handle a regular js date', function () {
       const now = new Date()
       const month = filters.dateParseMonth(now)
-      expect(month).to.not.be.null
+      expect(month).to.not.equal(null)
     })
   })
 })

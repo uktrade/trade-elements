@@ -1,3 +1,4 @@
+/* globals expect: true, describe: true, it: true, beforeEach: true */
 const AutocompleteSelect = require('../../../src/components/autocomplete/autocompleteselect')
 const jsdom = require('jsdom')
 
@@ -27,7 +28,7 @@ describe('Select Autocomplete', function () {
   beforeEach(function (done) {
     jsdom.env(HTML, (err, jsdomWindow) => {
       if (err) {
-        throw new Error(err)  // eslint-disable-line no-new
+        throw new Error(err) // eslint-disable-line no-new
       }
 
       document = jsdomWindow.document
@@ -43,7 +44,7 @@ describe('Select Autocomplete', function () {
       const expectedOptions = {
         '1': 'One',
         '2': 'Two',
-        '3': 'Three'
+        '3': 'Three',
       }
       expect(options).to.deep.equal(expectedOptions)
     })
@@ -75,7 +76,7 @@ describe('Select Autocomplete', function () {
 
       jsdom.env(HTML, (err, jsdomWindow) => {
         if (err) {
-          throw new Error(err)  // eslint-disable-line no-new
+          throw new Error(err) // eslint-disable-line no-new
         }
 
         document = jsdomWindow.document
@@ -95,7 +96,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -110,7 +111,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -125,7 +126,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -146,7 +147,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)

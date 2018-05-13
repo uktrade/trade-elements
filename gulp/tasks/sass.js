@@ -60,7 +60,7 @@ function importComponentStyles (componentPath) {
 
           toAdd += `\n@import "trade/components/${file}";`
         })
-        file.contents = new Buffer(String(file.contents) + toAdd)
+        file.contents = Buffer.from(String(file.contents) + toAdd)
         cb(null, file)
       })
       .catch((error) => {

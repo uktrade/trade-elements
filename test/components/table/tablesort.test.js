@@ -7,7 +7,7 @@ const FIRST_NAME_SELECTOR = '.js-table--sortable tbody tr:first-child td:first-c
 const LAST_NAME_SELECTOR = '.js-table--sortable tbody tr:last-child td:first-child'
 const HTML = `<html><body><table class="table--data table--sortable js-table--sortable">
     <thead>
-      <tr>        
+      <tr>
           <th data-key="name">Name</th>
           <th data-key="role">Role</th>
           <th data-key="phone">Phone</th>
@@ -51,7 +51,7 @@ describe('Sortable Table', () => {
   beforeEach((done) => {
     jsdom.env(HTML, (err, jsdomWindow) => {
       if (err) {
-        throw new Error(err)  // eslint-disable-line no-new
+        throw new Error(err) // eslint-disable-line no-new
       }
 
       document = jsdomWindow.document
@@ -81,7 +81,7 @@ describe('Sortable Table', () => {
         name: 'Fred Bloggs',
         email: 'fred@acme.org',
         phone: '+44 7888 777 333',
-        role: 'Director'
+        role: 'Director',
       })
     })
   })
@@ -92,22 +92,22 @@ describe('Sortable Table', () => {
         email: 'fred@acme.org',
         phone: '+44 7888 777 333',
         role: 'Director',
-        created: '28/01/2016'
+        created: '28/01/2016',
       },
       {
         name: 'Wilma Bloggs',
         email: 'Wilma@acme.org',
         phone: '+44 7888 777 333',
         role: 'Computer Analyst',
-        created: '10/10/2016'
+        created: '10/10/2016',
       },
       {
         name: 'Chris Bloggs',
         email: 'chris@acme.org',
         phone: '+44 7888 777 333',
         role: 'Architect',
-        created: '10/05/2016'
-      }
+        created: '10/05/2016',
+      },
     ]
 
     it('should sort ascending', () => {
@@ -138,10 +138,10 @@ describe('Sortable Table', () => {
 
     beforeEach(() => {
       const tableElement = document.querySelector('.js-table--sortable')
-      tableSort = new TableSort(tableElement, document)  // eslint-disable-line no-new
+      tableSort = new TableSort(tableElement, document) // eslint-disable-line no-new
       nameHeaderElement = document.querySelector('[data-key="name"]')
       event = {
-        target: nameHeaderElement
+        target: nameHeaderElement,
       }
     })
     it('should order the table by name when I click on name', () => {
@@ -173,7 +173,7 @@ describe('Sortable Table', () => {
 
     beforeEach(() => {
       const tableElement = document.querySelector('.js-table--sortable')
-      tableSort = new TableSort(tableElement, document)  // eslint-disable-line no-new
+      tableSort = new TableSort(tableElement, document) // eslint-disable-line no-new
       nameHeaderElement = document.querySelector('[data-key="name"]')
       roleHeaderElement = document.querySelector('[data-key="role"]')
     })

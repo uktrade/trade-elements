@@ -19,7 +19,7 @@ function handleChange (event) {
   addClass(event.target.parentElement, 'selected')
 }
 
-  // replace with a for loop and element.item(index)
+// replace with a for loop and element.item(index)
 for (let pos = 0; pos < radioElements.length; pos += 1) {
   const element = radioElements.item(pos)
   element.addEventListener('change', handleChange, true)

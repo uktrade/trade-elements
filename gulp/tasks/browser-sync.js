@@ -14,7 +14,7 @@ gulp.task('browserSync', (done) => {
     files: [`${paths.projectDir}/gallery/styles/*.css`, `${paths.projectDir}/dist/styles/*.css`, `${paths.outputJS}/*.js`],
     reloadDelay: 1000,
     port: 3051,
-    open: false
+    open: false,
   })
   done()
 })
