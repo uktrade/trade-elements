@@ -1,5 +1,5 @@
 /* globals expect: true, describe: true, it: true, beforeEach: true */
-const jsdom = require('jsdom')
+const { JSDOM } = require('jsdom')
 const proxyquire = require('proxyquire')
 
 const HTML = `<html>
@@ -38,17 +38,10 @@ describe('AJAX Autocomplete', function () {
   let document
   let ajaxAutocomplete
 
-  beforeEach(function (done) {
-    jsdom.env(HTML, (err, jsdomWindow) => {
-      if (err) {
-        throw new Error(err) // eslint-disable-line no-new
-      }
-
-      document = jsdomWindow.document
-      const inputElement = document.getElementById('test')
-      ajaxAutocomplete = new StubbedAutocompete(inputElement)
-      done()
-    })
+  beforeEach(function () {
+    document = new JSDOM(HTML).window.document
+    const inputElement = document.getElementById('test')
+    ajaxAutocomplete = new StubbedAutocompete(inputElement)
   })
 
   describe('Lookup options and display as user types', function () {

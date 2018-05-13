@@ -1,6 +1,6 @@
 /* globals expect: true, describe: true, it: true, beforeEach: true */
 'use strict'
-const jsdom = require('jsdom')
+const { JSDOM } = require('jsdom')
 const TableSort = require('../../../src/components/table/tablesort')
 
 const FIRST_NAME_SELECTOR = '.js-table--sortable tbody tr:first-child td:first-child'
@@ -48,15 +48,8 @@ function domTokenToArray (obj) {
 describe('Sortable Table', () => {
   let document
 
-  beforeEach((done) => {
-    jsdom.env(HTML, (err, jsdomWindow) => {
-      if (err) {
-        throw new Error(err) // eslint-disable-line no-new
-      }
-
-      document = jsdomWindow.document
-      done()
-    })
+  beforeEach(() => {
+    document = new JSDOM(HTML).window.document
   })
 
   describe('Parse headings', () => {
