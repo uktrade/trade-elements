@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const paths = require('./gulp/paths')
 const path = require('path')
 
-console.log('Process env:', process.env.NODE_ENV)
-
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
