@@ -1,8 +1,6 @@
-'use strict'
-
 const express = require('express')
 const app = express()
-const expressNunjucks = require('express-nunjucks')
+const nunjucks = require('nunjucks')
 const path = require('path')
 const compression = require('compression')
 const fakeData = require('./data/fakedata.json')
@@ -10,19 +8,22 @@ const fakePostcodeLookup = require('./data/fakepostcodelookup.json')
 const filters = require('../dist/nunjucks/filters')
 const config = require('./config')
 
-const isDev = app.get('env') === 'development'
-
 app.use(compression())
 app.set('view engine', 'html')
-app.set('views', [
+
+const env = nunjucks.configure([
   path.resolve(__dirname, './views'),
   path.resolve(__dirname, '../dist/nunjucks'),
-])
+], {
+  autoescape: true,
+  express: app,
+  watch: config.isDev,
+  noCache: config.isDev,
+})
 
-expressNunjucks(app, {
-  watch: isDev,
-  noCache: isDev,
-  filters,
+// Custom filters
+Object.keys(filters).forEach((filter) => {
+  env.addFilter(filter, filters[filter])
 })
 
 app.use('/images/', express.static(path.resolve(__dirname, '../dist/images')))
