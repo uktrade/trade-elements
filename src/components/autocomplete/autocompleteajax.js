@@ -18,7 +18,6 @@ const AutocompleteBase = require('./autocompletebase')
 
 */
 class AutocompleteAjax extends AutocompleteBase {
-
   constructor (element) {
     super(element)
     this.baseUrl = this.element.getAttribute('data-lookup-url')
@@ -33,12 +32,12 @@ class AutocompleteAjax extends AutocompleteBase {
   getMatches (term, callback) {
     const url = `${this.baseUrl}${term}`
     axios.get(url)
-    .then((response) => {
-      callback(null, response.data)
-    })
-    .catch((error) => {
-      callback(null, [])
-    })
+      .then((response) => {
+        callback(null, response.data)
+      })
+      .catch((error) => {
+        callback(null, [])
+      })
   }
 }
 

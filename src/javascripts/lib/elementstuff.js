@@ -123,5 +123,5 @@ module.exports = {
   hide,
   show,
   createElementFromMarkup,
-  removeElement
+  removeElement,
 }

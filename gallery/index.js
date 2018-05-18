@@ -16,13 +16,13 @@ app.use(compression())
 app.set('view engine', 'html')
 app.set('views', [
   path.resolve(__dirname, './views'),
-  path.resolve(__dirname, '../dist/nunjucks')
+  path.resolve(__dirname, '../dist/nunjucks'),
 ])
 
 expressNunjucks(app, {
   watch: isDev,
   noCache: isDev,
-  filters
+  filters,
 })
 
 app.use('/images/', express.static(path.resolve(__dirname, '../dist/images')))
@@ -41,28 +41,28 @@ app.get(['/:page', '/'], (req, res) => {
   const options = ['one', 'two', 'three']
   const messages = {
     success: ['Hi there this is a message'],
-    errors: ['Some error']
+    errors: ['Some error'],
   }
 
   const errors = {
     'name': [
-      'This field may not be null.'
+      'This field may not be null.',
     ],
     'business_type': [
-      'This field may not be null.'
+      'This field may not be null.',
     ],
     'sector': [
-      'This field may not be null.'
+      'This field may not be null.',
     ],
     'registered_address': [
-      'Invalid address'
-    ]
+      'Invalid address',
+    ],
   }
 
   const errorLabels = {
     name: 'Name',
     sector: 'Sector',
-    registered_address: 'Registered address'
+    registered_address: 'Registered address',
   }
 
   const company = {
@@ -72,7 +72,7 @@ app.get(['/:page', '/'], (req, res) => {
     subSector: 'Unknown',
     tradingName: 'Unknown',
     pet: '',
-    codes: ['1', '2', '3']
+    codes: ['1', '2', '3'],
   }
 
   const companyLabels = {
@@ -81,14 +81,14 @@ app.get(['/:page', '/'], (req, res) => {
     sector: 'Primary sector',
     subSector: 'Subsector',
     tradingName: 'Trading name',
-    pet: 'Pet'
+    pet: 'Pet',
   }
 
   const contactLabels = {
     name: 'Name',
     role: 'Role',
     phone: 'Phone',
-    email: 'Email'
+    email: 'Email',
   }
 
   const contacts = [
@@ -96,14 +96,14 @@ app.get(['/:page', '/'], (req, res) => {
       name: '<a href="/table">Fred Bloggs</a>',
       role: 'Director',
       phone: '+44 7888 777 333',
-      email: 'fred@acme.org'
+      email: 'fred@acme.org',
     },
     {
       name: '<a href="/table">Wilma Bloggs</a>',
       role: 'Director',
       phone: '+44 7888 777 333',
-      email: 'wilma@acme.org'
-    }
+      email: 'wilma@acme.org',
+    },
   ]
 
   res.render(page, {
@@ -116,7 +116,7 @@ app.get(['/:page', '/'], (req, res) => {
     contacts,
     contactLabels,
     errorLabels,
-    advisors
+    advisors,
   })
 })
 
@@ -142,8 +142,8 @@ app.get('/lookup', (req, res) => {
 })
 
 const advisors = [
-  {id: 1, name: 'Fred'},
-  {id: 2, name: 'Andrew'}
+  { id: 1, name: 'Fred' },
+  { id: 2, name: 'Andrew' },
 ]
 
 app.get('/api/advisorlookup', (req, res) => {

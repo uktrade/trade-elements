@@ -18,7 +18,7 @@ gulp.task('webpack', done => {
 
         gutil.log('[webpack]', stats.toString({
           colors: true,
-          chunks: false
+          chunks: false,
         }))
         done()
       })

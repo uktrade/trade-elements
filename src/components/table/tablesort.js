@@ -1,4 +1,4 @@
-const {addClass, removeClass} = require('../../javascripts/lib/elementstuff')
+const { addClass, removeClass } = require('../../javascripts/lib/elementstuff')
 
 function isDate (text) {
   return text.length === 10 && text.charAt(2) === '/' && text.charAt(5) === '/'
@@ -13,7 +13,6 @@ const ASC_CLASS = 'table--sortable__sort-asc'
 const DESC_CLASS = 'table--sortable__sort-desc'
 
 class TableSort {
-
   constructor (element, document) {
     this.element = element
     this.cacheElements()
@@ -138,7 +137,7 @@ class TableSort {
     const elements = document.querySelectorAll('.js-table--sortable')
     for (let pos = 0; pos < elements.length; pos += 1) {
       const element = elements.item(pos)
-      new TableSort(element)   // eslint-disable-line no-new
+      new TableSort(element) // eslint-disable-line no-new
     }
   }
 }

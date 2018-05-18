@@ -1,5 +1,5 @@
 /* eslint no-new: 0 */
-const {addClass, removeClass} = require('../../javascripts/lib/elementstuff')
+const { addClass, removeClass } = require('../../javascripts/lib/elementstuff')
 
 function addEventListenerList (list, event, fn) {
   for (const element of list) {
@@ -8,7 +8,6 @@ function addEventListenerList (list, event, fn) {
 }
 
 class Tabs {
-
   constructor (element) {
     this.cacheEls(element)
     this.bindEvents()

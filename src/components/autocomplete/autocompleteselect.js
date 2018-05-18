@@ -4,7 +4,6 @@ const AutocompleteBase = require('./autocompletebase')
 // A Select autocomplete, turns an existing autocomplete into
 // an autocomplete field. Changes you make update select.
 class AutocompleteSelect extends AutocompleteBase {
-
   getOptions () {
     const options = {}
     const optionElements = this.element.querySelectorAll('option')

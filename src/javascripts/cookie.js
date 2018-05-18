@@ -1,3 +1,4 @@
+/* global GOVUK */
 (function () {
   'use strict'
   var root = this

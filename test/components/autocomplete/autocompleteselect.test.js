@@ -1,5 +1,6 @@
+/* globals expect: true, describe: true, it: true, beforeEach: true */
 const AutocompleteSelect = require('../../../src/components/autocomplete/autocompleteselect')
-const jsdom = require('jsdom')
+const { JSDOM } = require('jsdom')
 
 const HTML = `<html>
   <body>
@@ -24,17 +25,10 @@ describe('Select Autocomplete', function () {
   let document
   let selectAutocomplete
 
-  beforeEach(function (done) {
-    jsdom.env(HTML, (err, jsdomWindow) => {
-      if (err) {
-        throw new Error(err)  // eslint-disable-line no-new
-      }
-
-      document = jsdomWindow.document
-      const selectElement = document.getElementById('test-select')
-      selectAutocomplete = new AutocompleteSelect(selectElement)
-      done()
-    })
+  beforeEach(function () {
+    document = new JSDOM(HTML).window.document
+    const selectElement = document.getElementById('test-select')
+    selectAutocomplete = new AutocompleteSelect(selectElement)
   })
 
   describe('Parse existing select', function () {
@@ -43,7 +37,7 @@ describe('Select Autocomplete', function () {
       const expectedOptions = {
         '1': 'One',
         '2': 'Two',
-        '3': 'Three'
+        '3': 'Three',
       }
       expect(options).to.deep.equal(expectedOptions)
     })
@@ -62,7 +56,7 @@ describe('Select Autocomplete', function () {
       const newField = document.querySelector('[aria-owns="test-select"]')
       expect(newField.value).to.equal('Two')
     })
-    it('should not show a value if no value it selected', function (done) {
+    it('should not show a value if no value it selected', function () {
       const HTML = `<html>
         <body>
           <select id="test-select">
@@ -73,19 +67,12 @@ describe('Select Autocomplete', function () {
           </select>
         </body></html>`
 
-      jsdom.env(HTML, (err, jsdomWindow) => {
-        if (err) {
-          throw new Error(err)  // eslint-disable-line no-new
-        }
+      document = new JSDOM(HTML).window.document
+      const selectElement = document.getElementById('test-select')
+      selectAutocomplete = new AutocompleteSelect(selectElement)
+      const newField = document.querySelector('[aria-owns="test-select"]')
 
-        document = jsdomWindow.document
-        const selectElement = document.getElementById('test-select')
-        selectAutocomplete = new AutocompleteSelect(selectElement)
-        const newField = document.querySelector('[aria-owns="test-select"]')
-
-        expect(newField.value).to.equal('')
-        done()
-      })
+      expect(newField.value).to.equal('')
     })
   })
 
@@ -95,7 +82,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -110,7 +97,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -125,7 +112,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)
@@ -146,7 +133,7 @@ describe('Select Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       selectAutocomplete.keyup(event)

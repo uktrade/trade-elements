@@ -1,4 +1,5 @@
-const jsdom = require('jsdom')
+/* globals expect: true, describe: true, it: true, beforeEach: true */
+const { JSDOM } = require('jsdom')
 const proxyquire = require('proxyquire')
 
 const HTML = `<html>
@@ -18,16 +19,17 @@ const fakeAxios = {
     return new Promise((resolve, reject) => {
       resolve(
         {
-          data: result
+          data: result,
         }
       )
     })
-  }
+  },
 }
 
 function makeStubbedAutocomplete (fakeAxios) {
-  return proxyquire('../../../src/components/autocomplete/autocompleteajax',
-  {'axios': fakeAxios})
+  return proxyquire('../../../src/components/autocomplete/autocompleteajax', {
+    'axios': fakeAxios,
+  })
 }
 
 const StubbedAutocompete = makeStubbedAutocomplete(fakeAxios)
@@ -36,17 +38,10 @@ describe('AJAX Autocomplete', function () {
   let document
   let ajaxAutocomplete
 
-  beforeEach(function (done) {
-    jsdom.env(HTML, (err, jsdomWindow) => {
-      if (err) {
-        throw new Error(err)  // eslint-disable-line no-new
-      }
-
-      document = jsdomWindow.document
-      const inputElement = document.getElementById('test')
-      ajaxAutocomplete = new StubbedAutocompete(inputElement)
-      done()
-    })
+  beforeEach(function () {
+    document = new JSDOM(HTML).window.document
+    const inputElement = document.getElementById('test')
+    ajaxAutocomplete = new StubbedAutocompete(inputElement)
   })
 
   describe('Lookup options and display as user types', function () {
@@ -55,7 +50,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -75,7 +70,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -93,7 +88,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
@@ -117,7 +112,7 @@ describe('AJAX Autocomplete', function () {
       const event = {
         keyCode: 143,
         stopPropagation: function () {},
-        preventDefault: function () {}
+        preventDefault: function () {},
       }
 
       ajaxAutocomplete.keyup(event)
